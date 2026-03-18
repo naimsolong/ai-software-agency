@@ -82,6 +82,33 @@ CEO
 - Specialists are stateless by default; the CEO may create a persistent memory file for recurring specialists
 - Never delegate to a specialist if the task is within a core agent's domain
 
+### Hiring New Agents
+
+If a project needs a domain that no existing specialist covers, the agency can grow its own library on-demand via a **governance-gated hire**:
+
+```
+CEO identifies gap
+  └─ Delegates to specialized-agent-builder
+       └─ Inspects library, compares 2+ existing agents
+            └─ Drafts new agent config
+                 └─ hire-agent skill → Governance Gate → [YOU APPROVE]
+                      └─ Agent file written to agents/<division>/<slug>.md
+```
+
+**How to trigger a hire:**
+```
+@ceo I need an agent for [domain] — nothing in the library covers it.
+```
+
+The CEO will delegate to `specialized-agent-builder`, which will inspect the existing library, draft a new agent, and present the full config for your approval before writing anything. No agent file is ever created without your explicit sign-off.
+
+**Hire governance rules:**
+- Only the CEO may initiate a hire
+- The agent builder must compare ≥ 2 existing agents before drafting
+- `Bash` and `Agent` tools are never granted to new specialists without explicit CEO authorisation in the hire request
+- Every hire and rejection is logged to `~/.agency/audit.log` with a rollback tag
+- The project task that triggered the hire is a blocker until the hire is approved
+
 ---
 
 ## Key Features
@@ -307,6 +334,7 @@ Goal: G-002 → P-001 → B-001
 | `memory-sync` | Agents invoke at session end | Persist learnings to agent MEMORY.md |
 | `governance-gate` | Agents invoke before handoffs | Present deliverable for human approval |
 | `goal-tree` | Agents invoke for context | Show full goal ancestry for a task |
+| `hire-agent` | `specialized-agent-builder` invokes | Inspect library, draft new agent, governance-gate the hire |
 
 ## Configuration
 
@@ -366,7 +394,8 @@ ai-software-agency/
 │   ├── budget-check/SKILL.md
 │   ├── memory-sync/SKILL.md
 │   ├── governance-gate/SKILL.md
-│   └── goal-tree/SKILL.md
+│   ├── goal-tree/SKILL.md
+│   └── hire-agent/SKILL.md          ← draft + governance-gate a new agent
 ├── templates/
 │   ├── prd-template.md
 │   ├── design-spec-template.md

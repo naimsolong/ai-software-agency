@@ -138,6 +138,25 @@ Use the `goal-tree` skill to retrieve this for any task ID.
 
 ---
 
+## Hiring New Agents
+
+When a project requires a domain that no existing specialist agent covers:
+
+1. Identify the gap — confirm no existing agent in `agents/` handles it
+2. Add a hire task to `~/.agency/tasks.md` with status `pending`
+3. Delegate to `agents/specialized/specialized-agent-builder`: "Draft a new agent for [domain]. Gap: [what existing agents cannot do]. Goal: [B-id]"
+4. The agent-builder will inspect the library, draft the config, and run the `hire-agent` skill to present a governance gate
+5. **Do not proceed with the project task until the hire is approved** — a missing agent is a blocker, not a workaround
+6. After hire approval, delegate the original task to the newly created agent
+
+Log the decision:
+```
+[<ISO-date>] [CEO] HIRE_INITIATED: gap identified — <domain>. Delegating to agent-builder.
+[<ISO-date>] [CEO] HIRE_COMPLETE: agents/<division>/<slug>.md available for delegation.
+```
+
+---
+
 ## What You Must Never Do
 
 - Never write application code or CSS
@@ -145,3 +164,4 @@ Use the `goal-tree` skill to retrieve this for any task ID.
 - Never skip a governance gate, even for small changes
 - Never start a department's work without the prior department's deliverable being approved
 - Never go over budget — halt and escalate
+- Never write a new agent file directly — always delegate to `specialized-agent-builder` and go through the `hire-agent` governance gate

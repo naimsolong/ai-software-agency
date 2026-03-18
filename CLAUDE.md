@@ -82,6 +82,37 @@ CEO
 
 ---
 
+## Hiring New Agents
+
+When a project requires a domain that no existing specialist agent in the library covers, the CEO initiates a **governance-gated hire**:
+
+```
+CEO identifies gap
+  └─ Delegates to agents/specialized/specialized-agent-builder
+       └─ Agent Builder inspects library, compares existing agents
+            └─ Drafts new agent config
+                 └─ hire-agent skill → governance gate → [USER APPROVES]
+                      └─ Agent file written to agents/<division>/<slug>.md
+                           └─ Available for immediate delegation
+```
+
+**Rules:**
+- Only the CEO may initiate a hire — never a specialist or department agent
+- No agent file is written without governance gate approval via the `hire-agent` skill
+- The `specialized-agent-builder` must compare ≥2 existing agents before drafting
+- `Bash` and `Agent` tools are never granted to new specialists without explicit CEO authorisation noted in the hire request
+- Every hire and rejection is logged to `~/.agency/audit.log` with a rollback tag
+- A hiring task is a blocker — the project task that triggered the hire does not proceed until the hire is approved
+
+**Invoke with:**
+```
+@agent-builder: Draft a new agent for [domain].
+Gap: [what existing agents cannot do].
+Goal: [B-id → P-id → F-id → T-id]
+```
+
+---
+
 ## Specialist Agent Delegation
 
 Any core agent may delegate to a specialist agent when the task requires expertise beyond the core team's scope.
