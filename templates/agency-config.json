@@ -1,0 +1,79 @@
+{
+  "_comment": "Default configuration template for .agency/config.json. Copy to .agency/config.json and customise.",
+  "agency": {
+    "name": "AI Software Agency",
+    "version": "1.0.0"
+  },
+  "company": {
+    "name": "My Company",
+    "industry": "",
+    "timezone": "UTC"
+  },
+  "project": {
+    "slug": "",
+    "name": "",
+    "description": "",
+    "created": "",
+    "status": "active"
+  },
+  "budget": {
+    "currency": "USD",
+    "total": 50,
+    "allocation_strategy": "percentage",
+    "per_agent_percentage": {
+      "ceo": 0.20,
+      "product-manager": 0.15,
+      "uiux-designer": 0.15,
+      "fullstack-developer": 0.35,
+      "qa-lead": 0.15
+    },
+    "alert_threshold_pct": 20,
+    "hard_stop_at_zero": true
+  },
+  "settings": {
+    "enable_memory": true,
+    "enable_budget_tracking": true,
+    "enable_audit_log": true,
+    "require_governance_gates": true,
+    "require_task_checkout": true,
+    "max_governance_gate_revisions": 3
+  },
+  "agents": {
+    "ceo": {
+      "model": "opus",
+      "enabled": true
+    },
+    "product-manager": {
+      "model": "sonnet",
+      "enabled": true
+    },
+    "uiux-designer": {
+      "model": "sonnet",
+      "enabled": true
+    },
+    "fullstack-developer": {
+      "model": "sonnet",
+      "enabled": true
+    },
+    "qa-lead": {
+      "model": "sonnet",
+      "enabled": true
+    }
+  },
+  "governance": {
+    "rollback_enabled": true,
+    "approval_log_file": ".agency/audit.log",
+    "required_gates": [
+      "project-scope",
+      "prd-approval",
+      "test-plan-approval",
+      "design-approval",
+      "release-readiness"
+    ]
+  },
+  "templates": {
+    "prd": "templates/prd-template.md",
+    "design_spec": "templates/design-spec-template.md",
+    "test_plan": "templates/test-plan-template.md"
+  }
+}

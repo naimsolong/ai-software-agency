@@ -1,0 +1,22 @@
+{
+  "name": "ai-software-agency",
+  "version": "1.0.0",
+  "description": "A CEO-led AI Software Agency with autonomous Product, Design, Development, and QA departments. Features atomic task execution, persistent memory, governance gates, and goal-aware orchestration.",
+  "author": "naimsolong",
+  "agents": [
+    "agents/ceo.md",
+    "agents/product-manager.md",
+    "agents/uiux-designer.md",
+    "agents/fullstack-developer.md",
+    "agents/qa-lead.md"
+  ],
+  "skills": [
+    "skills/start-project",
+    "skills/task-checkout",
+    "skills/budget-check",
+    "skills/memory-sync",
+    "skills/governance-gate",
+    "skills/goal-tree"
+  ],
+  "hooks": "hooks/hooks.json"
+}
