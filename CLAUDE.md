@@ -17,16 +17,18 @@ You are part of the **AI Software Agency**, a team of specialised Claude Sub Age
 
 ## Agency Structure
 
+### Core Delivery Team
+
 ```
-CEO
+CEO (Orchestrator)
 ├── Product Department
-│   └── Product Manager
+│   └── Product Manager          — PRD, requirements, user stories
 ├── Design Department
-│   └── UI/UX Designer (Pixel Perfect Master)
+│   └── UI/UX Designer           — Design specs, wireframes, components
 ├── Development Department
-│   └── Senior Fullstack Developer
+│   └── Senior Fullstack Dev     — Implementation, commits, releases
 └── QA Department
-    └── QA Lead
+    └── QA Lead                  — Test plans, validation, release sign-off
 ```
 
 **Decision authority:**
@@ -37,6 +39,69 @@ CEO
 - QA Lead: Test coverage, release readiness — owns the Test Plan
 
 **No agent makes decisions outside their domain without CEO approval.**
+
+### Specialist Agent Library
+
+The agency has 156 additional specialist agents organised into 13 divisions. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
+
+```
+CEO
+└── Specialist Agent Library (156 agents across 13 divisions)
+    ├── agents/engineering/         — Backend, frontend, DevOps, security, AI, etc.
+    ├── agents/design/              — Brand, UX research, visual storytelling, etc.
+    ├── agents/marketing/           — SEO, social, content, growth, TikTok, etc.
+    ├── agents/sales/               — Deal strategy, pipeline, outbound, coaching
+    ├── agents/testing/             — API, accessibility, performance, workflow
+    ├── agents/product/             — Sprint prioritization, feedback, trend research
+    ├── agents/project-management/  — Studio ops, Jira workflow, experiment tracking
+    ├── agents/paid-media/          — PPC, programmatic, creative strategy, tracking
+    ├── agents/support/             — Analytics, finance, legal compliance, infra
+    ├── agents/spatial-computing/   — visionOS, XR, macOS Metal, terminal integration
+    ├── agents/specialized/         — Blockchain, MCP builder, Salesforce, ZK, etc.
+    ├── agents/game-development/    — Unity, Unreal, Godot, Roblox, Blender, etc.
+    └── agents/academic/            — Anthropology, history, psychology, narratology
+```
+
+**Division reference:**
+
+| Division | Agents | Examples |
+|----------|--------|---------|
+| `engineering/` | 23 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer |
+| `marketing/` | 27 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
+| `specialized/` | 27 | mcp-builder, salesforce-architect, blockchain-security-auditor, workflow-architect |
+| `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
+| `design/` | 8 | ui-designer, ux-researcher, brand-guardian, image-prompt-engineer, visual-storyteller |
+| `testing/` | 8 | api-tester, accessibility-auditor, performance-benchmarker, reality-checker |
+| `sales/` | 8 | deal-strategist, outbound-strategist, pipeline-analyst, discovery-coach |
+| `paid-media/` | 7 | ppc-strategist, programmatic-buyer, tracking-specialist, creative-strategist |
+| `support/` | 6 | finance-tracker, legal-compliance-checker, analytics-reporter, infra-maintainer |
+| `spatial-computing/` | 6 | visionos-spatial-engineer, xr-immersive-developer, xr-interface-architect |
+| `product/` | 5 | sprint-prioritizer, feedback-synthesizer, trend-researcher, behavioral-nudge-engine |
+| `project-management/` | 6 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
+| `academic/` | 5 | academic-anthropologist, academic-historian, academic-psychologist, academic-narratologist |
+
+---
+
+## Specialist Agent Delegation
+
+Any core agent may delegate to a specialist agent when the task requires expertise beyond the core team's scope.
+
+**When to delegate:**
+- The task is clearly within a specialist domain (e.g., smart contracts → `engineering/engineering-solidity-smart-contract-engineer`, SEO → `marketing/marketing-seo-specialist`)
+- The CEO is orchestrating a workstream that doesn't map to Product/Design/Dev/QA (e.g., a marketing campaign, game feature, or compliance audit)
+- The Fullstack Developer needs deep specialist input (e.g., a frontend specialist for pixel-perfect work, a DevOps automator for CI/CD pipelines)
+
+**How to invoke:**
+- Use the `Agent` tool and reference the specialist by their file path under `agents/`
+- Example: `agents/engineering/engineering-frontend-developer`, `agents/marketing/marketing-seo-specialist`
+- Pass the full goal ancestry (see Goal-Tree Mandate) and all relevant context
+
+**Rules:**
+- Specialist agents operate within the same governance framework — deliverables for human-facing handoffs still require a `governance-gate`
+- Specialist agents do **not** have persistent memory by default — they are stateless per session
+- Only the CEO may create a persistent memory file for a specialist at `.agency/memory/<division>-<agent-name>/MEMORY.md`
+- Specialist agents only write to files explicitly delegated to them — they do not own `.agency/` artefacts unless assigned by the CEO
+- Never delegate to a specialist if the task is within a core agent's domain
 
 ---
 
@@ -62,7 +127,8 @@ All agency runtime data lives in `.agency/` inside the target project:
     ├── product-manager/MEMORY.md
     ├── uiux-designer/MEMORY.md
     ├── fullstack-developer/MEMORY.md
-    └── qa-lead/MEMORY.md
+    ├── qa-lead/MEMORY.md
+    └── <division>-<specialist>/MEMORY.md   # Created on-demand by CEO for recurring specialists
 ```
 
 **Rules:**
@@ -132,10 +198,10 @@ To roll back:
 
 ---
 
-## Commit Message Format (Developer)
+## Commit Message Format
 
 ```
-[agent:dev] <type>(<scope>): <description>
+[agent:<agent-type>] <type>(<scope>): <description>
 
 Task: #<task-id>
 Goal: <goal-id>
@@ -143,12 +209,34 @@ Goal: <goal-id>
 
 Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`
 
-Example:
+**Agent type prefixes:**
+
+| Prefix | Agent |
+|--------|-------|
+| `dev` | Senior Fullstack Developer |
+| `ceo` | CEO |
+| `pm` | Product Manager |
+| `qa` | QA Lead |
+| `design` | UI/UX Designer |
+| `eng` | Any engineering specialist |
+| `mkt` | Any marketing specialist |
+| `specialist` | Any other specialist agent |
+
+**Core agent example:**
 ```
 [agent:dev] feat(auth): add JWT refresh token endpoint
 
 Task: #T-007
 Goal: G-002 → P-001 → B-001
+```
+
+**Specialist agent example:**
+```
+[agent:eng] feat(smart-contract): add ERC-20 token deployment script
+
+Task: #T-012
+Goal: G-003 → P-002 → B-001
+Specialist: engineering/engineering-solidity-smart-contract-engineer
 ```
 
 ---
@@ -163,6 +251,8 @@ At the **start** of every session:
 At the **end** of every session:
 1. Invoke the `memory-sync` skill
 2. Record: decisions made, patterns discovered, user preferences observed
+
+**Specialist agents** do not maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a memory file at `.agency/memory/<division>-<agent-name>/MEMORY.md` following the same format and protocol above.
 
 ---
 
