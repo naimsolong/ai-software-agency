@@ -18,7 +18,8 @@
     "skills/governance-gate",
     "skills/goal-tree",
     "skills/hire-agent",
-    "skills/create-skill"
+    "skills/create-skill",
+    "skills/install-tooling"
   ],
   "hooks": "hooks/hooks.json"
 }

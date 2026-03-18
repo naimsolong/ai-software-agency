@@ -376,6 +376,41 @@ Goal: G-002 → P-001 → B-001
 | `goal-tree` | Agents invoke for context | Show full goal ancestry for a task |
 | `hire-agent` | `specialized-agent-builder` invokes | Inspect library, draft new agent, governance-gate the hire |
 | `create-skill` | `specialized-skill-builder` invokes | Inspect skills library, draft SKILL.md + plugin.json update, governance-gate the new skill |
+| `install-tooling` | `engineering-tooling-installer` invokes | Confirm + install MCP connectors and desktop software on-demand |
+
+## Installing MCP Connectors and Developer Tools
+
+Invoke `engineering-tooling-installer` when a project needs additional integrations. Nothing installs silently — every tool requires explicit confirmation.
+
+### MCP Connectors
+Integrated into Claude Code via `~/.claude/settings.json`:
+
+| Connector | What it unlocks |
+|-----------|----------------|
+| **ClickUp** | Read/write tasks, lists, docs from ClickUp workspaces |
+| **Linear** | Read/create Linear issues, projects, and cycles |
+| **GitHub** | Repos, issues, PRs, code, commits — read and write |
+| **Figma** | Figma files, components, frames, and styles |
+| **Pencil.dev** | AI-generated wireframes and UI mockups |
+| **Refero.design** | Real-world UI design screenshot reference library |
+| **Maestro** | Mobile UI test automation and flow running |
+| **Playwright** | Real browser automation and E2E testing |
+
+### Desktop Software
+
+| App | What it does | Platform |
+|-----|-------------|----------|
+| **Laravel Herd** | Zero-config local PHP/Laravel dev environment | macOS |
+| **Fork** | Visual Git client for branch, diff, and stash management | macOS, Windows |
+| **OrbStack** | Lightweight Docker/container runtime + Linux VMs | macOS |
+| **Beekeeper Studio** | SQL database GUI (Postgres, MySQL, SQLite, and more) | macOS, Windows, Linux |
+
+**To install:**
+```
+@ceo Install the Playwright MCP and Beekeeper Studio.
+```
+
+The CEO delegates to `engineering-tooling-installer`. The agent presents one confirmation gate per tool and waits for your explicit **INSTALL** response before taking any action.
 
 ## Configuration
 
@@ -437,7 +472,8 @@ ai-software-agency/
 │   ├── governance-gate/SKILL.md
 │   ├── goal-tree/SKILL.md
 │   ├── hire-agent/SKILL.md          ← draft + governance-gate a new agent
-│   └── create-skill/SKILL.md        ← scaffold + governance-gate a new skill
+│   ├── create-skill/SKILL.md        ← scaffold + governance-gate a new skill
+│   └── install-tooling/SKILL.md     ← confirm + install MCPs and desktop tools
 ├── templates/
 │   ├── prd-template.md
 │   ├── design-spec-template.md

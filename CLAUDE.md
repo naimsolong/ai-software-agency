@@ -66,7 +66,7 @@ CEO
 
 | Division | Agents | Examples |
 |----------|--------|---------|
-| `engineering/` | 23 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer |
+| `engineering/` | 24 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, tooling-installer |
 | `marketing/` | 27 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
 | `specialized/` | 27 | mcp-builder, salesforce-architect, blockchain-security-auditor, workflow-architect |
 | `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
@@ -79,6 +79,45 @@ CEO
 | `product/` | 5 | sprint-prioritizer, feedback-synthesizer, trend-researcher, behavioral-nudge-engine |
 | `project-management/` | 6 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
 | `academic/` | 5 | academic-anthropologist, academic-historian, academic-psychologist, academic-narratologist |
+
+---
+
+## Installing MCP Connectors and Developer Tools
+
+The `engineering-tooling-installer` specialist handles all on-demand installation of MCP connectors and desktop software. **Nothing is installed by default.** Every tool requires explicit user confirmation before installation begins.
+
+**Invoke with:**
+```
+@ceo Install the <tool> MCP connector / Install <software> on my machine.
+```
+
+**Approved MCP connectors** (integrate into Claude Code via `~/.claude/settings.json`):
+
+| Connector | Purpose |
+|-----------|---------|
+| ClickUp | Project management — tasks, lists, docs |
+| Linear | Issue tracking — issues, projects, cycles |
+| GitHub | Repos, issues, PRs, code, commits |
+| Figma | Design files, components, frames, styles |
+| Pencil.dev | AI wireframe and mockup generation |
+| Refero.design | Real-world UI design reference library |
+| Maestro | Mobile UI test automation |
+| Playwright | Browser automation, E2E testing |
+
+**Approved desktop software:**
+
+| Tool | Purpose | Platform |
+|------|---------|----------|
+| Laravel Herd | Zero-config local PHP/Laravel dev environment | macOS |
+| Fork | Visual Git client | macOS, Windows |
+| OrbStack | Fast Docker/container runtime, Linux VMs | macOS |
+| Beekeeper Studio | SQL database GUI | macOS, Windows, Linux |
+
+**Installation rules:**
+- The `engineering-tooling-installer` agent has Bash access (CEO-authorised) specifically for running package manager commands and version checks
+- MCP configs are written only to `~/.claude/settings.json` — never to project files
+- API key values are never logged to `audit.log`; only install events are logged
+- Claude Code must be restarted after any MCP connector is added
 
 ---
 
