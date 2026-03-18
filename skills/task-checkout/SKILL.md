@@ -1,6 +1,6 @@
 # Skill: task-checkout
 
-Atomically claim a task from `.agency/tasks.md` before starting work. Prevents two agents from working on the same task simultaneously (no double-work).
+Atomically claim a task from `~/.agency/tasks.md` before starting work. Prevents two agents from working on the same task simultaneously (no double-work).
 
 ---
 
@@ -16,11 +16,11 @@ Every agent **must** invoke this skill before beginning any task. If the checkou
 
 Know which task ID you are claiming before invoking this skill. The task ID comes from:
 - The CEO's delegation message (e.g., "claim task T-003")
-- The current task list in `.agency/tasks.md`
+- The current task list in `~/.agency/tasks.md`
 
 ### 2. Read the Task Registry
 
-Read `.agency/tasks.md` and find the target task row.
+Read `~/.agency/tasks.md` and find the target task row.
 
 ### 3. Check Task Status
 
@@ -42,7 +42,7 @@ Read `.agency/tasks.md` and find the target task row.
 
 ### 4. Claim the Task
 
-Update the task entry in `tasks.md`:
+Update the task entry in `~/.agency/tasks.md`:
 - Change `Status` from `pending` to `in-progress`
 - Add agent name and ISO timestamp to the `Updated` field
 - Add a claim note in the `Owner` column if not already set
@@ -79,7 +79,7 @@ When your work is done, update the task:
 
 1. Change status from `in-progress` to `done` (or `review` if awaiting governance gate)
 2. Update the `Updated` timestamp
-3. Append to `audit.log`:
+3. Append to `~/.agency/audit.log`:
 ```
 [<ISO-date>] [<agent-name>] TASK_COMPLETE: T-<id> "<task title>" completed
 ```
@@ -92,7 +92,7 @@ If you cannot proceed with a task:
 
 1. Change status to `blocked`
 2. Add a block note to the task row: `BLOCKED: <reason>`
-3. Append to `audit.log`:
+3. Append to `~/.agency/audit.log`:
 ```
 [<ISO-date>] [<agent-name>] TASK_BLOCKED: T-<id> "<task title>" — <reason>
 ```
@@ -105,4 +105,4 @@ If you cannot proceed with a task:
 - Never skip this skill — it is the only protection against duplicate work
 - Never claim a task that belongs to a different department without CEO authorisation
 - Never modify any task status except the one you are claiming
-- If `tasks.md` is missing: STOP and report to CEO — the workspace may not be initialised
+- If `~/.agency/tasks.md` is missing: STOP and report to CEO — the workspace may not be initialised

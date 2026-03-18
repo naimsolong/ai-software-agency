@@ -16,13 +16,13 @@ Retrieve the full goal ancestry for any task — showing the chain from a specif
 
 ### 1. Read Goals File
 
-Read `.agency/goals.md`.
+Read `~/.agency/goals.md`.
 
 If the file doesn't exist: STOP and report "Goals file missing — run start-project skill first."
 
 ### 2. Find the Task
 
-Locate the task by its ID (T-<n>) in `goals.md` or `tasks.md`.
+Locate the task by its ID (T-<n>) in `goals.md` or `~/.agency/tasks.md`.
 
 ### 3. Trace the Ancestry
 
@@ -113,7 +113,7 @@ Update goal statuses as work progresses:
 | `blocked` | Cannot proceed — dependency or decision needed |
 | `cancelled` | No longer pursuing this goal — reason documented |
 
-Log all status changes to `audit.log`:
+Log all status changes to `~/.agency/audit.log`:
 ```
 [<date>] [CEO] GOAL_STATUS: B-001 → complete (all tasks done, metric achieved)
 ```

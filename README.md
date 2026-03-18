@@ -22,10 +22,10 @@ You: "Build a user authentication system"
 | Agent | Role | Model | Key Deliverable |
 |-------|------|-------|-----------------|
 | `ceo` | Orchestrates all departments, enforces budget and governance | Opus | Project status, goal tree |
-| `product-manager` | Refines requirements, writes PRDs | Sonnet | `.agency/projects/<slug>/prd.md` |
-| `uiux-designer` | Creates pixel-perfect design specs and wireframes | Sonnet | `.agency/projects/<slug>/design.md` |
+| `product-manager` | Refines requirements, writes PRDs | Sonnet | `~/.agency/projects/<slug>/prd.md` |
+| `uiux-designer` | Creates pixel-perfect design specs and wireframes | Sonnet | `~/.agency/projects/<slug>/design.md` |
 | `fullstack-developer` | Implements from approved specs | Sonnet | Application code (git commits) |
-| `qa-lead` | Writes tests before dev, validates after dev | Sonnet | `.agency/projects/<slug>/tests.md` |
+| `qa-lead` | Writes tests before dev, validates after dev | Sonnet | `~/.agency/projects/<slug>/tests.md` |
 
 ## Key Features
 
@@ -35,7 +35,7 @@ You: "Build a user authentication system"
 - **Persistent memory** — Agents remember decisions, preferences, and context across sessions.
 - **Budget governance** — Per-agent budget tracking with automatic alerts and hard stops.
 - **Goal-aware execution** — Every task carries its full goal ancestry so agents always know *why*, not just *what*.
-- **Audit log** — Every action is appended to `.agency/audit.log` for full transparency.
+- **Audit log** — Every action is appended to `~/.agency/audit.log` for full transparency.
 - **Rollback support** — Approved states are tagged in the audit log and can be restored from git history.
 - **Portable templates** — Export and import your agency configuration with secret scrubbing.
 
@@ -73,7 +73,7 @@ The skill will walk you through:
 1. Naming the project
 2. Defining the business goal
 3. Setting the budget
-4. Creating the `.agency/` workspace
+4. Creating the `~/.agency/` workspace
 5. Handing off to the CEO to begin
 
 ### Option B — Using the init script
@@ -100,10 +100,10 @@ Invoke any agent directly from Claude Code:
 
 ## Project Workspace
 
-Every project creates a `.agency/` directory:
+Every project uses a `~/.agency/` directory in your home directory (shared across all projects):
 
 ```
-.agency/
+~/.agency/
 ├── config.json           # Agency configuration and budgets
 ├── tasks.md              # Atomic task registry
 ├── goals.md              # Business goal hierarchy
@@ -119,8 +119,7 @@ Every project creates a `.agency/` directory:
     └── <agent>/MEMORY.md # Per-agent persistent memory
 ```
 
-`.agency/memory/` is added to `.gitignore` — it stores local session context.
-All other `.agency/` files are version-controlled for team transparency.
+`~/.agency/` lives in your home directory — it is outside any project repo and not version-controlled by default.
 
 ## The Governance Gate
 
@@ -130,7 +129,7 @@ Every handoff between departments requires your explicit approval:
 ── Governance Gate: PRD ──────────────────────────────────
 
 Presented by: product-manager
-Deliverable: .agency/projects/auth-v1/prd.md
+Deliverable: ~/.agency/projects/auth-v1/prd.md
 
 What this is:
   A complete Product Requirements Document for the user authentication system.
@@ -164,7 +163,7 @@ You will never be surprised by what gets built — every major decision goes thr
 
 ## Configuration
 
-Edit `.agency/config.json` to customise:
+Edit `~/.agency/config.json` to customise:
 
 ```json
 {
@@ -199,7 +198,7 @@ Import in a new project:
 ```bash
 bash scripts/init-agency.sh new-project
 tar -xzf agency-template.tar.gz -C .
-# Update .agency/config.json with the new project details
+# Update ~/.agency/config.json with the new project details
 ```
 
 ## File Structure
@@ -240,7 +239,7 @@ ai-software-agency/
 The CEO uses the Claude Code `Agent` tool to spawn department sub-agents and pass context:
 
 1. **Goal tree** — every delegation includes the full B-id → P-id → F-id → T-id chain
-2. **File references** — agents reference `.agency/projects/<slug>/` files, never duplicate content
+2. **File references** — agents reference `~/.agency/projects/<slug>/` files, never duplicate content
 3. **Governance gates** — each department signals the CEO when a deliverable is ready; the CEO presents it to the user
 4. **Memory continuity** — each agent loads its own `MEMORY.md` to pick up where the last session ended
 

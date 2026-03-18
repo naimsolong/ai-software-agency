@@ -8,6 +8,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLUGIN_DIR="$(dirname "$SCRIPT_DIR")"
 TARGET_DIR="$(pwd)"
+AGENCY_BASE_DIR="${AGENCY_HOME:-$HOME}"
 
 # ─── Colours ────────────────────────────────────────────────────────────────
 GREEN='\033[0;32m'
@@ -34,9 +35,9 @@ if ! echo "$PROJECT_SLUG" | grep -qE '^[a-z0-9][a-z0-9-]*[a-z0-9]$'; then
 fi
 
 # ─── Check if already initialised ───────────────────────────────────────────
-AGENCY_DIR="$TARGET_DIR/.agency"
+AGENCY_DIR="$AGENCY_BASE_DIR/.agency"
 if [ -d "$AGENCY_DIR" ]; then
-  warn ".agency/ already exists in $TARGET_DIR"
+  warn ".agency/ already exists in $AGENCY_BASE_DIR"
   read -r -p "Reinitialise? This will NOT overwrite existing project files. [y/N] " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "Aborted."
@@ -231,38 +232,28 @@ MEMEOF
 done
 log "Agent memory files initialised (5 agents)"
 
-# ─── Update .gitignore ────────────────────────────────────────────────────
-GITIGNORE="$TARGET_DIR/.gitignore"
-GITIGNORE_ENTRY=".agency/memory/"
-if [ -f "$GITIGNORE" ]; then
-  if ! grep -qF "$GITIGNORE_ENTRY" "$GITIGNORE"; then
-    printf '\n# Agency memory (local context — not version controlled)\n%s\n' "$GITIGNORE_ENTRY" >> "$GITIGNORE"
-    log ".gitignore updated (memory directory excluded)"
-  else
-    warn ".gitignore already contains $GITIGNORE_ENTRY — skipped"
-  fi
-else
-  printf '# Agency memory (local context — not version controlled)\n%s\n' "$GITIGNORE_ENTRY" > "$GITIGNORE"
-  log ".gitignore created"
-fi
+# ─── No .gitignore update needed ──────────────────────────────────────────
+# .agency/ now lives in the user's home directory (~/.agency/), outside any
+# project repository, so no .gitignore entry is required.
+log ".gitignore unchanged (agency dir is home-scoped, not project-scoped)"
 
 # ─── Done ─────────────────────────────────────────────────────────────────
 header "Agency workspace ready"
 echo ""
 echo "  Project: $PROJECT_SLUG"
-echo "  Location: $AGENCY_DIR"
+echo "  Location: $AGENCY_DIR  (home-scoped, shared across projects)"
 echo ""
 echo "  Files created:"
-echo "    .agency/config.json"
-echo "    .agency/tasks.md         (5 tasks)"
-echo "    .agency/goals.md         (B-001 placeholder)"
-echo "    .agency/budget.md        (\$50 allocated)"
-echo "    .agency/audit.log"
-echo "    .agency/projects/$PROJECT_SLUG/  (prd, design, tests, changelog)"
-echo "    .agency/memory/<agent>/MEMORY.md  (5 agents)"
+echo "    ~/.agency/config.json"
+echo "    ~/.agency/tasks.md         (5 tasks)"
+echo "    ~/.agency/goals.md         (B-001 placeholder)"
+echo "    ~/.agency/budget.md        (\$50 allocated)"
+echo "    ~/.agency/audit.log"
+echo "    ~/.agency/projects/$PROJECT_SLUG/  (prd, design, tests, changelog)"
+echo "    ~/.agency/memory/<agent>/MEMORY.md  (5 agents)"
 echo ""
 echo "  Next steps:"
-echo "    1. Update .agency/goals.md with your business goal"
+echo "    1. Update ~/.agency/goals.md with your business goal"
 echo "    2. Invoke the CEO agent to begin orchestration"
 echo "    3. Or use the 'start-project' skill from Claude"
 echo ""

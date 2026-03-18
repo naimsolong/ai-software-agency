@@ -7,7 +7,8 @@
 set -e
 
 TARGET_DIR="$(pwd)"
-AGENCY_DIR="$TARGET_DIR/.agency"
+AGENCY_BASE_DIR="${AGENCY_HOME:-$HOME}"
+AGENCY_DIR="$AGENCY_BASE_DIR/.agency"
 TIMESTAMP=$(date -u +%Y%m%dT%H%M%SZ)
 DEFAULT_OUTPUT="$TARGET_DIR/agency-export-$TIMESTAMP.tar.gz"
 OUTPUT="${1:-$DEFAULT_OUTPUT}"

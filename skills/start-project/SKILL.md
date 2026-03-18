@@ -1,6 +1,6 @@
 # Skill: start-project
 
-Initialize the AI Software Agency workspace for a new project. Creates the `.agency/` directory structure, sets up all required files, and hands control to the CEO to begin orchestration.
+Initialize the AI Software Agency workspace for a new project. Creates the `~/.agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
 
 ---
 
@@ -27,10 +27,10 @@ Wait for all answers before proceeding.
 
 ### 2. Create Directory Structure
 
-Create `.agency/` in the current working directory if it doesn't exist:
+Create `~/.agency/` in the user's home directory if it doesn't exist:
 
 ```
-.agency/
+~/.agency/
 ├── config.json
 ├── tasks.md
 ├── goals.md
@@ -175,17 +175,9 @@ Write a starter `MEMORY.md` for each agent:
 (to be populated through the project lifecycle)
 ```
 
-### 9. Update `.gitignore`
+### 9. No `.gitignore` Update Needed
 
-Append to `.gitignore` if the file exists (create it if not):
-
-```
-# Agency memory (local context, not version controlled)
-.agency/memory/
-
-# Agency audit log (can be large)
-# .agency/audit.log  <- keep this versioned for governance
-```
+`~/.agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
 
 ### 10. Confirm Initialisation
 
@@ -195,13 +187,13 @@ Output a summary:
 ✓ Agency workspace initialised for project: <project-slug>
 
 Files created:
-  .agency/config.json
-  .agency/tasks.md (5 tasks registered)
-  .agency/goals.md (B-001 created)
-  .agency/budget.md (<budget> allocated)
-  .agency/audit.log
-  .agency/projects/<slug>/ (4 document placeholders)
-  .agency/memory/<agent>/MEMORY.md (5 agents)
+  ~/.agency/config.json
+  ~/.agency/tasks.md (5 tasks registered)
+  ~/.agency/goals.md (B-001 created)
+  ~/.agency/budget.md (<budget> allocated)
+  ~/.agency/audit.log
+  ~/.agency/projects/<slug>/ (4 document placeholders)
+  ~/.agency/memory/<agent>/MEMORY.md (5 agents)
 
 Next: CEO will begin orchestration. Business goal: <B-001>
 ```

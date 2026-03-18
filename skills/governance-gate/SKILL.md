@@ -82,16 +82,16 @@ If the user asks a clarifying question instead of approving/rejecting — answer
 ### 5. Handle the Response
 
 **APPROVED:**
-1. Log approval to `.agency/audit.log`:
+1. Log approval to `~/.agency/audit.log`:
 ```
 [<ISO-date>] [<agent>] GATE_PASSED: <deliverable> approved by user
 [<ISO-date>] [<agent>] ROLLBACK:<agent>-v<n> — <deliverable> approved at <file-path>
 ```
-2. Update task status to `done` in `tasks.md`
+2. Update task status to `done` in `~/.agency/tasks.md`
 3. Report to CEO: "Gate passed. [Deliverable] approved. Ready for next stage."
 
 **REJECTED:**
-1. Log rejection to `.agency/audit.log`:
+1. Log rejection to `~/.agency/audit.log`:
 ```
 [<ISO-date>] [<agent>] GATE_REJECTED: <deliverable> rejected — <user reason>
 ```

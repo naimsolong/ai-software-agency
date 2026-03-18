@@ -99,18 +99,18 @@ Any core agent may delegate to a specialist agent when the task requires experti
 **Rules:**
 - Specialist agents operate within the same governance framework — deliverables for human-facing handoffs still require a `governance-gate`
 - Specialist agents do **not** have persistent memory by default — they are stateless per session
-- Only the CEO may create a persistent memory file for a specialist at `.agency/memory/<division>-<agent-name>/MEMORY.md`
-- Specialist agents only write to files explicitly delegated to them — they do not own `.agency/` artefacts unless assigned by the CEO
+- Only the CEO may create a persistent memory file for a specialist at `~/.agency/memory/<division>-<agent-name>/MEMORY.md`
+- Specialist agents only write to files explicitly delegated to them — they do not own `~/.agency/` artefacts unless assigned by the CEO
 - Never delegate to a specialist if the task is within a core agent's domain
 
 ---
 
 ## `.agency/` Directory — File Ownership
 
-All agency runtime data lives in `.agency/` inside the target project:
+All agency runtime data lives in `~/.agency/` in the user's home directory (shared across all projects):
 
 ```
-.agency/
+~/.agency/
 ├── config.json            # Company/project settings
 ├── tasks.md               # Task registry (atomic checkout)
 ├── goals.md               # Goal hierarchy tree
@@ -244,15 +244,15 @@ Specialist: engineering/engineering-solidity-smart-contract-engineer
 ## Memory Protocol
 
 At the **start** of every session:
-1. Read your `MEMORY.md` in `.agency/memory/<agent-name>/MEMORY.md`
+1. Read your `MEMORY.md` in `~/.agency/memory/<agent-name>/MEMORY.md`
 2. Load: current project context, key decisions, user preferences
-3. Check `tasks.md` for any task you previously had `in-progress`
+3. Check `~/.agency/tasks.md` for any task you previously had `in-progress`
 
 At the **end** of every session:
 1. Invoke the `memory-sync` skill
 2. Record: decisions made, patterns discovered, user preferences observed
 
-**Specialist agents** do not maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a memory file at `.agency/memory/<division>-<agent-name>/MEMORY.md` following the same format and protocol above.
+**Specialist agents** do not maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a memory file at `~/.agency/memory/<division>-<agent-name>/MEMORY.md` following the same format and protocol above.
 
 ---
 
@@ -261,7 +261,7 @@ At the **end** of every session:
 - Every agent must invoke `budget-check` at the start of a task
 - If remaining budget is < 20%, alert the CEO before proceeding
 - If budget is exhausted, STOP and escalate to CEO — never go over
-- Budget is tracked in `.agency/budget.md`
+- Budget is tracked in `~/.agency/budget.md`
 
 ---
 

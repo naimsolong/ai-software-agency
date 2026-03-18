@@ -14,7 +14,7 @@ Invoke at the **start of every task**. The CEO should also invoke this before de
 
 ### 1. Read Budget File
 
-Read `.agency/budget.md`.
+Read `~/.agency/budget.md`.
 
 If the file doesn't exist: STOP and report "Budget file missing — workspace may not be initialised."
 
@@ -61,7 +61,7 @@ Please confirm: APPROVE to proceed | ADJUST to reallocate budget | HALT to stop 
 
 ### 5. Log the Check
 
-Append to `.agency/budget.md` under Spend Log:
+Append to `~/.agency/budget.md` under Spend Log:
 
 ```
 | <ISO-date> | <agent> | T-<id> | <estimated cost or "TBD"> | Starting task |
@@ -127,7 +127,7 @@ Only the CEO can approve budget reallocations. The format is:
 }
 ```
 
-Log all reallocations to `audit.log`:
+Log all reallocations to `~/.agency/audit.log`:
 ```
 [<ISO-date>] [CEO] BUDGET_REALLOCATE: <amount> moved from <from> to <to> — <reason>
 ```
