@@ -82,6 +82,62 @@ CEO
 
 ---
 
+## Creating New Skills
+
+When a reusable workflow step is needed that no existing skill covers, the CEO initiates a **governance-gated skill creation**:
+
+```
+CEO identifies workflow gap
+  └─ Delegates to agents/specialized/specialized-skill-builder
+       └─ Skill Builder inspects skills library + plugin.json
+            └─ Defines spec (slug, surface, inputs, outputs)
+                 └─ Drafts SKILL.md + plugin.json append
+                      └─ create-skill skill → governance gate → [USER APPROVES]
+                           └─ skills/<slug>/SKILL.md written
+                                └─ .claude-plugin/plugin.json updated
+                                     └─ Package verified ✓
+```
+
+### Alpha SDK Runtime Conventions
+
+All skills in this agency follow these rules:
+
+**Route convention:**
+- File: `skills/<slug>/SKILL.md` — filename must be exactly `SKILL.md`
+- Registration: `"skills/<slug>"` entry in `.claude-plugin/plugin.json`
+- User invocation: `/<slug>`
+- Agent invocation: reference the skill by name in instructions
+
+**Required sections in every `SKILL.md`:**
+1. `# Skill: <slug>` — H1 matching directory name
+2. One-line description (no heading)
+3. `## When to Use`
+4. `## Steps` with `### Step N — <title>` subsections
+5. Final `✓` confirmation block
+
+**Worker surface:** Skills execute inline within the calling agent's session — same tools, same context. No separate process.
+
+**UI surface:** Terminal Markdown only. `✓` for success, `⚠️` for warnings, `✗` for failures. Blocking gates use the `governance-gate` skill format.
+
+### Skill Creation Rules
+
+- Only the CEO may initiate skill creation — never a specialist agent independently
+- No skill file is written without governance gate approval via the `create-skill` skill
+- The `specialized-skill-builder` must inspect ≥ 2 existing skills before drafting
+- `plugin.json` updates are append-only — existing entries are never modified or removed
+- Slug must match the directory name exactly — any mismatch silently breaks invocation
+- Every creation, rejection, and change request is logged to `~/.agency/audit.log`
+- Verification is mandatory after writing — file existence, sections, JSON validity, slug uniqueness
+
+**Invoke with:**
+```
+@skill-builder: Create a new skill for [workflow].
+Gap: [what no existing skill does].
+Goal: [B-id → P-id → F-id → T-id]
+```
+
+---
+
 ## Hiring New Agents
 
 When a project requires a domain that no existing specialist agent in the library covers, the CEO initiates a **governance-gated hire**:

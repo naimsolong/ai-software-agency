@@ -109,6 +109,46 @@ The CEO will delegate to `specialized-agent-builder`, which will inspect the exi
 - Every hire and rejection is logged to `~/.agency/audit.log` with a rollback tag
 - The project task that triggered the hire is a blocker until the hire is approved
 
+### Creating New Skills
+
+If a workflow step should be reusable across projects or agents but no existing skill covers it, the agency can author a new plugin skill on-demand via a **governance-gated scaffold**:
+
+```
+CEO identifies workflow gap
+  └─ Delegates to specialized-skill-builder
+       └─ Inspects skills library + plugin.json
+            └─ Defines spec (slug, worker surface, UI surface)
+                 └─ Drafts SKILL.md + plugin.json append
+                      └─ create-skill skill → Governance Gate → [YOU APPROVE]
+                           └─ skills/<slug>/SKILL.md written
+                                └─ .claude-plugin/plugin.json updated
+                                     └─ Package verified ✓
+```
+
+**How to trigger a skill creation:**
+```
+@ceo I need a new skill for [workflow] — no existing skill covers it.
+```
+
+**Alpha SDK runtime conventions the agent enforces:**
+
+| Convention | Rule |
+|-----------|------|
+| File path | `skills/<slug>/SKILL.md` — filename must be exactly `SKILL.md` |
+| Registration | `"skills/<slug>"` appended to `.claude-plugin/plugin.json` |
+| User invocation | `/<slug>` |
+| Worker surface | Inline Markdown prompt — runs in calling agent's session, same tools |
+| UI surface | Terminal Markdown — `✓` success, `⚠️` warning, `✗` failure |
+| Required sections | H1 title, one-liner, `## When to Use`, `## Steps`, final `✓` block |
+
+**Skill creation governance rules:**
+- Only the CEO may initiate skill creation
+- The skill builder must inspect ≥ 2 existing skills before drafting
+- `plugin.json` updates are append-only — no existing entries removed
+- Slug must match the directory name exactly
+- Verification is mandatory after writing (file, sections, JSON validity, slug uniqueness)
+- Every outcome is logged to `~/.agency/audit.log`
+
 ---
 
 ## Key Features
@@ -335,6 +375,7 @@ Goal: G-002 → P-001 → B-001
 | `governance-gate` | Agents invoke before handoffs | Present deliverable for human approval |
 | `goal-tree` | Agents invoke for context | Show full goal ancestry for a task |
 | `hire-agent` | `specialized-agent-builder` invokes | Inspect library, draft new agent, governance-gate the hire |
+| `create-skill` | `specialized-skill-builder` invokes | Inspect skills library, draft SKILL.md + plugin.json update, governance-gate the new skill |
 
 ## Configuration
 
@@ -395,7 +436,8 @@ ai-software-agency/
 │   ├── memory-sync/SKILL.md
 │   ├── governance-gate/SKILL.md
 │   ├── goal-tree/SKILL.md
-│   └── hire-agent/SKILL.md          ← draft + governance-gate a new agent
+│   ├── hire-agent/SKILL.md          ← draft + governance-gate a new agent
+│   └── create-skill/SKILL.md        ← scaffold + governance-gate a new skill
 ├── templates/
 │   ├── prd-template.md
 │   ├── design-spec-template.md
