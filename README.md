@@ -2,6 +2,17 @@
 
 A complete, CEO-led AI Software Agency packaged as a Claude Code plugin. It ships a team of specialised Claude Sub Agents across four departments — Product, Design, Development, and QA — orchestrated by a strategic CEO agent.
 
+## Agency Values
+
+1. **Transparency first** — every decision is documented; agents never act silently on critical choices
+2. **Quality over speed** — ship correct software, not fast software
+3. **Human in the loop for critical decisions** — governance gates are mandatory before any handoff
+4. **Goal-aware execution** — every agent always knows *why* it is doing a task, not just *what*
+5. **Atomic work** — a task is claimed before starting; duplicate work never happens
+6. **Memory continuity** — agents update their memory before ending every session
+
+---
+
 ## What It Does
 
 The AI Software Agency turns a business goal into production-ready software autonomously, with human confirmation gates at every critical decision point.
@@ -26,6 +37,52 @@ You: "Build a user authentication system"
 | `uiux-designer` | Creates pixel-perfect design specs and wireframes | Sonnet | `~/.agency/projects/<slug>/design.md` |
 | `fullstack-developer` | Implements from approved specs | Sonnet | Application code (git commits) |
 | `qa-lead` | Writes tests before dev, validates after dev | Sonnet | `~/.agency/projects/<slug>/tests.md` |
+
+## Specialist Agent Library
+
+Beyond the five core agents, the agency ships **156 specialist agents** across 13 divisions. Any core agent may delegate to a specialist when the task requires domain depth beyond the core team's scope.
+
+```
+CEO
+└── Specialist Agent Library (156 agents across 13 divisions)
+    ├── agents/engineering/         — Backend, frontend, DevOps, security, AI, etc.
+    ├── agents/design/              — Brand, UX research, visual storytelling, etc.
+    ├── agents/marketing/           — SEO, social, content, growth, TikTok, etc.
+    ├── agents/sales/               — Deal strategy, pipeline, outbound, coaching
+    ├── agents/testing/             — API, accessibility, performance, workflow
+    ├── agents/product/             — Sprint prioritization, feedback, trend research
+    ├── agents/project-management/  — Studio ops, Jira workflow, experiment tracking
+    ├── agents/paid-media/          — PPC, programmatic, creative strategy, tracking
+    ├── agents/support/             — Analytics, finance, legal compliance, infra
+    ├── agents/spatial-computing/   — visionOS, XR, macOS Metal, terminal integration
+    ├── agents/specialized/         — Blockchain, MCP builder, Salesforce, ZK, etc.
+    ├── agents/game-development/    — Unity, Unreal, Godot, Roblox, Blender, etc.
+    └── agents/academic/            — Anthropology, history, psychology, narratology
+```
+
+| Division | Agents | Examples |
+|----------|--------|---------|
+| `engineering/` | 23 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer |
+| `marketing/` | 27 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
+| `specialized/` | 27 | mcp-builder, salesforce-architect, blockchain-security-auditor, workflow-architect |
+| `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
+| `design/` | 8 | ui-designer, ux-researcher, brand-guardian, image-prompt-engineer, visual-storyteller |
+| `testing/` | 8 | api-tester, accessibility-auditor, performance-benchmarker, reality-checker |
+| `sales/` | 8 | deal-strategist, outbound-strategist, pipeline-analyst, discovery-coach |
+| `paid-media/` | 7 | ppc-strategist, programmatic-buyer, tracking-specialist, creative-strategist |
+| `support/` | 6 | finance-tracker, legal-compliance-checker, analytics-reporter, infra-maintainer |
+| `spatial-computing/` | 6 | visionos-spatial-engineer, xr-immersive-developer, xr-interface-architect |
+| `product/` | 5 | sprint-prioritizer, feedback-synthesizer, trend-researcher, behavioral-nudge-engine |
+| `project-management/` | 6 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
+| `academic/` | 5 | academic-anthropologist, academic-historian, academic-psychologist, academic-narratologist |
+
+**Delegation rules:**
+- Specialists are invoked via the `Agent` tool using their path: e.g. `agents/engineering/engineering-frontend-developer`
+- Specialists operate under the same governance framework — handoffs still require a `governance-gate`
+- Specialists are stateless by default; the CEO may create a persistent memory file for recurring specialists
+- Never delegate to a specialist if the task is within a core agent's domain
+
+---
 
 ## Key Features
 
@@ -150,6 +207,96 @@ Please respond with:
 
 You will never be surprised by what gets built — every major decision goes through you.
 
+## Task Lifecycle
+
+Every task moves through a defined state machine tracked in `~/.agency/tasks.md`:
+
+```
+pending → in-progress → review → done
+                    ↘ blocked
+```
+
+| Status | Meaning |
+|--------|---------|
+| `pending` | Available to claim |
+| `in-progress` | Claimed by an agent (agent name + timestamp recorded) |
+| `review` | Work done, awaiting governance-gate approval |
+| `done` | Approved and complete |
+| `blocked` | Cannot proceed — reason documented in task entry |
+
+Agents use the `task-checkout` skill to atomically claim a task before starting. No agent starts work on an already `in-progress` task.
+
+## Rollback Protocol
+
+Every governance gate approval writes a rollback marker to `~/.agency/audit.log`:
+
+```
+[ROLLBACK:v<n>] <date> <agent> approved <deliverable> at <file>
+```
+
+To roll back to a previous approved state:
+1. Find the rollback tag in `~/.agency/audit.log`
+2. Restore the file from git history at that commit
+3. Create a new task to redo the work from that point
+4. Log the rollback action in `~/.agency/audit.log`
+
+## Memory Protocol
+
+Agents maintain persistent memory across sessions using Markdown files at `~/.agency/memory/<agent>/MEMORY.md`.
+
+**At the start of every session**, each agent:
+1. Reads its `MEMORY.md` — loading project context, key decisions, and user preferences
+2. Checks `~/.agency/tasks.md` for any previously `in-progress` task
+
+**At the end of every session**, each agent invokes the `memory-sync` skill to record:
+- Decisions made (with rationale)
+- User preference signals
+- Patterns discovered
+- Open items and blockers
+
+Specialist agents are stateless by default. For recurring specialists, the CEO may create a memory file at `~/.agency/memory/<division>-<agent-name>/MEMORY.md`.
+
+## Budget Awareness
+
+Per-agent budgets are tracked in `~/.agency/budget.md`. Rules:
+
+- Every agent invokes `budget-check` at the **start of every task**
+- If remaining budget is **< 20%**, the agent alerts the CEO before proceeding
+- If budget is **exhausted**, the agent stops immediately and escalates — never goes over
+- Only the CEO can approve budget reallocations between agents
+
+## Commit Message Format
+
+All agent commits follow this format:
+
+```
+[agent:<type>] <verb>(<scope>): <description>
+
+Task: #<task-id>
+Goal: <goal-id>
+```
+
+| Prefix | Agent |
+|--------|-------|
+| `dev` | Senior Fullstack Developer |
+| `ceo` | CEO |
+| `pm` | Product Manager |
+| `qa` | QA Lead |
+| `design` | UI/UX Designer |
+| `eng` | Any engineering specialist |
+| `mkt` | Any marketing specialist |
+| `specialist` | Any other specialist |
+
+Example:
+```
+[agent:dev] feat(auth): add JWT refresh token endpoint
+
+Task: #T-007
+Goal: G-002 → P-001 → B-001
+```
+
+---
+
 ## Skills Reference
 
 | Skill | Invoke | Description |
@@ -269,3 +416,13 @@ Agents are plain Markdown files — fork and customise your team freely.
 - Add new agents in `agents/`
 - Add new skills in `skills/<skill-name>/SKILL.md`
 - Adjust budget splits in `templates/agency-config.json`
+
+---
+
+## Credits
+
+This project is built on the shoulders of two excellent open-source works:
+
+- **[agency-agents](https://github.com/msitarzewski/agency-agents)** by [@msitarzewski](https://github.com/msitarzewski) — The specialist agent library (156 agents across 13 divisions) is derived from this comprehensive collection of professional AI agent personalities, each with distinct expertise, workflows, and deliverables designed for tools like Claude Code.
+
+- **[Project-AI-MemoryCore](https://github.com/Kiyoraka/Project-AI-MemoryCore)** by [@Kiyoraka](https://github.com/Kiyoraka) — The persistent memory architecture (identity core, session memory, preference tracking) is inspired by this open-source framework for building AI companions that maintain context across conversations using Markdown files as a database.
