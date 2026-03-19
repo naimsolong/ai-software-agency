@@ -1,3 +1,8 @@
+---
+name: start-project
+description: "INVOKE THIS SKILL when beginning a new project. Initializes the AI Software Agency workspace — creates the ~/.agency/ directory structure, sets up all required files, and hands control to the CEO to begin orchestration."
+---
+
 # Skill: start-project
 
 Initialize the AI Software Agency workspace for a new project. Creates the `~/.agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.

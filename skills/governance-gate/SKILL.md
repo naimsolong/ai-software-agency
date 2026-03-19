@@ -1,3 +1,8 @@
+---
+name: governance-gate
+description: "INVOKE THIS SKILL before any department handoff. Presents a deliverable to the user for explicit approval — a mandatory blocking gate that no work advances past without an APPROVED/REJECTED/CHANGES response."
+---
+
 # Skill: governance-gate
 
 Present a deliverable or plan to the user for explicit approval before proceeding. This is a mandatory blocking gate — no work advances to the next department without passing through here.

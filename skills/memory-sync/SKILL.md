@@ -1,3 +1,8 @@
+---
+name: memory-sync
+description: "INVOKE THIS SKILL at the end of every agent session. Updates the calling agent's persistent memory file with session learnings, key decisions, and project context to ensure continuity across conversations."
+---
+
 # Skill: memory-sync
 
 Update the calling agent's persistent memory file with session learnings, key decisions, and project context. Ensures continuity across conversations.

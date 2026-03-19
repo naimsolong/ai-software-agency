@@ -1,3 +1,8 @@
+---
+name: create-skill
+description: "INVOKE THIS SKILL when a reusable workflow step is needed that no existing skill covers. Inspects existing skills, drafts SKILL.md and plugin.json registration, gates for governance approval, then writes and verifies the new skill."
+---
+
 # Skill: create-skill
 
 Scaffold a new plugin skill for the agency runtime. Inspects existing skills for conventions, drafts the `SKILL.md` and `plugin.json` registration entry, presents a governance gate for approval, then writes on approval and verifies the package is valid.

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "ai-software-agency"
+version = "1.0.0"
+description = "A CEO-led AI Software Agency packaged as a Claude Code plugin and LangChain-compatible agent skills set. Autonomous Product, Design, Development, and QA departments with governance gates, fixed-path orchestration, and persistent memory."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = [
+  "langchain",
+  "ai-agents",
+  "multi-agent",
+  "orchestration",
+  "claude-code",
+  "deep-agents",
+  "software-development",
+  "product-management",
+  "qa",
+  "automation",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/naimsolong/ai-software-agency"
+Repository = "https://github.com/naimsolong/ai-software-agency"
+Documentation = "https://github.com/naimsolong/ai-software-agency#readme"
+"Bug Tracker" = "https://github.com/naimsolong/ai-software-agency/issues"
+
+[tool.setuptools]
+packages = []
+include-package-data = true
+
+[tool.setuptools.package-data]
+"*" = ["skills/*/SKILL.md", "agents/**/*.md", "config/**/*.md"]

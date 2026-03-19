@@ -1,3 +1,8 @@
+---
+name: goal-tree
+description: "INVOKE THIS SKILL when delegating a task. Retrieves the full goal ancestry from task to root business objective so every agent understands why they are doing their work, not just what."
+---
+
 # Skill: goal-tree
 
 Retrieve the full goal ancestry for any task — showing the chain from a specific task all the way up to the root business objective. Ensures every agent understands *why* they are doing their work, not just *what*.

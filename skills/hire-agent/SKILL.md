@@ -1,3 +1,8 @@
+---
+name: hire-agent
+description: "INVOKE THIS SKILL when a project requires a domain no existing specialist agent covers. Inspects the agent library, drafts a new agent config, and runs a governance-gated hire before writing anything to disk."
+---
+
 # Skill: hire-agent
 
 Draft a new specialist agent, inspect and compare against the existing library, then submit a governance-gated hire request before writing anything to disk.

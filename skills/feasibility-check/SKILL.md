@@ -1,3 +1,8 @@
+---
+name: feasibility-check
+description: "INVOKE THIS SKILL before delegating to the Product Manager. Runs a fixed-path feasibility analysis: 7 prescribed discovery questions, 4-criterion rubric, deterministic verdict decision tree, and a governance gate. The skill defines every question and criterion — the model fills content, never decides the path."
+---
+
 # Skill: feasibility-check
 
 Structured, fixed-path feasibility analysis before any department work begins. Asks 7 fixed discovery questions, applies a 4-criterion evaluation rubric, produces a structured report via a prescribed verdict decision tree, and gates before PM delegation. The skill defines every question, criterion, and output format — the model fills in content but never decides the path.

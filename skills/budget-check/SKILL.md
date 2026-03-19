@@ -1,3 +1,8 @@
+---
+name: budget-check
+description: "INVOKE THIS SKILL at the start of any agent task. Checks current budget allocation and spending, enforces spend limits, and escalates to the CEO when budgets are running low."
+---
+
 # Skill: budget-check
 
 Check the current budget allocation and spending for an agent before starting a task. Enforces spend limits and escalates to the CEO when budgets are running low.

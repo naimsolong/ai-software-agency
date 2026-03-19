@@ -1,3 +1,8 @@
+---
+name: task-checkout
+description: "INVOKE THIS SKILL before starting any task. Atomically claims a task from ~/.agency/tasks.md to prevent two agents working on the same task simultaneously."
+---
+
 # Skill: task-checkout
 
 Atomically claim a task from `~/.agency/tasks.md` before starting work. Prevents two agents from working on the same task simultaneously (no double-work).

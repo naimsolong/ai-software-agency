@@ -1,3 +1,8 @@
+---
+name: install-tooling
+description: "INVOKE THIS SKILL when the user requests installation of an MCP connector or desktop software tool. Looks up the tool in the agency catalog, fetches official installation instructions, presents a confirmation gate, and only installs on explicit approval."
+---
+
 # Skill: install-tooling
 
 Install a named MCP connector or desktop software tool on-demand. Looks up the tool in the agency catalog, fetches the latest official installation instructions, presents a user confirmation gate, and only installs on explicit approval. Never installs anything silently.
