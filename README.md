@@ -43,6 +43,7 @@ The AI Software Agency turns a business goal into production-ready software auto
 ```
 You: "Build a user authentication system"
   └─ CEO sets goal, asks for scope approval
+  └─ CEO runs feasibility check — 7 fixed questions + structured analysis → you approve it
   └─ Product Manager asks 3-5 questions, writes PRD → you approve it
   └─ QA Lead writes test cases from PRD (before any code) → you approve
   └─ UI/UX Designer creates pixel-perfect wireframes + Tailwind specs → you approve
@@ -50,6 +51,8 @@ You: "Build a user authentication system"
   └─ QA Lead validates implementation, reports pass/fail
   └─ CEO delivers: "Done. All tests pass."
 ```
+
+> **Fixed-path orchestration:** Every phase runs on a prescribed path defined by the skill — same questions, same rubric, same output format, every time. No agent skips steps or decides the flow. Human approval at each gate is the only thing that advances the sequence.
 
 ## Departments & Agents
 
