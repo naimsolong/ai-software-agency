@@ -2,7 +2,30 @@
 
 A complete, CEO-led AI Software Agency packaged as a Claude Code plugin. It ships a team of specialised Claude Sub Agents across four departments — Product, Design, Development, and QA — orchestrated by a strategic CEO agent.
 
-## Agency Values
+## Installation
+
+### Via Claude Code Marketplace (recommended)
+
+```shell
+/plugin marketplace add naimsolong/ai-software-agency
+/plugin install ai-software-agency@ai-software-agency
+```
+
+### Direct plugin install
+
+```shell
+/plugin install naimsolong/ai-software-agency
+```
+
+After installation, start a project:
+
+```shell
+/start-project
+```
+
+---
+
+
 
 1. **Transparency first** — every decision is documented; agents never act silently on critical choices
 2. **Quality over speed** — ship correct software, not fast software
