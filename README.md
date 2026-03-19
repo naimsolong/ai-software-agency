@@ -404,13 +404,45 @@ Integrated into Claude Code via `~/.claude/settings.json`:
 | **Fork** | Visual Git client for branch, diff, and stash management | macOS, Windows |
 | **OrbStack** | Lightweight Docker/container runtime + Linux VMs | macOS |
 | **Beekeeper Studio** | SQL database GUI (Postgres, MySQL, SQLite, and more) | macOS, Windows, Linux |
+| **GitHub CLI (`gh`)** | GitHub repos, PRs, and issues from the terminal | macOS, Linux, Windows |
 
 **To install:**
 ```
 @ceo Install the Playwright MCP and Beekeeper Studio.
+@ceo Install the GitHub CLI.
 ```
 
 The CEO delegates to `engineering-tooling-installer`. The agent presents one confirmation gate per tool and waits for your explicit **INSTALL** response before taking any action.
+
+## GitHub Repository Operations
+
+Invoke `engineering-github-operator` when you need to interact with GitHub repositories — browsing, cloning, pushing, or opening pull requests. The agent always lists your accessible repos first and asks you to select a target.
+
+**Invoke with:**
+```
+@ceo List my GitHub repos and clone the ai-software-agency repo.
+@ceo Push my changes and create a PR for the current branch.
+```
+
+**How it works:**
+1. Pre-flight — checks `gh` CLI is installed (delegates to `engineering-tooling-installer` if not) and that authentication is active
+2. Lists your GitHub repos as a numbered menu — you pick the target
+3. Presents the action (clone / pull / push / create PR) with a confirmation gate
+4. Executes only on your explicit approval
+5. Logs the operation to `~/.agency/audit.log`
+
+**Supported operations:**
+
+| Operation | Notes |
+|-----------|-------|
+| List repos | `gh repo list` — shows name, description, default branch |
+| Clone | `gh repo clone` — asks target directory |
+| Pull | `git pull` — confirms repo and branch first |
+| Push | `git push` — shows commits to be pushed; never force-pushes without explicit consent |
+| Create PR | `gh pr create` — collects title, body, base branch interactively |
+| List PRs / Issues | Read-only; no confirmation needed |
+
+**Dependency:** Requires `gh` CLI. If not installed, the agent delegates automatically to `engineering-tooling-installer`.
 
 ## Configuration
 
@@ -463,7 +495,10 @@ ai-software-agency/
 │   ├── product-manager.md
 │   ├── uiux-designer.md
 │   ├── fullstack-developer.md
-│   └── qa-lead.md
+│   ├── qa-lead.md
+│   └── engineering/
+│       ├── engineering-tooling-installer.md  ← MCP connectors + desktop software
+│       └── engineering-github-operator.md    ← clone, pull, push, PR via gh CLI
 ├── skills/
 │   ├── start-project/SKILL.md
 │   ├── task-checkout/SKILL.md

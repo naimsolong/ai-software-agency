@@ -66,7 +66,7 @@ CEO
 
 | Division | Agents | Examples |
 |----------|--------|---------|
-| `engineering/` | 24 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, tooling-installer |
+| `engineering/` | 25 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, tooling-installer, github-operator |
 | `marketing/` | 27 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
 | `specialized/` | 27 | mcp-builder, salesforce-architect, blockchain-security-auditor, workflow-architect |
 | `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
@@ -112,12 +112,49 @@ The `engineering-tooling-installer` specialist handles all on-demand installatio
 | Fork | Visual Git client | macOS, Windows |
 | OrbStack | Fast Docker/container runtime, Linux VMs | macOS |
 | Beekeeper Studio | SQL database GUI | macOS, Windows, Linux |
+| GitHub CLI (`gh`) | GitHub repos, PRs, issues from the terminal | macOS, Linux, Windows |
 
 **Installation rules:**
 - The `engineering-tooling-installer` agent has Bash access (CEO-authorised) specifically for running package manager commands and version checks
 - MCP configs are written only to `~/.claude/settings.json` — never to project files
 - API key values are never logged to `audit.log`; only install events are logged
 - Claude Code must be restarted after any MCP connector is added
+
+---
+
+## GitHub Repository Operations
+
+The `engineering-github-operator` specialist handles all GitHub repository actions using the `gh` CLI. It always lists accessible repositories and asks the user to select a target before performing any operation.
+
+**Invoke with:**
+```
+@ceo List my GitHub repos and clone <repo>.
+@ceo Create a PR for the current branch.
+@ceo Push my changes to GitHub.
+```
+
+**Pre-flight checks (automatic):**
+1. Verifies `gh` CLI is installed — delegates to `engineering-tooling-installer` if missing
+2. Verifies `gh` authentication via `gh auth status` — runs `gh auth login` if not authenticated
+
+**Supported operations:**
+
+| Operation | Command used | Confirmation required |
+|-----------|-------------|----------------------|
+| List repos | `gh repo list` | No — read-only |
+| Clone | `gh repo clone` | Yes — confirm target directory |
+| Pull | `git pull origin <branch>` | Yes — confirm repo and branch |
+| Push | `git push origin <branch>` | Yes — shows commits to be pushed |
+| Create PR | `gh pr create` | Yes — title, body, base branch |
+| List PRs | `gh pr list` | No — read-only |
+| List Issues | `gh issue list` | No — read-only |
+
+**Rules:**
+- The agent always lists repos and asks which one — never assumes the target
+- Push and PR creation require explicit confirmation before execution
+- Never force-pushes without explicit user request and acknowledgement
+- Never commits code — committing is the Fullstack Developer's responsibility
+- Delegates `gh` installation to `engineering-tooling-installer`; does not install `gh` itself
 
 ---
 

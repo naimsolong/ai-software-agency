@@ -241,6 +241,35 @@ sudo snap install beekeeper-studio
 
 ---
 
+#### GitHub CLI (`gh`)
+**Purpose:** Command-line interface for GitHub — list repositories, clone, push, create pull requests, manage issues, and authenticate. Required by the GitHub Operator agent; also useful standalone.
+**Platform:** macOS, Linux, Windows
+**Install method:**
+```bash
+# macOS — Homebrew
+brew install gh
+
+# Linux — Debian/Ubuntu (apt)
+sudo apt install gh
+
+# Linux — Fedora/RHEL
+sudo dnf install gh
+
+# Linux — Snap
+sudo snap install gh
+
+# Windows — winget
+winget install GitHub.cli
+
+# Direct download
+# https://cli.github.com → Download for your platform
+```
+**Post-install:** Run `gh auth login` to authenticate with your GitHub account.
+**No API token file needed** — authentication is managed by `gh auth login` and stored in the system keychain.
+**Official site:** https://cli.github.com
+
+---
+
 ## Steps
 
 ### Step 1 — Identify the Requested Tool
