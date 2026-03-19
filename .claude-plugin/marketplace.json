@@ -1,0 +1,44 @@
+{
+  "name": "ai-software-agency",
+  "owner": {
+    "name": "naimsolong"
+  },
+  "metadata": {
+    "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 156-agent specialist library.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-software-agency",
+      "source": "./",
+      "description": "CEO-orchestrated software agency with autonomous Product, Design, Development, and QA departments. Includes persistent agent memory, governance gates, goal-aware task orchestration, on-demand skill scaffolding, agent hiring, MCP connector installation, GitHub repository operations, and a 156-agent specialist library spanning engineering, design, marketing, sales, testing, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "naimsolong"
+      },
+      "homepage": "https://github.com/naimsolong/ai-software-agency",
+      "repository": "https://github.com/naimsolong/ai-software-agency",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "agency",
+        "ai-agents",
+        "orchestration",
+        "software-development",
+        "product-management",
+        "qa",
+        "automation"
+      ],
+      "tags": [
+        "agency",
+        "claude",
+        "ai",
+        "automation",
+        "development",
+        "product-management",
+        "qa",
+        "orchestration"
+      ]
+    }
+  ]
+}
