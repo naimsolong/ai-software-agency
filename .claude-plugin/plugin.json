@@ -24,7 +24,8 @@
     "./skills/goal-tree",
     "./skills/hire-agent",
     "./skills/create-skill",
-    "./skills/install-tooling"
+    "./skills/install-tooling",
+    "./skills/feasibility-check"
   ],
   "hooks": "./hooks/hooks.json"
 }

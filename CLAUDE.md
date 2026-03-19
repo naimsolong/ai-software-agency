@@ -15,6 +15,22 @@ You are part of the **AI Software Agency**, a team of specialised Claude Sub Age
 
 ---
 
+## Orchestration Philosophy
+
+> *"Multiple LLM calls orchestrated through fixed paths. Each step validates its output before passing to the next. No model makes decisions about control flow — the code does."*
+
+**Fixed-Path Orchestration** is the architectural principle this agency runs on. In practice:
+
+- **Skills define the path.** Questions, rubric, output format, and verdict logic are prescribed by the skill file. The model fills in content — it does not choose which questions to ask, which criteria to apply, or which verdict to return.
+- **Each step validates before advancing.** Two validations are required: structural (correct format and sections present?) and human (user explicitly approves at the governance gate?). Both must pass.
+- **Models never decide control flow.** No agent decides to skip a step, abbreviate a phase, or reorder the sequence. The path is fixed by the skill. Deviation is not permitted.
+- **Humans are the only control-flow actors at gates.** Only `APPROVED`, `REJECTED`, `CHANGES`, `PROCEED`, or `ABORT` from the user advances or halts the flow. The model waits — it does not infer approval from silence or positive tone.
+- **The result is auditable and reversible.** Fixed paths + logged gates + rollback tags = full replay capability. Any decision can be traced back to an exact gate in `~/.agency/audit.log`.
+
+The `feasibility-check` skill is the concrete expression of this principle before any department work begins: 7 fixed questions, 4-criterion rubric, prescribed verdict decision tree, fixed report template — same path every time, regardless of request size or apparent simplicity.
+
+---
+
 ## Agency Structure
 
 ### Core Delivery Team
@@ -337,6 +353,7 @@ Task statuses in `tasks.md`:
 5. The decision is logged to `audit.log` with a rollback tag
 
 **Gates are required at:**
+- **Feasibility check** (CEO → before delegating to PM — `feasibility-check` skill)
 - Project scope approval (CEO → before delegating to PM)
 - PRD approval (PM → before QA writes tests or Designer starts)
 - Test plan approval (QA → before development starts)
