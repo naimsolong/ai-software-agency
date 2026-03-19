@@ -2,24 +2,29 @@
   "name": "ai-software-agency",
   "version": "1.0.0",
   "description": "A CEO-led AI Software Agency with autonomous Product, Design, Development, and QA departments. Features atomic task execution, persistent memory, governance gates, and goal-aware orchestration.",
-  "author": "naimsolong",
+  "author": {
+    "name": "naimsolong"
+  },
+  "homepage": "https://github.com/naimsolong/ai-software-agency",
+  "repository": "https://github.com/naimsolong/ai-software-agency",
+  "license": "MIT",
   "agents": [
-    "agents/ceo.md",
-    "agents/product-manager.md",
-    "agents/uiux-designer.md",
-    "agents/fullstack-developer.md",
-    "agents/qa-lead.md"
+    "./agents/ceo.md",
+    "./agents/product-manager.md",
+    "./agents/uiux-designer.md",
+    "./agents/fullstack-developer.md",
+    "./agents/qa-lead.md"
   ],
   "skills": [
-    "skills/start-project",
-    "skills/task-checkout",
-    "skills/budget-check",
-    "skills/memory-sync",
-    "skills/governance-gate",
-    "skills/goal-tree",
-    "skills/hire-agent",
-    "skills/create-skill",
-    "skills/install-tooling"
+    "./skills/start-project",
+    "./skills/task-checkout",
+    "./skills/budget-check",
+    "./skills/memory-sync",
+    "./skills/governance-gate",
+    "./skills/goal-tree",
+    "./skills/hire-agent",
+    "./skills/create-skill",
+    "./skills/install-tooling"
   ],
-  "hooks": "hooks/hooks.json"
+  "hooks": "./hooks/hooks.json"
 }
