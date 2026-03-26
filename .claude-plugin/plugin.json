@@ -16,16 +16,16 @@
     "./agents/qa-lead.md"
   ],
   "skills": [
-    "./skills/start-project",
-    "./skills/task-checkout",
-    "./skills/budget-check",
-    "./skills/memory-sync",
-    "./skills/governance-gate",
-    "./skills/goal-tree",
-    "./skills/hire-agent",
-    "./skills/create-skill",
-    "./skills/install-tooling",
-    "./skills/feasibility-check"
+    "./skills/start-project/SKILL.md",
+    "./skills/task-checkout/SKILL.md",
+    "./skills/budget-check/SKILL.md",
+    "./skills/memory-sync/SKILL.md",
+    "./skills/governance-gate/SKILL.md",
+    "./skills/goal-tree/SKILL.md",
+    "./skills/hire-agent/SKILL.md",
+    "./skills/create-skill/SKILL.md",
+    "./skills/install-tooling/SKILL.md",
+    "./skills/feasibility-check/SKILL.md"
   ],
   "hooks": "./hooks/hooks.json"
 }
