@@ -327,7 +327,7 @@ All core agents use the same format when writing to `~/.agency/specialist-reques
 - Specialist agents are given **narrow sub-questions** — never full features or tasks
 - Specialist agents operate within the same governance framework — deliverables for human-facing handoffs still require a `governance-gate`
 - Specialist agents do **not** have persistent memory by default — they are stateless per session
-- Only the CEO may create a persistent memory file for a specialist at `~/.agency/memory/<division>-<agent-name>/MEMORY.md`
+- Only the CEO may create a persistent MemoryCore instance for a specialist at `~/.agency/memory/<division>-<agent-name>/`
 - Specialist agents only write to files explicitly delegated to them — they do not own `~/.agency/` artefacts unless assigned by the CEO
 - Never delegate to a specialist if the task is within a core agent's domain
 - The Delegate Agent never does specialist work itself — it only routes
@@ -352,18 +352,26 @@ All agency runtime data lives in `~/.agency/` in the user's home directory (shar
 │       ├── tests.md       # Owned by: QA Lead
 │       └── changelog.md   # Owned by: Developer (on merge)
 └── memory/
-    ├── ceo/MEMORY.md
-    ├── product-manager/MEMORY.md
-    ├── uiux-designer/MEMORY.md
-    ├── fullstack-developer/MEMORY.md
-    ├── qa-lead/MEMORY.md
-    └── <division>-<specialist>/MEMORY.md   # Created on-demand by CEO for recurring specialists
+    ├── AGENT-MEMORYCORE-TEMPLATE.md   # Canonical architecture spec
+    ├── ceo/
+    │   ├── identity-core.md           # CEO identity, personality, behavioral patterns
+    │   ├── relationship-memory.md     # CEO ↔ user preferences, patterns
+    │   ├── current-session.md         # Session RAM with 500-line limit
+    │   ├── daily-diary/protocol.md    # Session documentation + auto-archive
+    │   ├── echo-recall.md             # Memory search and narrative recall
+    │   └── problem-solving/           # Decision matrix, risk assessment
+    ├── product-manager/               # (same MemoryCore structure)
+    ├── uiux-designer/                 # (same MemoryCore structure)
+    ├── fullstack-developer/           # (same MemoryCore structure)
+    ├── qa-lead/                       # (same MemoryCore structure)
+    ├── delegate/                      # (same MemoryCore structure)
+    └── <division>-<specialist>/       # Created on-demand by CEO for recurring specialists
 ```
 
 **Rules:**
 - Agents only write to files they own (listed above)
 - Any agent may *read* any file
-- Memory files are written by each agent at session end via `memory-sync` skill
+- Memory is self-updating — agents update their files continuously during work and at session end
 - `audit.log` is append-only — never edit existing entries
 
 ---
@@ -471,18 +479,51 @@ Specialist: engineering/engineering-solidity-smart-contract-engineer
 
 ---
 
-## Memory Protocol
+## Memory Protocol — Agency MemoryCore
 
-At the **start** of every session:
-1. Read your `MEMORY.md` in `~/.agency/memory/<agent-name>/MEMORY.md`
-2. Load: current project context, key decisions, user preferences
-3. Check `~/.agency/tasks.md` for any task you previously had `in-progress`
+Every core agent maintains a hierarchical MemoryCore instance adapted from the Bruh personal companion architecture. Each agent has **identity** (who it is), **relationship** (how it works with the user), and **session RAM** (current context with restart continuity).
 
-At the **end** of every session:
-1. Invoke the `memory-sync` skill
-2. Record: decisions made, patterns discovered, user preferences observed
+### Agent Restoration Protocol
 
-**Specialist agents** do not maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a memory file at `~/.agency/memory/<division>-<agent-name>/MEMORY.md` following the same format and protocol above.
+**Automatic (Session Start):** On every session start, the agent reads its 3 core files before processing any task:
+1. Read `~/.agency/memory/<agent-slug>/identity-core.md` — restore personality and behavioral patterns
+2. Read `~/.agency/memory/<agent-slug>/relationship-memory.md` — restore understanding of user and project context
+3. Read `~/.agency/memory/<agent-slug>/current-session.md` — restore session state and working memory
+
+**Trigger-Word (Mid-Session):** Each agent has a trigger word — its role name. Typing it reloads all core files and restores full context:
+
+| Trigger | Agent | Restoration |
+|---------|-------|-------------|
+| `CEO` | CEO Orchestrator | Identity + relationship + session + budget |
+| `PM` | Product Manager | Identity + relationship + PRD context |
+| `Designer` | UI/UX Designer | Identity + relationship + design spec context |
+| `Developer` | Senior Fullstack Developer | Identity + relationship + implementation context |
+| `QA` | QA Lead | Identity + relationship + test plan context |
+| `Delegate` | Delegate Agent | Identity + relationship + routing context |
+
+### Self-Updating Protocol
+
+Agents maintain their memory continuously — not just at session end:
+- **During work:** Update `current-session.md` when task status changes, decisions are made, or context shifts
+- **Pattern detection:** When noticing a user preference or communication pattern, update `relationship-memory.md` immediately
+- **Session end:** Write a diary entry summarizing the session; update session recap for restart continuity; finalize relationship updates
+
+### Session RAM Limits
+
+- **Maximum:** 500 lines per `current-session.md`
+- **Reset behavior:** When exceeded, preserve the Session Recap section, clear working memory details, rebuild structure from `AGENT-MEMORYCORE-TEMPLATE.md`
+- **Recap survives reset** — no context is lost, only detail is cleared
+
+### Optional Modules
+
+All core agents have:
+- **Daily Diary** (`daily-diary/`) — Session-by-session documentation with monthly auto-archive
+- **Echo Memory Recall** (`echo-recall.md`) — Search-and-narrate recall across past diary entries
+- **Problem-Solving Tools** (`problem-solving/`) — Decision matrix and risk assessment frameworks (CEO only)
+
+### Specialist Memory
+
+Specialist agents do **not** maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a MemoryCore instance at `~/.agency/memory/<division>-<agent-name>/` following the same structure above.
 
 ---
 
