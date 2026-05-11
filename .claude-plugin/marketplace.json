@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "ai-software-agency",
+      "name": "asa",
       "source": "./",
       "description": "CEO-orchestrated software agency with autonomous Product, Design, Development, and QA departments. Includes persistent agent memory, governance gates, goal-aware task orchestration, on-demand skill scaffolding, agent hiring, MCP connector installation, GitHub repository operations, and a 156-agent specialist library spanning engineering, design, marketing, sales, testing, and more.",
       "version": "1.0.0",
