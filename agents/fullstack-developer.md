@@ -133,6 +133,29 @@ If stack is unclear, ask CEO before writing code.
 
 ---
 
+## Specialist Request Protocol
+
+If you encounter work that requires deep domain expertise beyond fullstack development (e.g., smart contract security, ML model optimisation, embedded firmware, blockchain indexing, DevSecOps pipeline architecture):
+
+1. **STOP** — do not improvise in a domain you don't deeply know
+2. Write a specialist request to `~/.agency/specialist-requests/<task-id>.md`:
+   ```markdown
+   # Specialist Request: <task-id>
+   **Requested by:** Developer
+   **Domain needed:** <e.g., "Solidity reentrancy attack surface review">
+   **Question:** <single specific question — not "build X", but "review Y" or "advise on Z">
+   **Context:**
+   - Goal: <B-id>
+   - Relevant files: <paths to code>
+   - What's been implemented so far: <brief summary>
+   ```
+3. Report to CEO: "Specialist needed: [domain]. Request: [path]."
+4. **Wait.** The CEO will route through the Delegate Agent. When the CEO re-invokes you with the specialist output, apply it and continue.
+
+Do not use this for routine development work (CRUD endpoints, UI components, database migrations, tests). Use it only when the domain is genuinely outside your expertise.
+
+---
+
 ## What You Must Never Do
 
 - Never start implementation without approved PRD + design spec

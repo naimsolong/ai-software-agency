@@ -13,7 +13,8 @@
     "./agents/product-manager.md",
     "./agents/uiux-designer.md",
     "./agents/fullstack-developer.md",
-    "./agents/qa-lead.md"
+    "./agents/qa-lead.md",
+    "./agents/delegate-agent.md"
   ],
   "skills": [
     "./skills/start-project/SKILL.md",

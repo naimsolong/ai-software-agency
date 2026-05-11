@@ -43,8 +43,10 @@ CEO (Orchestrator)
 │   └── UI/UX Designer           — Design specs, wireframes, components
 ├── Development Department
 │   └── Senior Fullstack Dev     — Implementation, commits, releases
-└── QA Department
-    └── QA Lead                  — Test plans, validation, release sign-off
+├── QA Department
+│   └── QA Lead                  — Test plans, validation, release sign-off
+└── Specialist Routing
+    └── Delegate Agent           — Specialist matching, routing, scoping
 ```
 
 **Decision authority:**
@@ -53,6 +55,7 @@ CEO (Orchestrator)
 - UI/UX Designer: Visual design, component specs — owns the Design Spec
 - Fullstack Developer: Implementation decisions within approved specs
 - QA Lead: Test coverage, release readiness — owns the Test Plan
+- Delegate Agent: Specialist matching and routing — owns the specialist request/output protocol
 
 **No agent makes decisions outside their domain without CEO approval.**
 
@@ -263,24 +266,71 @@ Goal: [B-id → P-id → F-id → T-id]
 
 ## Specialist Agent Delegation
 
-Any core agent may delegate to a specialist agent when the task requires expertise beyond the core team's scope.
+Specialist agents are accessed through the **Delegate Agent**, the routing layer between core delivery agents and the 150-agent specialist library. Core agents do not directly invoke specialists — they submit a specialist request, and the Delegate Agent handles matching, scoping, and delegation.
 
-**When to delegate:**
-- The task is clearly within a specialist domain (e.g., smart contracts → `engineering/engineering-solidity-smart-contract-engineer`, SEO → `marketing/marketing-seo-specialist`)
-- The CEO is orchestrating a workstream that doesn't map to Product/Design/Dev/QA (e.g., a marketing campaign, game feature, or compliance audit)
-- The Fullstack Developer needs deep specialist input (e.g., a frontend specialist for pixel-perfect work, a DevOps automator for CI/CD pipelines)
+### Specialist Request Flow
 
-**How to invoke:**
-- Use the `Agent` tool and reference the specialist by their file path under `agents/`
-- Example: `agents/engineering/engineering-frontend-developer`, `agents/marketing/marketing-seo-specialist`
-- Pass the full goal ancestry (see Goal-Tree Mandate) and all relevant context
+```
+Core Agent detects domain gap
+  └─ Writes specialist request to ~/.agency/specialist-requests/<task-id>.md
+       └─ Reports to CEO: "Specialist needed: [domain]"
+            └─ CEO delegates to Delegate Agent
+                 └─ Delegate Agent scores all 150 specialists (keyword match %)
+                      ├─ >=70% confidence + >=30% gap → auto-match
+                      └─ <70% confidence → presents top 2-3 candidates to CEO
+                           └─ Specialist spawned with narrow, scoped question
+                                └─ Output saved to ~/.agency/specialist-outputs/<request-id>.md
+                                     └─ CEO re-invokes requesting agent with specialist output
+```
 
-**Rules:**
+### When Core Agents Should Request a Specialist
+
+- The task requires domain expertise clearly outside the agent's role (e.g., Developer needing smart contract review, PM needing healthcare compliance input)
+- The agent finds themselves about to make assumptions in an unfamiliar domain
+- A governance gate reviewer identifies a gap that needs specialist input
+
+### When NOT to Request a Specialist
+
+- The task is within the agent's own domain (Developer for CRUD work, PM for user stories, etc.)
+- The question can be answered by reading existing project files
+- The agent is simply uncertain — uncertainty alone doesn't warrant a specialist; domain mismatch does
+
+### Delegate Agent Matching
+
+The Delegate Agent calculates match scores using:
+
+| Signal | Weight |
+|--------|--------|
+| Keyword overlap — specialist name vs request | 40% |
+| Keyword overlap — specialist description vs request | 30% |
+| Division relevance | 20% |
+| Specificity bonus (narrower name = higher) | 10% |
+
+- **Auto-match:** top score >= 70% AND gap to #2 >= 30%
+- **Present options:** all other cases — CEO selects from top 2-3
+- **No match:** if no specialist scores above 20%, Delegate Agent reports and waits for CEO direction
+
+### Specialist Request Format
+
+All core agents use the same format when writing to `~/.agency/specialist-requests/`:
+
+```markdown
+# Specialist Request: <task-id>
+**Requested by:** <PM | Designer | Developer | QA>
+**Domain needed:** <specific domain>
+**Question:** <single narrow question>
+**Context:** <goal ID, relevant file paths, what's been done so far>
+```
+
+### Rules
+
+- Specialist agents are given **narrow sub-questions** — never full features or tasks
 - Specialist agents operate within the same governance framework — deliverables for human-facing handoffs still require a `governance-gate`
 - Specialist agents do **not** have persistent memory by default — they are stateless per session
 - Only the CEO may create a persistent memory file for a specialist at `~/.agency/memory/<division>-<agent-name>/MEMORY.md`
 - Specialist agents only write to files explicitly delegated to them — they do not own `~/.agency/` artefacts unless assigned by the CEO
 - Never delegate to a specialist if the task is within a core agent's domain
+- The Delegate Agent never does specialist work itself — it only routes
 
 ---
 

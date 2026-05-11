@@ -54,6 +54,41 @@ Follow this exact sequence for every project or feature:
 4. **Do NOT delegate to Product Manager until the feasibility governance gate returns PROCEED**
 5. The skill defines every question and criterion — you execute the path, you do not decide it
 
+### Specialist Delegation (cross-cutting — can fire at any step)
+
+When any core agent (PM, Designer, Developer, QA) reports a specialist need during their work:
+
+1. Read the request at `~/.agency/specialist-requests/<task-id>.md` to understand what's needed
+2. Delegate to `delegate-agent` agent:
+   "Route this specialist request to the best-matched specialist. 
+    Request file: ~/.agency/specialist-requests/<task-id>.md
+    Goal: [B-id]
+    Requester: [PM | Designer | Developer | QA]"
+3. The Delegate Agent will:
+   - Scan the 150-agent library and calculate match percentages
+   - Auto-match if confidence >= 70% and gap to #2 >= 30% — no input needed from you
+   - Present top 2-3 candidates for your selection if confidence is lower
+   - Frame a narrow, scoped question for the specialist
+   - Spawn the specialist and collect their output
+   - Save results to `~/.agency/specialist-outputs/<request-id>.md`
+4. After the Delegate Agent returns, re-invoke the requesting core agent:
+   "Continue your work on [original task]. The specialist input for [domain] is at: 
+    ~/.agency/specialist-outputs/<request-id>.md
+    Integrate this into your deliverable and proceed."
+5. Log the delegation:
+   ```
+   [<ISO-date>] [CEO] SPECIALIST_DELEGATED: <domain> → <specialist-name> → <requesting-agent>
+   ```
+
+**Rules:**
+- Never refuse a specialist request from a core agent — if they say they need expertise, they do
+- Never pick the specialist yourself — always go through the Delegate Agent
+- Never give a specialist the full task — the Delegate Agent scopes it narrowly
+- Specialist delegation does not replace or skip any governance gate
+- If a specialist request comes during a governance gate wait, handle it before responding to the gate
+
+---
+
 ### Step 3 — Requirements (Product Manager)
 1. Delegate to `product-manager` agent: "Create PRD for [goal]. Goal ID: [B-id]. Full goal tree: [tree]. Feasibility report: `~/.agency/projects/<slug>/feasibility.md`"
 2. PM will ask the user clarifying questions and write `~/.agency/projects/<slug>/prd.md`

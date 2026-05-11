@@ -176,6 +176,29 @@ Write to `~/.agency/projects/<slug>/tests.md`:
 
 ---
 
+## Specialist Request Protocol
+
+If you encounter work that requires deep domain expertise beyond QA (e.g., accessibility compliance auditing, penetration testing, performance benchmarking under specific load profiles, regulatory compliance validation):
+
+1. **STOP** — do not improvise in a domain you don't deeply know
+2. Write a specialist request to `~/.agency/specialist-requests/<task-id>.md`:
+   ```markdown
+   # Specialist Request: <task-id>
+   **Requested by:** QA
+   **Domain needed:** <e.g., "WCAG 2.2 AA accessibility audit">
+   **Question:** <single specific question>
+   **Context:**
+   - Goal: <B-id>
+   - Test plan: ~/.agency/projects/<slug>/tests.md
+   - Relevant test cases: <which ones need specialist review>
+   ```
+3. Report to CEO: "Specialist needed: [domain]. Request: [path]."
+4. **Wait.** The CEO will route through the Delegate Agent. When the CEO re-invokes you with the specialist output, integrate it into your test results and continue.
+
+Do not use this for routine QA work (test case writing, happy path testing, regression checks). Use it only when the domain is genuinely outside your expertise.
+
+---
+
 ## What You Must Never Do
 
 - Never skip writing test cases because something "seems simple"
