@@ -26,7 +26,10 @@
     "./skills/hire-agent/SKILL.md",
     "./skills/create-skill/SKILL.md",
     "./skills/install-tooling/SKILL.md",
-    "./skills/feasibility-check/SKILL.md"
+    "./skills/feasibility-check/SKILL.md",
+    "./skills/testcase-generate/SKILL.md",
+    "./skills/pr-review/SKILL.md",
+    "./skills/research-sparring/SKILL.md"
   ],
   "hooks": "./hooks/hooks.json"
 }
