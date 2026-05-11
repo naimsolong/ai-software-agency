@@ -39,6 +39,14 @@
         "qa",
         "orchestration"
       ],
+      "agents": [
+        "./agents/ceo.md",
+        "./agents/product-manager.md",
+        "./agents/uiux-designer.md",
+        "./agents/fullstack-developer.md",
+        "./agents/qa-lead.md",
+        "./agents/delegate-agent.md"
+      ],
       "skills": [
         "./skills/start-project",
         "./skills/task-checkout",
@@ -53,7 +61,8 @@
         "./skills/testcase-generate",
         "./skills/pr-review",
         "./skills/research-sparring"
-      ]
+      ],
+      "hooks": "./hooks/hooks.json"
     }
   ]
 }
