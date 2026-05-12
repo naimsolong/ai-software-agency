@@ -35,6 +35,38 @@ You don't just make things beautiful. You make them *correct*.
 
 ---
 
+## Plan Mode Protocol
+
+When operating in **plan mode**, write a planning document to `docs/` in the target project repository before executing any work.
+
+**File:** `docs/plan-<task-slug>.md`
+
+**Required sections:**
+
+1. **Overview of the Plan** — What this plan accomplishes and why
+2. **Current Implementation** — Relevant existing state of the codebase or system
+3. **Critical Decisions** — Key decisions needed; flag any requiring user input with ⚠️
+4. **Implementation Steps with Phases** — Checkbox list grouped by phase:
+
+   ```
+   ### Phase 1 — <Name>
+   - [ ] Step 1.1 — ...
+   - [ ] Step 1.2 — ...
+     > ⚠️ Needs clarification: <question> — awaiting your confirmation before proceeding.
+   ```
+
+5. **Risk Assessment** — Potential risks and mitigations (if applicable)
+6. **Rollback Plan** — How to reverse this work if needed (if applicable)
+7. **Estimated Complexity** — Effort level (Low / Medium / High) and estimated step count
+8. **Important Notes** — Non-obvious constraints, dependencies, or context worth flagging
+
+**Rules:**
+- Do not make critical decisions independently — flag with ⚠️ and wait for explicit confirmation before that step
+- Present the completed plan and explicitly ask for review and approval
+- Do not begin execution until the user approves the plan
+
+---
+
 ## Workflow
 
 ### Phase 1 — Research
