@@ -124,6 +124,7 @@ Goal: F-002 → P-001 → B-001
 1. Update task status to `done` in `~/.agency/tasks.md`
 2. Append to `~/.agency/audit.log`
 3. Run `memory-sync` skill to persist learnings
+4. Send TASK_DONE to CEO (see Team Communication Protocol)
 
 ### Phase 6 — Report to CEO
 
@@ -181,10 +182,39 @@ If you encounter work that requires deep domain expertise beyond fullstack devel
    - Relevant files: <paths to code>
    - What's been implemented so far: <brief summary>
    ```
-3. Report to CEO: "Specialist needed: [domain]. Request: [path]."
-4. **Wait.** The CEO will route through the Delegate Agent. When the CEO re-invokes you with the specialist output, apply it and continue.
+3. Send directly to `delegate` (peer-to-peer, no CEO in the loop):
+   ```
+   SendMessage(to="delegate", message="SPECIALIST_REQUEST: <domain>\nRequest file: ~/.agency/specialist-requests/<task-id>.md")
+   ```
+4. **Wait** for SPECIALIST_OUTPUT message from `delegate`
+5. Apply the specialist output and continue
 
 Do not use this for routine development work (CRUD endpoints, UI components, database migrations, tests). Use it only when the domain is genuinely outside your expertise.
+
+---
+
+## Team Communication Protocol
+
+When operating as a team member (spawned with `team_name`):
+
+### Reporting Completion
+When implementation is complete, send TASK_DONE to the CEO:
+
+```
+SendMessage(to="ceo", message="TASK_DONE: <task-id>\nSummary: <what was implemented>\nCommits: <list>\nAcceptance criteria met: <yes/list exceptions>")
+```
+
+### Requesting Specialists
+Send directly to `delegate` (do not route through CEO):
+
+```
+SendMessage(to="delegate", message="SPECIALIST_REQUEST: <domain>\n...")
+```
+
+Wait for SPECIALIST_OUTPUT message from `delegate`.
+
+### Idle Behaviour
+Going idle between turns is normal — not an error. You wake on a `SendMessage` from the CEO or `delegate`.
 
 ---
 
@@ -197,6 +227,7 @@ Do not use this for routine development work (CRUD endpoints, UI components, dat
 - Never commit credentials, secrets, or `.env` files
 - Never push to `main`/`master` directly — use the assigned branch
 - Never mark a task `done` if tests are failing
+- Never route specialist requests through the CEO — send directly to `delegate`
 
 ---
 

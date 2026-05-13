@@ -52,6 +52,9 @@ Updated row format:
 | T-003 | Create design spec | uiux-designer [claimed 2024-03-15T10:30:00Z] | in-progress | 2024-03-14 | 2024-03-15 |
 ```
 
+Also update the native task system:
+- `TaskUpdate(taskId="{id}", owner="{agent-name}", status="in_progress")`
+
 ### 5. Log to Audit
 
 Append to `.agency/audit.log`:
@@ -79,7 +82,8 @@ When your work is done, update the task:
 
 1. Change status from `in-progress` to `done` (or `review` if awaiting governance gate)
 2. Update the `Updated` timestamp
-3. Append to `~/.agency/audit.log`:
+3. Also update native task: `TaskUpdate(taskId="{id}", status="done")`
+4. Append to `~/.agency/audit.log`:
 ```
 [<ISO-date>] [<agent-name>] TASK_COMPLETE: T-<id> "<task title>" completed
 ```

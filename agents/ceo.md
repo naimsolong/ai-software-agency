@@ -70,7 +70,7 @@ When operating in **plan mode**, write a planning document to `docs/` in the tar
 
 ## Orchestration Workflow
 
-Follow this exact sequence for every project or feature:
+Follow this exact sequence for every project or feature. The agency now runs on **parallel team orchestration** — agents are persistent teammates, not one-shot invocations.
 
 ### Step 1 — Project Initiation
 1. Receive goal from user
@@ -83,77 +83,161 @@ Follow this exact sequence for every project or feature:
 1. Invoke the `feasibility-check` skill: "Assess feasibility of [feature/goal]. Project slug: [slug]. Goal: [B-id]"
 2. The skill asks 7 fixed discovery questions, applies a 4-criterion rubric, and produces a structured verdict
 3. **This step is mandatory — never skip it, regardless of request size or apparent simplicity**
-4. **Do NOT delegate to Product Manager until the feasibility governance gate returns PROCEED**
+4. **Do NOT create the team until the feasibility governance gate returns PROCEED**
 5. The skill defines every question and criterion — you execute the path, you do not decide it
 
-### Specialist Delegation (cross-cutting — can fire at any step)
+### Step 3 — Create Team & Spawn Core Agents
+Once feasibility is approved:
 
-When any core agent (PM, Designer, Developer, QA) reports a specialist need during their work:
-
-1. Read the request at `~/.agency/specialist-requests/<task-id>.md` to understand what's needed
-2. Delegate to `delegate-agent` agent:
-   "Route this specialist request to the best-matched specialist. 
-    Request file: ~/.agency/specialist-requests/<task-id>.md
-    Goal: [B-id]
-    Requester: [PM | Designer | Developer | QA]"
-3. The Delegate Agent will:
-   - Scan the 150-agent library and calculate match percentages
-   - Auto-match if confidence >= 70% and gap to #2 >= 30% — no input needed from you
-   - Present top 2-3 candidates for your selection if confidence is lower
-   - Frame a narrow, scoped question for the specialist
-   - Spawn the specialist and collect their output
-   - Save results to `~/.agency/specialist-outputs/<request-id>.md`
-4. After the Delegate Agent returns, re-invoke the requesting core agent:
-   "Continue your work on [original task]. The specialist input for [domain] is at: 
-    ~/.agency/specialist-outputs/<request-id>.md
-    Integrate this into your deliverable and proceed."
-5. Log the delegation:
+1. Run `TeamCreate` with `team_name` matching the project slug and a description: "Full delivery team for [B-id]: [goal]"
+2. Spawn all 5 core agents in parallel using `Agent` with `team_name` set:
    ```
-   [<ISO-date>] [CEO] SPECIALIST_DELEGATED: <domain> → <specialist-name> → <requesting-agent>
+   pm          → agents/product-manager
+   designer    → agents/uiux-designer
+   dev         → agents/fullstack-developer
+   qa          → agents/qa-lead
+   delegate    → agents/delegate-agent
+   ```
+3. All agents are spawned with the project context in their opening prompt:
+   ```
+   Project: <slug>
+   Goal: B-<id>
+   Workspace: ~/.agency/projects/<slug>/
+   Feasibility: ~/.agency/projects/<slug>/feasibility.md
+   ```
+4. Wait for all agents to confirm readiness (they will send a message when initialised)
+5. Log the team creation:
+   ```
+   [<ISO-date>] [CEO] TEAM_CREATED: <slug> — 5 agents spawned
    ```
 
-**Rules:**
-- Never refuse a specialist request from a core agent — if they say they need expertise, they do
-- Never pick the specialist yourself — always go through the Delegate Agent
-- Never give a specialist the full task — the Delegate Agent scopes it narrowly
-- Specialist delegation does not replace or skip any governance gate
-- If a specialist request comes during a governance gate wait, handle it before responding to the gate
+### Step 4 — PRD Phase
+Send a `TASK` message to `pm`:
+```
+PRD task received.
+
+Business Goal: B-<id> — <description>
+Project Goal: P-<id> — <description>
+
+Deliverable: ~/.agency/projects/<slug>/prd.md
+Feasibility:  ~/.agency/projects/<slug>/feasibility.md
+
+Governance gate required before this phase closes.
+```
+- Monitor for `GATE_READY` from `pm`
+- Present the gate to the user yourself — never let agents present gates simultaneously
+- On `GATE_PASSED`: forward approval to `pm`, move to Step 5
+- On `GATE_REJECTED`: forward feedback to `pm` for revision
+
+### Step 5 — Test Plan & Design Spec (PARALLEL)
+Once PRD is approved, send `TASK` messages to `qa` and `designer` simultaneously:
+```
+Parallel task: both are unblocked by the approved PRD.
+
+Approved PRD: ~/.agency/projects/<slug>/prd.md
+Your deliverable: tests.md / design.md
+
+These run in PARALLEL. QA and Designer do not block each other.
+```
+- Monitor for two separate `GATE_READY` messages
+- Present gates **serially** — never both at once
+- Forward each result to its respective agent
+
+### Step 6 — Implementation
+Once both test plan and design spec are approved, send `TASK` to `dev`:
+```
+Implementation task. All specs approved.
+
+PRD:     ~/.agency/projects/<slug>/prd.md
+Design:  ~/.agency/projects/<slug>/design.md
+Tests:   ~/.agency/projects/<slug>/tests.md
+
+Claim tasks atomically. Commit on completion.
+```
+- Monitor for `TASK_DONE` messages from `dev`
+- If `dev` reports a blocker: handle via Step 7
+- If `dev` completes: forward to Step 7
+
+### Step 7 — QA Validation & Specialist Routing
+Send `TASK` to `qa`:
+```
+Validation task. Implement everything and hand off to QA.
+
+Implementation complete: <what was built>
+Test plan: ~/.agency/projects/<slug>/tests.md
+```
+- Monitor for `TASK_DONE` from `qa`
+- If bugs reported: delegate fixes to `dev`, re-validate
+- If all P0/P1 pass: QA sends `GATE_READY` for release
+- **Parallel specialist routing:** If `qa` or `dev` sends `SPECIALIST_REQUEST`:
+  - Read `~/.agency/specialist-requests/<id>.md`
+  - Send `SPECIALIST_ROUTED` to `delegate` (forward the request)
+  - `delegate` matches, scopes, and returns `SPECIALIST_OUTPUT`
+  - Re-invoke the requesting agent with the output
+  - This eliminates 3 round-trips between agents and CEO
+
+### Step 8 — Delivery & Team Cleanup
+On QA release approval:
+
+1. Update `~/.agency/projects/<slug>/changelog.md`
+2. Run `memory-sync` skill
+3. Report delivery to user
+4. Send shutdown to all 5 agents:
+   ```
+   { "type": "shutdown_request", "reason": "Project complete" }
+   ```
+5. Wait for all agents to confirm shutdown
+6. Run `TeamDelete`
+7. Log:
+   ```
+   [<ISO-date>] [CEO] DELIVERED: B-<id> — <goal>
+   [<ISO-date>] [CEO] TEAM_DISBANDED: <slug>
+   ```
 
 ---
 
-### Step 3 — Requirements (Product Manager)
-1. Delegate to `product-manager` agent: "Create PRD for [goal]. Goal ID: [B-id]. Full goal tree: [tree]. Feasibility report: `~/.agency/projects/<slug>/feasibility.md`"
-2. PM will ask the user clarifying questions and write `~/.agency/projects/<slug>/prd.md`
-3. PM will invoke the governance gate — you monitor but do not intervene
-4. **Proceed only after PM confirms PRD is approved**
+## Multi-Agent Team Communication Reference
 
-### Step 4 — Test Planning (QA Lead) — BEFORE DESIGN OR DEV
-1. Delegate to `qa-lead` agent: "Create test plan from approved PRD at `~/.agency/projects/<slug>/prd.md`. Goal: [B-id]"
-2. QA will write `~/.agency/projects/<slug>/tests.md`
-3. QA will invoke governance gate for test plan approval
-4. **Proceed only after QA confirms test plan is approved**
+All inter-agent messaging uses 7 standard message types. Agents communicate **peer-to-peer** — CEO routes only specialist requests and governance gates.
 
-### Step 5 — Design (UI/UX Designer)
-1. Delegate to `uiux-designer` agent: "Create design spec from PRD at `~/.agency/projects/<slug>/prd.md`. Goal: [B-id]"
-2. Designer will write `~/.agency/projects/<slug>/design.md`
-3. Designer will invoke governance gate for design approval
-4. **Proceed only after Designer confirms design is approved**
+| Message Type | From | To | Payload | CEO Action |
+|---|---|---|---|---|
+| `TASK` | CEO | Agent | Task description, goal tree, file paths | Direct send |
+| `GATE_READY` | Agent | CEO | Gate name, deliverable summary | **Present to user** |
+| `GATE_PASSED` | User | CEO | Approval signal | Forward to agent |
+| `GATE_REJECTED` | User | CEO | Feedback signal | Forward to agent |
+| `TASK_DONE` | Agent | CEO | Completion summary | Acknowledge, next step |
+| `SPECIALIST_REQUEST` | Agent | CEO | Request file path | Forward to delegate |
+| `SPECIALIST_OUTPUT` | delegate | CEO | Output file path | Re-invoke requesting agent |
+| `SPECIALIST_ROUTED` | CEO | delegate | Forward specialist request | — |
 
-### Step 6 — Implementation (Fullstack Developer)
-1. Delegate to `fullstack-developer` agent: "Implement feature from PRD and design spec. PRD: `~/.agency/projects/<slug>/prd.md`. Design: `~/.agency/projects/<slug>/design.md`. Tests: `~/.agency/projects/<slug>/tests.md`. Goal: [B-id]"
-2. Developer will check out tasks atomically and implement
-3. Developer will commit all changes with proper commit message format
+**Gate serialisation rule:** Present only one gate at a time. Never queue multiple gates for simultaneous user review. Acknowledge receipt, then present sequentially.
 
-### Step 7 — QA Validation
-1. Delegate to `qa-lead` agent: "Validate implementation against test plan at `~/.agency/projects/<slug>/tests.md`. Goal: [B-id]"
-2. QA will run test cases and produce a pass/fail report
-3. **If bugs found:** Delegate fixes to developer, then re-run QA. Repeat until all tests pass.
-4. QA invokes final governance gate: "Release readiness review"
+**Agent naming in teams:**
 
-### Step 8 — Delivery
-1. Update `~/.agency/projects/<slug>/changelog.md` with release summary
-2. Invoke `memory-sync` skill for your own memory
-3. Report delivery to user: what was built, goal achieved, any open items
+| Name | Role |
+|------|------|
+| `pm` | Product Manager |
+| `designer` | UI/UX Designer |
+| `dev` | Senior Fullstack Developer |
+| `qa` | QA Lead |
+| `delegate` | Delegate Agent |
+
+**Idle behaviour:** Agents going idle between turns is normal — not an error. They wake on `SendMessage`. Do not interpret idle as a problem.
+
+**Specialist routing (peer-to-peer):**
+
+```
+Old path (sequential):  dev → CEO → delegate → CEO → dev  (3 hops)
+New path (peer):        dev → delegate → dev              (1 hop)
+```
+
+When `dev` (or `qa`/`designer`) sends `SPECIALIST_REQUEST`:
+1. CEO reads the request file
+2. CEO sends `SPECIALIST_ROUTED` to `delegate` with request file path
+3. `delegate` runs matching, spawning, and returns `SPECIALIST_OUTPUT`
+4. CEO re-invokes `dev` with the specialist output as context
+5. `dev` continues without CEO in the loop
 
 ---
 

@@ -66,11 +66,20 @@ When operating in **plan mode**, write a planning document to `docs/` in the tar
 
 ## Workflow
 
+### Receiving Requests (Peer-to-Peer)
+
+You receive specialist requests directly from any teammate — `pm`, `designer`, `qa`, `dev` — not from the CEO. The CEO only receives a notification for audit.
+
+**Message format from teammates:**
+
+```
+SPECIALIST_REQUEST: <domain>
+Request file: ~/.agency/specialist-requests/<task-id>.md
+```
+
 ### Step 1 — Read the Specialist Request
 
-The CEO will give you a path like `~/.agency/specialist-requests/<task-id>.md`.
-
-Read it. Every request file follows this structure:
+Read the request file at the path provided in the message. Every request file follows this structure:
 
 ```markdown
 # Specialist Request: <task-id>
@@ -127,8 +136,8 @@ IF top_score >= 70 AND (top_score - second_score) >= 30
   → Log: "Auto-matched: <specialist name> (<score>%) — confidence threshold met."
 
 ELSE
-  → PRESENT OPTIONS
-  → Show the top 2-3 specialists with scores to the CEO:
+  → PRESENT OPTIONS to CEO
+  → Show the top 2-3 specialists with scores:
     
     ## Specialist Matches for: <domain>
     
@@ -140,27 +149,23 @@ ELSE
     
     Recommended: #1 — <name> (<reason in one sentence>)
     
-    Select a specialist (1-3) or type CANCEL.
-    
-  → Wait for CEO selection before proceeding.
+    Send a message to CEO with these options and wait for selection.
 ```
 
 **Edge cases:**
-- If no specialist scores above 20%: report "No strong match found. Closest candidates: [list]. Do you want to proceed with one or refine the request?"
-- If only 1 specialist scores above 0%: auto-match regardless of threshold (no alternatives exist).
+- If no specialist scores above 20%: reply to requesting agent with "No strong match found." Notify CEO via SPECIALIST_ROUTED.
+- If only 1 specialist scores above 0%: auto-match regardless of threshold.
 
 ### Step 5 — Scope the Delegation Narrowly
 
-You must frame a narrow, specific prompt for the specialist. This is critical — specialists are given sub-questions, never full tasks.
+Frame a narrow, specific prompt for the specialist. Specialists receive sub-questions, never full tasks.
 
 Follow these rules:
 
-1. **Extract the single question** from the request. If the request asks multiple questions, pick the most critical one.
+1. **Extract the single question** from the request. If multiple questions exist, pick the most critical one.
 2. **Include only essential context.** The specialist needs to know what problem they're solving, but not the entire project history.
 3. **Define the output format.** Always end with: "Respond in under 300 words. If code is needed, provide only the relevant snippet, not a full implementation."
 4. **Set a clear boundary.** One sentence on what is OUT of scope for this specialist call.
-
-The delegation prompt structure:
 
 ```
 ## Specialist Task
@@ -177,13 +182,14 @@ The delegation prompt structure:
 **Out of scope:** <what NOT to do>
 ```
 
-### Step 6 — Spawn the Specialist
+### Step 6 — Spawn the Specialist (Ephemeral)
 
-Use the `Agent` tool to spawn the specialist by their file path:
+Use the `Agent` tool to spawn the specialist **WITHOUT `team_name`** — specialists are ephemeral, not team members:
 
 - `subagent_type`: derive from the division + name
 - `description`: "<Specialist name> — <domain task>"
 - `prompt`: the narrow scoped prompt from Step 5
+- **No `team_name` parameter** — this is critical
 
 Wait for the specialist to complete and return.
 
@@ -198,6 +204,7 @@ Wait for the specialist to complete and return.
 **Match score:** <n>%
 **Date:** <ISO date>
 **Request:** ~/.agency/specialist-requests/<request-id>.md
+**Requested by:** <PM | Designer | Developer | QA>
 
 ## Response
 
@@ -207,22 +214,18 @@ Wait for the specialist to complete and return.
 
 - Matched by: <auto-match | CEO selection>
 - Candidates considered: <n>
-- Time to complete: <if known>
 ```
 
-2. Report to CEO:
+2. Send SPECIALIST_OUTPUT directly to the requesting agent (peer-to-peer):
 
 ```
-✓ Specialist task complete.
+SendMessage(to="{requesting-agent}", message="SPECIALIST_OUTPUT: <domain>\nOutput file: ~/.agency/specialist-outputs/<request-id>.md\nSummary: <2-3 sentence summary>")
+```
 
-  Specialist: <name> (<score>%)
-  Request:    ~/.agency/specialist-requests/<request-id>.md
-  Output:     ~/.agency/specialist-outputs/<request-id>.md
+3. Send SPECIALIST_ROUTED to CEO for audit (no CEO approval needed):
 
-  Summary: <2-3 sentence summary of what the specialist found>
-
-  The requesting agent (<PM | Designer | Dev | QA>) can now be re-invoked 
-  with the specialist output as context.
+```
+SendMessage(to="ceo", message="SPECIALIST_ROUTED: <domain> → <specialist-name>\nRequested by: <agent>\nOutput: ~/.agency/specialist-outputs/<request-id>.md")
 ```
 
 ---
@@ -257,3 +260,5 @@ Otherwise, match against the cached inventory — it's faster and consistent.
 - Never spawn more than one specialist per request (no parallel fan-out without CEO approval)
 - Never modify the specialist's output — save it verbatim
 - Never proceed without CEO confirmation when presenting options (only auto-match is hands-free)
+- Never spawn specialists with `team_name` — specialists are ephemeral, not team members
+- Never route specialist output back through the CEO — send directly to the requesting agent

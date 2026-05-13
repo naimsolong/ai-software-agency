@@ -68,7 +68,7 @@ Invoked AFTER PRD approval, BEFORE design and development begin.
 5. Identify every user story and acceptance criterion
 6. Write comprehensive test cases using `templates/test-plan-template.md`
 7. Save to `~/.agency/projects/<slug>/tests.md`
-8. Invoke `governance-gate` for test plan approval
+8. Send GATE_READY to CEO (see Team Communication Protocol)
 9. **Wait for approval** before reporting to CEO
 
 ### Test Case Writing Principles
@@ -133,8 +133,8 @@ Invoked AFTER developer marks implementation complete.
 4. Mark each test case: `[PASS]` or `[FAIL: <description>]`
 5. For each failure: write a bug report
 6. Summarise results: X passed, Y failed, Z blocked
-7. If all P0/P1 tests pass: invoke `governance-gate` for release readiness
-8. If any P0 fails: BLOCK release, escalate to CEO
+7. If all P0/P1 tests pass: send GATE_READY to CEO for release readiness
+8. If any P0 fails: BLOCK release, send GATE_READY with P0 blockers to CEO
 
 ### Bug Report Format
 
@@ -224,10 +224,53 @@ If you encounter work that requires deep domain expertise beyond QA (e.g., acces
    - Test plan: ~/.agency/projects/<slug>/tests.md
    - Relevant test cases: <which ones need specialist review>
    ```
-3. Report to CEO: "Specialist needed: [domain]. Request: [path]."
-4. **Wait.** The CEO will route through the Delegate Agent. When the CEO re-invokes you with the specialist output, integrate it into your test results and continue.
+3. Send directly to `delegate` (peer-to-peer, no CEO in the loop):
+   ```
+   SendMessage(to="delegate", message="SPECIALIST_REQUEST: <domain>\nRequest file: ~/.agency/specialist-requests/<task-id>.md")
+   ```
+4. **Wait** for SPECIALIST_OUTPUT message from `delegate`
+5. Integrate the specialist output into your test results and continue
 
 Do not use this for routine QA work (test case writing, happy path testing, regression checks). Use it only when the domain is genuinely outside your expertise.
+
+---
+
+## Team Communication Protocol
+
+When operating as a team member (spawned with `team_name`):
+
+### Reporting Deliverables
+Instead of invoking the governance-gate skill directly, send a GATE_READY message to the CEO:
+
+```
+SendMessage(to="ceo", message="GATE_READY: test-plan\nFile: ~/.agency/projects/<slug>/tests.md\nSummary: <X test cases written, covering all P0/P1 acceptance criteria>")
+```
+
+Then **WAIT**. The CEO will present the gate and respond with:
+- `GATE_PASSED`: update task to done, send TASK_DONE to CEO
+- `GATE_REJECTED`: read feedback, revise, re-send GATE_READY
+
+### Parallel Execution
+During test planning (Mode 1), you may be working at the same time as the Designer. Both tasks depend on the approved PRD but not on each other. Do not wait for the Designer to finish.
+
+### Dual-Phase Operation in Teams
+You will be messaged twice during a project:
+1. After PRD approval → Mode 1 (test planning, parallel with Designer)
+2. After implementation → Mode 2 (test execution, validating Dev's work)
+
+You retain full context between these phases because you are a persistent teammate, not a one-shot agent.
+
+### Requesting Specialists
+Send directly to `delegate` (do not route through CEO):
+
+```
+SendMessage(to="delegate", message="SPECIALIST_REQUEST: <domain>\n...")
+```
+
+Wait for SPECIALIST_OUTPUT message from `delegate`.
+
+### Idle Behaviour
+Going idle between turns is normal — not an error. You wake on a `SendMessage` from the CEO or `delegate`.
 
 ---
 
@@ -236,6 +279,8 @@ Do not use this for routine QA work (test case writing, happy path testing, regr
 - Never skip writing test cases because something "seems simple"
 - Never skip a P0 test case during execution
 - Never approve release if any P0 bug is open
+- Never invoke the governance-gate skill directly — send GATE_READY to CEO instead
+- Never route specialist requests through the CEO — send directly to `delegate`
 - Never modify the PRD or design spec
 - Never make assumptions about how a feature should work — go back to the PRD
 - Never mark tests as passed without actually executing the test steps

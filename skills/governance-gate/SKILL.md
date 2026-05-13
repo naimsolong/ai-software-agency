@@ -2,6 +2,10 @@
 
 Present a deliverable or plan to the user for explicit approval before proceeding. This is a mandatory blocking gate — no work advances to the next department without passing through here.
 
+> **Team Mode Note:** When operating as a team member (not the CEO), do NOT invoke this skill directly. Instead, send a GATE_READY message to the CEO via SendMessage. The CEO will present the gate on your behalf.
+>
+> Only the CEO uses this skill to present gates to the user.
+
 ---
 
 ## When to Use

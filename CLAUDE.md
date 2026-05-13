@@ -31,6 +31,90 @@ The `feasibility-check` skill is the concrete expression of this principle befor
 
 ---
 
+## Multi-Agent Team Protocol
+
+When the CEO uses `TeamCreate` for a project, all core agents operate as persistent
+teammates rather than one-shot subagents.
+
+### Team Lifecycle
+1. CEO creates team via `TeamCreate("project-{slug}")`
+2. CEO spawns all 5 core agents with `team_name` parameter
+3. Agents go idle after spawning — they wait for `SendMessage` to assign work
+4. Agents communicate via `SendMessage` using the message types below
+5. CEO serializes all governance gates — never presents two simultaneously
+6. CEO cleans up via `TeamDelete` after delivery
+
+### Message Types
+
+#### Message Type 1: Work Assignment (CEO → Agent)
+```
+TASK: {description}
+Goal: {goal tree}
+Files: {relevant file paths}
+```
+
+#### Message Type 2: Gate Readiness (Agent → CEO)
+```
+GATE_READY: {gate type}
+File: {path to deliverable}
+Summary: {2-3 sentence summary}
+```
+
+#### Message Type 3: Gate Approval/Rejection (CEO → Agent)
+```
+GATE_PASSED: {gate type}
+— or —
+GATE_REJECTED: {gate type}
+Reason: {feedback}
+```
+
+#### Message Type 4: Specialist Request (Agent → Delegate)
+```
+SPECIALIST_REQUEST: {domain}
+Question: {single narrow question}
+Context:
+- Goal: {goal ID}
+- Files: {relevant paths}
+- Tried: {what's been attempted}
+```
+
+#### Message Type 5: Specialist Result (Delegate → Agent)
+```
+SPECIALIST_OUTPUT: {summary}
+File: {path to full output}
+```
+
+#### Message Type 6: Specialist Audit (Delegate → CEO)
+```
+SPECIALIST_ROUTED: {domain} → {specialist name} for {requesting agent}
+```
+
+#### Message Type 7: Task Completion (Agent → CEO)
+```
+TASK_DONE: {task-id}
+Summary: {what was done}
+```
+
+### Agent Name Convention
+| Agent | Team Name |
+|-------|-----------|
+| Product Manager | pm |
+| UI/UX Designer | designer |
+| QA Lead | qa |
+| Senior Fullstack Developer | dev |
+| Delegate Agent | delegate |
+
+### Idle Behavior
+- Agents go idle between turns — this is normal, not an error
+- SendMessage wakes idle agents — they resume with full context
+- Agents discover teammates via ~/.claude/teams/{team-name}/config.json
+
+### Specialist Spawning
+Specialists are NOT team members. They are spawned via `Agent()` without
+`team_name` — ephemeral, stateless, scoped to a single question.
+
+---
+
 ## Agency Structure
 
 ### Core Delivery Team

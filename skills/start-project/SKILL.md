@@ -179,7 +179,36 @@ Write a starter `MEMORY.md` for each agent:
 
 `~/.agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
 
-### 10. Confirm Initialisation
+### 10. Create Project Team
+
+After workspace initialisation (Steps 1-9), the CEO creates the team and spawns all core agents:
+
+1. **Run `TeamCreate`** with the project slug:
+   ```
+   TeamCreate(team_name="project-{slug}", description="Full delivery team for B-001: {goal}")
+   ```
+
+2. **Create native tasks** for all 5 deliverables:
+   ```
+   TaskCreate for: "Write PRD"            (owner: pm)
+   TaskCreate for: "Write test plan"      (owner: qa)
+   TaskCreate for: "Create design spec"    (owner: designer)
+   TaskCreate for: "Implement feature"    (owner: dev)
+   TaskCreate for: "Validate implementation" (owner: qa)
+   ```
+
+3. **Spawn all 5 core agents** as teammates (via CEO, after feasibility gate):
+   ```
+   Agent(subagent_type="asa:product-manager",  team_name="project-{slug}", name="pm")
+   Agent(subagent_type="asa:uiux-designer",    team_name="project-{slug}", name="designer")
+   Agent(subagent_type="asa:qa-lead",          team_name="project-{slug}", name="qa")
+   Agent(subagent_type="asa:fullstack-developer", team_name="project-{slug}", name="dev")
+   Agent(subagent_type="asa:delegate-agent",    team_name="project-{slug}", name="delegate")
+   ```
+
+All agents go idle after spawning. CEO assigns work via SendMessage. Specialists (spawned by `delegate`) are ephemeral — spawned WITHOUT `team_name`.
+
+### 11. Confirm Initialisation
 
 Output a summary:
 
@@ -195,7 +224,10 @@ Files created:
   ~/.agency/projects/<slug>/ (4 document placeholders)
   ~/.agency/memory/<agent>/MEMORY.md (5 agents)
 
-Next: CEO will begin orchestration. Business goal: <B-001>
+Team: project-<slug> created with 5 core agents
+Tasks: 5 native tasks created (T-001 through T-005)
+
+Next: CEO runs feasibility gate, then spawns team. Business goal: <B-001>
 ```
 
-Delegate to the CEO agent to begin Step 1 of the orchestration workflow.
+Pass to CEO with full context to begin Step 1 of the orchestration workflow.
