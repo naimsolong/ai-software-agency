@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 156-agent specialist library.",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "plugins": [
     {
@@ -15,7 +15,7 @@
         "repo": "naimsolong/ai-software-agency"
       },
       "description": "CEO-orchestrated software agency with autonomous Product, Design, Development, and QA departments. Includes persistent agent memory, governance gates, goal-aware task orchestration, on-demand skill scaffolding, agent hiring, MCP connector installation, GitHub repository operations, and a 156-agent specialist library spanning engineering, design, marketing, sales, testing, and more.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "naimsolong"
       },
