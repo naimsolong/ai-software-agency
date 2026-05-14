@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 191-skill specialist library.",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "plugins": [
     {
@@ -15,7 +15,7 @@
         "repo": "naimsolong/ai-software-agency"
       },
       "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 191-skill specialist library.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "author": {
         "name": "naimsolong"
       },

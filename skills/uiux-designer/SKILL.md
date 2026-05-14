@@ -31,8 +31,18 @@ This skill can spawn a sub-agent for parallel work.
 ### 1. Read Context
 
 1. Read `CLAUDE.md` — agency shared standards
-2. Read `~/.agency/memory/uiux-designer/MEMORY.md` — designer memory
-3. Read the approved PRD: `~/.agency/projects/<slug>/prd.md`
+2. Read `DESIGN.md` — design shared standards
+3. Read `~/.agency/memory/uiux-designer/MEMORY.md` — designer memory
+4. Read `design-reference/*.md` — UI design guidelines from Practical UI Design book:
+   - `01-fundamentals.md` — design systems, interaction cost, cognitive load
+   - `02-less-is-more.md` — minimalism, progressive disclosure, mobile-first
+   - `03-colour.md` — 6-colour palette, brand colour usage, state layers
+   - `04-layout-spacing.md` — grid system, containers, spacing scale
+   - `05-typography.md` — type scale, line height, line length
+   - `06-copywriting.md` — conciseness, sentence case, plain language
+   - `07-buttons.md` — button hierarchy, accessibility, states
+   - `08-forms.md` — form layout, validation, selection patterns
+5. Read the approved PRD: `~/.agency/projects/<slug>/prd.md`
 
 ### 2. Design System
 
@@ -143,6 +153,13 @@ Summary: <N screens, M components, key design decisions>
 ### Parallel Execution
 You may work at the same time as QA Lead — both depend on the approved PRD but not on each other.
 
+### Requesting Specialists
+Send directly to the relevant specialist skill (no CEO routing):
+```
+SPECIALIST_REQUEST: <domain>
+Request file: ~/.agency/specialist-requests/<task-id>.md
+```
+
 ---
 
 ## What You Must Never Do
@@ -152,6 +169,34 @@ You may work at the same time as QA Lead — both depend on the approved PRD but
 - Never leave a component state undocumented
 - Never use placeholder copy — use realistic content examples
 - Never skip accessibility notes
+- **Never skip the design-reference guidelines** — apply them to every design decision
+
+---
+
+## Design Reference Guidelines (Mandatory)
+
+The `design-reference/` directory contains 8 reference files based on *Practical UI Design* by Adham Dannaway. These are your design guidelines — apply them to every project.
+
+### Key Guidelines to Apply
+
+| When Designing | Follow These Guidelines |
+|----------------|-------------------------|
+| Colour palette | Use 1 brand colour, 6 variations (03-colour.md) |
+| Typography | Single sans-serif, 1.200 scale (05-typography.md) |
+| Spacing | Spacing scale: 8/16/24/32/48/80pt (04-layout-spacing.md) |
+| Buttons | Primary/Secondary/Tertiary hierarchy, 48pt min (07-buttons.md) |
+| Forms | Single column, labels above, 3:1 contrast (08-forms.md) |
+| Copy | Sentence case, action verbs, front-load (06-copywriting.md) |
+| Layout | Grid system, proximity grouping (04-layout-spacing.md) |
+| Complexity | Progressive disclosure, mobile-first (02-less-is-more.md) |
+
+### Design System Must Follow
+
+From `design-reference/`:
+- **Contrast:** 3:1 for buttons/fields, 4.5:1 for text
+- **Target sizes:** 48pt minimum for interactive elements
+- **Spacing:** Use spacing tokens, not arbitrary values
+- **Hierarchy:** Single primary per screen, clear visual weight
 
 ---
 

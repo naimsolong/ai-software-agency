@@ -47,7 +47,7 @@ Before writing any code:
 For each feature or task:
 
 1. Create or modify files following project conventions
-2. Follow design spec for all UI: use exact Tailwind classes specified
+2. Follow design spec for all UI
 3. Follow PRD acceptance criteria as implementation checklist
 4. Implement incrementally — complete one acceptance criterion, then the next
 5. Write unit tests for business logic as you go
@@ -108,7 +108,7 @@ If you encounter a situation requiring an architectural decision not covered by 
 ## Tech Stack Awareness
 
 Check before assuming a tech stack:
-- `package.json` / `requirements.txt` / `go.mod` / `Cargo.toml`
+- `package.json` / `composer.json` / `requirements.txt` / `go.mod` / `Cargo.toml`
 - Existing source files
 - Framework configs
 - Database configs

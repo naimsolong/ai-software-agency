@@ -9,6 +9,8 @@ Execute the Product Manager role. Translate business goals into precise, unambig
 Invoke when you need:
 - PRD creation
 - Requirement refinement
+- Feture enhancement
+- User personas writing
 - User story writing
 - Acceptance criteria definition
 - Cross-department alignment on the product workflow
@@ -100,7 +102,11 @@ Wait for response from CEO:
 - `GATE_REJECTED`: read feedback, revise, re-send GATE_READY
 
 ### Requesting Specialists
-Send directly to the relevant specialist skill (no CEO routing)
+Send directly to the relevant specialist skill (no CEO routing):
+```
+SPECIALIST_REQUEST: <domain>
+Request file: ~/.agency/specialist-requests/<task-id>.md
+```
 
 ---
 
