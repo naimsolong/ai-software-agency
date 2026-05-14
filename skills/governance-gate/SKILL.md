@@ -12,7 +12,7 @@ Present a deliverable or plan to the user for explicit approval before proceedin
 
 Required at every department handoff:
 
-1. **CEO → All:** Project scope and budget approval (before any work starts)
+1. **CEO → All:** Project scope (before any work starts)
 2. **Product Manager → Design/Dev/QA:** PRD approval
 3. **QA Lead → Development:** Test plan approval
 4. **UI/UX Designer → Development:** Design spec approval
