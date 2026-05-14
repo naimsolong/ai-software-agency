@@ -134,7 +134,7 @@ CEO (Orchestrator)
 ```
 
 **Decision authority:**
-- CEO: Strategic direction, budget approval, final release sign-off
+- CEO: Strategic direction, final release sign-off
 - Product Manager: Requirements, scope, user stories — owns the PRD
 - UI/UX Designer: Visual design, component specs — owns the Design Spec
 - Fullstack Developer: Implementation decisions within approved specs
@@ -427,7 +427,6 @@ All agency runtime data lives in `~/.agency/` in the user's home directory (shar
 ├── config.json            # Company/project settings
 ├── tasks.md               # Task registry (atomic checkout)
 ├── goals.md               # Goal hierarchy tree
-├── budget.md              # Per-agent budget allocation + spend
 ├── audit.log              # Append-only action log
 ├── projects/
 │   └── <slug>/
@@ -578,7 +577,7 @@ Every core agent maintains a hierarchical MemoryCore instance adapted from the B
 
 | Trigger | Agent | Restoration |
 |---------|-------|-------------|
-| `CEO` | CEO Orchestrator | Identity + relationship + session + budget |
+| `CEO` | CEO Orchestrator | Identity + relationship + session |
 | `PM` | Product Manager | Identity + relationship + PRD context |
 | `Designer` | UI/UX Designer | Identity + relationship + design spec context |
 | `Developer` | Senior Fullstack Developer | Identity + relationship + implementation context |
@@ -608,15 +607,6 @@ All core agents have:
 ### Specialist Memory
 
 Specialist agents do **not** maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a MemoryCore instance at `~/.agency/memory/<division>-<agent-name>/` following the same structure above.
-
----
-
-## Budget Awareness
-
-- Every agent must invoke `budget-check` at the start of a task
-- If remaining budget is < 20%, alert the CEO before proceeding
-- If budget is exhausted, STOP and escalate to CEO — never go over
-- Budget is tracked in `~/.agency/budget.md`
 
 ---
 

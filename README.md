@@ -58,7 +58,7 @@ You: "Build a user authentication system"
 
 | Agent | Role | Model | Key Deliverable |
 |-------|------|-------|-----------------|
-| `ceo` | Orchestrates all departments, enforces budget and governance | Opus | Project status, goal tree |
+| `ceo` | Orchestrates all departments, enforces governance | Opus | Project status, goal tree |
 | `product-manager` | Refines requirements, writes PRDs | Sonnet | `~/.agency/projects/<slug>/prd.md` |
 | `uiux-designer` | Creates pixel-perfect design specs and wireframes | Sonnet | `~/.agency/projects/<slug>/design.md` |
 | `fullstack-developer` | Implements from approved specs | Sonnet | Application code (git commits) |
@@ -183,7 +183,6 @@ CEO identifies workflow gap
 - **Test-first workflow** — QA writes the test plan *before* the developer starts coding.
 - **Atomic task checkout** — No two agents work on the same task. Each task is locked before work begins.
 - **Persistent memory** — Agents remember decisions, preferences, and context across sessions.
-- **Budget governance** — Per-agent budget tracking with automatic alerts and hard stops.
 - **Goal-aware execution** — Every task carries its full goal ancestry so agents always know *why*, not just *what*.
 - **Audit log** — Every action is appended to `~/.agency/audit.log` for full transparency.
 - **Rollback support** — Approved states are tagged in the audit log and can be restored from git history.
@@ -222,9 +221,8 @@ In Claude Code, invoke:
 The skill will walk you through:
 1. Naming the project
 2. Defining the business goal
-3. Setting the budget
-4. Creating the `~/.agency/` workspace
-5. Handing off to the CEO to begin
+3. Creating the `~/.agency/` workspace
+4. Handing off to the CEO to begin
 
 ### Option B — Using the init script
 
@@ -254,10 +252,9 @@ Every project uses a `~/.agency/` directory in your home directory (shared acros
 
 ```
 ~/.agency/
-├── config.json           # Agency configuration and budgets
+├── config.json           # Agency configuration
 ├── tasks.md              # Atomic task registry
 ├── goals.md              # Business goal hierarchy
-├── budget.md             # Per-agent spend tracking
 ├── audit.log             # Append-only action log
 ├── projects/
 │   └── <your-project>/
@@ -349,14 +346,7 @@ Agents maintain persistent memory across sessions using Markdown files at `~/.ag
 
 Specialist agents are stateless by default. For recurring specialists, the CEO may create a memory file at `~/.agency/memory/<division>-<agent-name>/MEMORY.md`.
 
-## Budget Awareness
-
-Per-agent budgets are tracked in `~/.agency/budget.md`. Rules:
-
-- Every agent invokes `budget-check` at the **start of every task**
-- If remaining budget is **< 20%**, the agent alerts the CEO before proceeding
-- If budget is **exhausted**, the agent stops immediately and escalates — never goes over
-- Only the CEO can approve budget reallocations between agents
+---
 
 ## Commit Message Format
 
@@ -396,7 +386,6 @@ Goal: G-002 → P-001 → B-001
 |-------|--------|-------------|
 | `start-project` | `/start-project` | Initialise agency workspace, begin CEO orchestration |
 | `task-checkout` | Agents invoke automatically | Atomically claim a task before starting |
-| `budget-check` | Agents invoke automatically | Check and log spend per agent/task |
 | `memory-sync` | Agents invoke at session end | Persist learnings to agent MEMORY.md |
 | `governance-gate` | Agents invoke before handoffs | Present deliverable for human approval |
 | `goal-tree` | Agents invoke for context | Show full goal ancestry for a task |
@@ -476,14 +465,6 @@ Edit `~/.agency/config.json` to customise:
 
 ```json
 {
-  "budget": {
-    "total": 50,
-    "per_agent_percentage": {
-      "ceo": 0.20,
-      "fullstack-developer": 0.35
-    },
-    "alert_threshold_pct": 20
-  },
   "settings": {
     "require_governance_gates": true,
     "require_task_checkout": true,
@@ -528,7 +509,6 @@ ai-software-agency/
 ├── skills/
 │   ├── start-project/SKILL.md
 │   ├── task-checkout/SKILL.md
-│   ├── budget-check/SKILL.md
 │   ├── memory-sync/SKILL.md
 │   ├── governance-gate/SKILL.md
 │   ├── goal-tree/SKILL.md
@@ -583,7 +563,6 @@ Agents are plain Markdown files — fork and customise your team freely.
 
 - Add new agents in `agents/`
 - Add new skills in `skills/<skill-name>/SKILL.md`
-- Adjust budget splits in `templates/agency-config.json`
 
 ---
 

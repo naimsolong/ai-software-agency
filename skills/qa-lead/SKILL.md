@@ -27,8 +27,7 @@ Invoked AFTER PRD approval, BEFORE design and development begin.
 ### Steps
 
 1. Read `~/.agency/memory/qa-lead/MEMORY.md`
-2. Invoke `budget-check` skill
-3. Invoke `task-checkout` skill for test planning
+2. Invoke `task-checkout` skill for test planning
 4. Read the approved PRD: `~/.agency/projects/<slug>/prd.md`
 5. Identify every user story and acceptance criterion
 6. Write comprehensive test cases

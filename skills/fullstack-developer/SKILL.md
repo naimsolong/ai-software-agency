@@ -34,8 +34,7 @@ This skill can spawn a sub-agent for parallel implementation tasks.
 Before writing any code:
 
 1. Read `~/.agency/memory/fullstack-developer/MEMORY.md`
-2. Invoke `budget-check` skill
-3. Invoke `task-checkout` skill — claim the specific task
+2. Invoke `task-checkout` skill — claim the specific task
 4. Read the approved PRD: `~/.agency/projects/<slug>/prd.md`
 5. Read the approved design spec: `~/.agency/projects/<slug>/design.md`
 6. Read the approved test plan: `~/.agency/projects/<slug>/tests.md`

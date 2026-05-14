@@ -45,7 +45,6 @@
       "skills": [
         "./skills/start-project",
         "./skills/task-checkout",
-        "./skills/budget-check",
         "./skills/memory-sync",
         "./skills/governance-gate",
         "./skills/goal-tree",

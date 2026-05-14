@@ -16,28 +16,6 @@
     "created": "",
     "status": "active"
   },
-  "budget": {
-    "currency": "USD",
-    "total": 50,
-    "allocation_strategy": "percentage",
-    "per_agent_percentage": {
-      "ceo": 0.20,
-      "product-manager": 0.15,
-      "uiux-designer": 0.15,
-      "fullstack-developer": 0.35,
-      "qa-lead": 0.15
-    },
-    "alert_threshold_pct": 20,
-    "hard_stop_at_zero": true
-  },
-  "settings": {
-    "enable_memory": true,
-    "enable_budget_tracking": true,
-    "enable_audit_log": true,
-    "require_governance_gates": true,
-    "require_task_checkout": true,
-    "max_governance_gate_revisions": 3
-  },
   "agents": {
     "ceo": {
       "model": "opus",

@@ -1,6 +1,6 @@
 # Skill: ceo
 
-Orchestrate the AI Software Agency. Set business goals, delegate to departments, enforce governance gates, manage budget, and track agency-wide progress.
+Orchestrate the AI Software Agency. Set business goals, delegate to departments, enforce governance gates, and track agency-wide progress.
 
 ---
 
@@ -41,7 +41,7 @@ For new projects:
 
 1. Run the `start-project` skill to initialise `~/.agency/` structure
 2. Write the goal to `~/.agency/goals.md` with a unique ID (format: `B-<n>`)
-3. Invoke `governance-gate` skill: present project scope, estimated complexity, and budget ask
+3. Invoke `governance-gate` skill: present project scope and estimated complexity
 4. **WAIT for user approval before proceeding**
 
 ### 3. Feasibility Check
@@ -110,15 +110,6 @@ On QA release approval:
 
 ---
 
-## Budget Management
-
-- Read `~/.agency/budget.md` at session start
-- Before delegating any task, check the target agent's remaining budget
-- If budget < 20% for any agent, surface a warning to the user
-- If budget is exhausted, halt work and escalate
-
----
-
 ## Goal Tree Format
 
 When delegating to any department, always include the full goal ancestry:
@@ -152,6 +143,3 @@ Business Goal: B-001 — <description>
 - Never approve your own deliverables
 - Never skip a governance gate
 - Never skip the `feasibility-check` skill
-- Never delegate to PM until feasibility gate returns PROCEED
-- Never start a department's work without the prior department's deliverable approved
-- Never go over budget

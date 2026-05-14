@@ -20,8 +20,7 @@ Ask the user for:
 2. **Business goal** — one sentence: what problem does this solve?
 3. **Target users** — who will use this software?
 4. **Key features** — bullet list of the 3-5 most important capabilities
-5. **Budget** — total token budget for this project (or use default from config)
-6. **Technology preferences** — any stack constraints or preferences?
+5. **Technology preferences** — any stack constraints or preferences?
 
 Wait for all answers before proceeding.
 
@@ -34,7 +33,6 @@ Create `~/.agency/` in the user's home directory if it doesn't exist:
 ├── config.json
 ├── tasks.md
 ├── goals.md
-├── budget.md
 ├── audit.log
 ├── projects/
 │   └── <project-slug>/
@@ -57,19 +55,8 @@ Create `~/.agency/` in the user's home directory if it doesn't exist:
   "company": "<company name or 'AI Software Agency'>",
   "project": "<project-slug>",
   "created": "<ISO-date>",
-  "budget": {
-    "total": <budget-value>,
-    "per_agent": {
-      "ceo": 0.2,
-      "product-manager": 0.15,
-      "uiux-designer": 0.15,
-      "fullstack-developer": 0.35,
-      "qa-lead": 0.15
-    }
-  },
   "settings": {
     "enable_memory": true,
-    "enable_budget_tracking": true,
     "enable_audit_log": true,
     "require_governance_gates": true
   }
@@ -112,34 +99,7 @@ Create `~/.agency/` in the user's home directory if it doesn't exist:
 | T-005 | Execute test validation       | qa-lead         | pending  | <date>     | <date>     |
 ```
 
-### 6. Write `budget.md`
-
-```markdown
-# Budget Tracker
-
-**Project:** <project-slug>
-**Total Budget:** <total>
-**Allocated:** <total>
-**Spent:** 0
-**Remaining:** <total>
-
-## Per-Agent Allocation
-
-| Agent                | Allocated | Spent | Remaining | % Used |
-|----------------------|-----------|-------|-----------|--------|
-| ceo                  | <20%>     | 0     | <20%>     | 0%     |
-| product-manager      | <15%>     | 0     | <15%>     | 0%     |
-| uiux-designer        | <15%>     | 0     | <15%>     | 0%     |
-| fullstack-developer  | <35%>     | 0     | <35%>     | 0%     |
-| qa-lead              | <15%>     | 0     | <15%>     | 0%     |
-
-## Spend Log
-
-| Date | Agent | Task | Estimated Cost | Notes |
-|------|-------|------|---------------|-------|
-```
-
-### 7. Write `audit.log`
+### 6. Write `audit.log`
 
 ```
 [<ISO-date>] [SYSTEM] PROJECT_INIT: Project <project-slug> initialised via start-project skill
@@ -147,7 +107,7 @@ Create `~/.agency/` in the user's home directory if it doesn't exist:
 [<ISO-date>] [SYSTEM] TASKS_CREATED: T-001 through T-005 created in tasks.md
 ```
 
-### 8. Initialise Agent Memory Files
+### 7. Initialise Agent Memory Files
 
 Write a starter `MEMORY.md` for each agent:
 
@@ -175,11 +135,11 @@ Write a starter `MEMORY.md` for each agent:
 (to be populated through the project lifecycle)
 ```
 
-### 9. No `.gitignore` Update Needed
+### 8. No `.gitignore` Update Needed
 
 `~/.agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
 
-### 10. Create Project Team
+### 9. Create Project Team
 
 After workspace initialisation (Steps 1-9), the CEO creates the team and spawns all core agents:
 
@@ -208,7 +168,7 @@ After workspace initialisation (Steps 1-9), the CEO creates the team and spawns 
 
 All agents go idle after spawning. CEO assigns work via SendMessage. Specialists (spawned by `delegate`) are ephemeral — spawned WITHOUT `team_name`.
 
-### 11. Confirm Initialisation
+### 10. Confirm Initialisation
 
 Output a summary:
 
@@ -219,7 +179,6 @@ Files created:
   ~/.agency/config.json
   ~/.agency/tasks.md (5 tasks registered)
   ~/.agency/goals.md (B-001 created)
-  ~/.agency/budget.md (<budget> allocated)
   ~/.agency/audit.log
   ~/.agency/projects/<slug>/ (4 document placeholders)
   ~/.agency/memory/<agent>/MEMORY.md (5 agents)

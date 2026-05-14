@@ -50,8 +50,7 @@ Before writing any requirements:
 ### 3. PRD Creation
 
 1. Invoke `task-checkout` skill for the PRD writing task
-2. Invoke `budget-check` skill
-3. Use `templates/prd-template.md` as scaffold
+2. Use `templates/prd-template.md` as scaffold
 4. Write the PRD to `~/.agency/projects/<slug>/prd.md`
 5. Ensure every user story has:
    - As a [user], I want [action], so that [outcome]
