@@ -4,8 +4,8 @@
     "name": "naimsolong"
   },
   "metadata": {
-    "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 156-agent specialist library.",
-    "version": "1.0.2"
+    "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 191-skill specialist library.",
+    "version": "1.1.0"
   },
   "plugins": [
     {
@@ -14,8 +14,8 @@
         "source": "github",
         "repo": "naimsolong/ai-software-agency"
       },
-      "description": "CEO-orchestrated software agency with autonomous Product, Design, Development, and QA departments. Includes persistent agent memory, governance gates, goal-aware task orchestration, on-demand skill scaffolding, agent hiring, MCP connector installation, GitHub repository operations, and a 156-agent specialist library spanning engineering, design, marketing, sales, testing, and more.",
-      "version": "1.0.2",
+      "description": "A CEO-led AI Software Agency — autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 191-skill specialist library.",
+      "version": "1.1.0",
       "author": {
         "name": "naimsolong"
       },
@@ -42,14 +42,6 @@
         "qa",
         "orchestration"
       ],
-      "agents": [
-        "./agents/ceo.md",
-        "./agents/product-manager.md",
-        "./agents/uiux-designer.md",
-        "./agents/fullstack-developer.md",
-        "./agents/qa-lead.md",
-        "./agents/delegate-agent.md"
-      ],
       "skills": [
         "./skills/start-project",
         "./skills/task-checkout",
@@ -63,7 +55,25 @@
         "./skills/feasibility-check",
         "./skills/testcase-generate",
         "./skills/pr-review",
-        "./skills/research-sparring"
+        "./skills/research-sparring",
+        "./skills/ceo",
+        "./skills/product-manager",
+        "./skills/uiux-designer",
+        "./skills/fullstack-developer",
+        "./skills/qa-lead",
+        "./skills/specialists/academic/*/*/*",
+        "./skills/specialists/engineering/*/*/*",
+        "./skills/specialists/game-development/*/*/*",
+        "./skills/specialists/marketing/*/*/*",
+        "./skills/specialists/project-management/*/*/*",
+        "./skills/specialists/sales/*/*/*",
+        "./skills/specialists/spatial-computing/*/*/*",
+        "./skills/specialists/specialized/*/*/*",
+        "./skills/specialists/design/*/*/*",
+        "./skills/specialists/paid-media/*/*/*",
+        "./skills/specialists/product/*/*/*",
+        "./skills/specialists/support/*/*/*",
+        "./skills/specialists/testing/*/*/*"
       ],
       "hooks": "./hooks/hooks.json"
     }
