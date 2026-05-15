@@ -521,4 +521,13 @@ Log the summary to `~/.agency/audit.log` if the file exists:
 - **Never store credentials in project files** — only in `~/.claude/settings.json` (global, outside the repo)
 - **Never auto-install** — every tool requires explicit INSTALL confirmation
 - **Never modify any files** other than `~/.claude/settings.json` for MCP connectors
-- **Never run `sudo`** commands without explicit user awareness; note when `sudo` is required
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Tools installed and configuration patterns
+- Installation issues encountered
+- User preferences for tooling setup

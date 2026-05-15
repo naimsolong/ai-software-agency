@@ -109,4 +109,11 @@ If you cannot proceed with a task:
 - Never skip this skill — it is the only protection against duplicate work
 - Never claim a task that belongs to a different department without CEO authorisation
 - Never modify any task status except the one you are claiming
-- If `~/.agency/tasks.md` is missing: STOP and report to CEO — the workspace may not be initialised
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Task conflict patterns
+- Blocking issues encountered
+- Team coordination insights

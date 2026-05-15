@@ -195,7 +195,13 @@ If the user needs to push the issues tracking table to an external system (Click
 
 On **CHANGES**: revise the generated content per the user's requests and re-run Step 7.
 
-On **REJECTED**: log to audit and stop.
-```
-[<ISO-date>] [qa-lead] TEST_CASES_REJECTED: <feature-name> — <reason>
-```
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Test case generation patterns
+- Edge case discoveries
+- PRD patterns that affect test coverage

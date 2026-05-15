@@ -229,4 +229,13 @@ File slug rules: lowercase, hyphen-separated, no spaces, no special characters.
 - **Never grant `Bash` or `Agent` tools** to a specialist without explicit CEO authorisation noted in the hire request
 - **Agent files are plain Markdown only** — no scripts, no code execution blocks intended to run
 - **Log every hire, rejection, and change request** to `~/.agency/audit.log`
-- **Maximum 3 revision cycles** — if the gate is rejected 3 times, escalate to CEO for direction
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Agent capability gaps discovered
+- User preferences for agent design
+- Library organization insights

@@ -130,6 +130,13 @@ To roll back to a previous approved state:
 
 ## Escalation
 
-If a gate is blocked (user requests changes multiple times without progress):
-- After 3 revision cycles on the same deliverable
-- Report to CEO: "Gate for [deliverable] has been revised <n> times without approval. Requesting CEO review and direction."
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Governance gate patterns and outcomes
+- User approval/rejection patterns
+- Escalation frequency and reasons

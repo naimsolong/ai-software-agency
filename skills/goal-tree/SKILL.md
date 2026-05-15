@@ -113,7 +113,13 @@ Update goal statuses as work progresses:
 | `blocked` | Cannot proceed — dependency or decision needed |
 | `cancelled` | No longer pursuing this goal — reason documented |
 
-Log all status changes to `~/.agency/audit.log`:
-```
-[<date>] [CEO] GOAL_STATUS: B-001 → complete (all tasks done, metric achieved)
-```
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Goal hierarchy patterns
+- User strategic priorities
+- Goal completion metrics

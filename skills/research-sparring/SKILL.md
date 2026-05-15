@@ -162,4 +162,13 @@ Append to `~/.agency/audit.log`:
 - Never push toward a conclusion the user hasn't indicated they want
 - One focused step at a time — don't bundle multiple investigations into one execution
 - The user controls when to stop — never proactively suggest wrapping up unless the exploration is clearly converging
-- After 3 angles without convergence, flag it: "We've explored 3 angles and the picture is still mixed. Would you like to keep going, or should we step back and reframe the question?"
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Research methodologies that worked well
+- User exploration patterns
+- Key insights discovered across sessions

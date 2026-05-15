@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "A CEO-led AI Software Agency \u2014 autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 191-skill specialist library.",
-    "version": "1.1.4"
+    "version": "1.1.5"
   },
   "plugins": [
     {
@@ -15,7 +15,7 @@
         "repo": "naimsolong/ai-software-agency"
       },
       "description": "A CEO-led AI Software Agency \u2014 autonomous Product, Design, Development, and QA departments with persistent memory, governance gates, and a 191-skill specialist library.",
-      "version": "1.1.4",
+      "version": "1.1.5",
       "author": {
         "name": "naimsolong"
       },
@@ -233,8 +233,7 @@
         "./skills/specialists/testing/testing-test-results-analyzer",
         "./skills/specialists/testing/testing-tool-evaluator",
         "./skills/specialists/testing/testing-workflow-optimizer"
-      ],
-      "hooks": "./hooks/hooks.json"
+      ]
     }
   ]
 }

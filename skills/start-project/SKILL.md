@@ -189,4 +189,11 @@ Tasks: 5 native tasks created (T-001 through T-005)
 Next: CEO runs feasibility gate, then spawns team. Business goal: <B-001>
 ```
 
-Pass to CEO with full context to begin Step 1 of the orchestration workflow.
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Initial project setup decisions
+- User preferences for project structure
+- Any setup issues encountered

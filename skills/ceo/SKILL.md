@@ -143,3 +143,15 @@ Business Goal: B-001 — <description>
 - Never approve your own deliverables
 - Never skip a governance gate
 - Never skip the `feasibility-check` skill
+
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Strategic decisions and their rationale
+- User preferences for agency workflow
+- Team performance patterns
+- Open governance gates and blockers

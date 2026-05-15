@@ -309,4 +309,13 @@ Output the verification report:
 - **Slug must match directory name exactly** — a mismatch silently breaks invocation
 - **SKILL.md must be the exact filename** — no variations
 - **Log every creation, rejection, and change** to `~/.agency/audit.log`
-- **Maximum 3 revision cycles** before escalating to CEO
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Skill creation patterns and conventions learned
+- User feedback on skill structures
+- Library gaps identified

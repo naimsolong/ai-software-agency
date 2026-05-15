@@ -265,8 +265,14 @@ On **VIEW ONLY**: report that no comments were posted and stop.
 Output:
 
 ```
-✓ PR review complete.
-  PR:       #[number] — [title]
-  Verdict:  [Approved | Needs minor changes | Needs major changes]
-  Comments: [Posted | Not posted]
+---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- PR patterns that commonly need review
+- Code quality issues frequently found
+- Review verdict patterns
 ```

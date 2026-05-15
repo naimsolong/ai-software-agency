@@ -216,7 +216,16 @@ Please respond:
 
    Proceeding to Product Manager delegation.
    ```
-   Signal CEO to continue to PM delegation.
+   ---
+
+## Memory Protocol
+
+At session end: Run `memory-sync` skill
+
+Track in memory:
+- Feature complexity patterns observed
+- Risk assessment accuracy
+- User response patterns to feasibility gates
 
 4. If gate returned **REJECT**:
    ```
