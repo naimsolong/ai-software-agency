@@ -14,15 +14,15 @@ Invoke at the **end of every session** or after completing a major task. This is
 
 Each agent's memory lives at:
 ```
-~/.agency/memory/<agent-name>/MEMORY.md
+~/.software-agency/memory/<agent-name>/MEMORY.md
 ```
 
 Examples:
-- `~/.agency/memory/ceo/MEMORY.md`
-- `~/.agency/memory/product-manager/MEMORY.md`
-- `~/.agency/memory/uiux-designer/MEMORY.md`
-- `~/.agency/memory/fullstack-developer/MEMORY.md`
-- `~/.agency/memory/qa-lead/MEMORY.md`
+- `~/.software-agency/memory/ceo/MEMORY.md`
+- `~/.software-agency/memory/product-manager/MEMORY.md`
+- `~/.software-agency/memory/uiux-designer/MEMORY.md`
+- `~/.software-agency/memory/fullstack-developer/MEMORY.md`
+- `~/.software-agency/memory/qa-lead/MEMORY.md`
 
 ---
 
@@ -49,9 +49,9 @@ Maintain these sections in order:
 **Current Stage:** <requirements | design | development | qa | done>
 **Tech Stack:** <list technologies>
 **Key Files:**
-- PRD: ~/.agency/projects/<slug>/prd.md
-- Design: ~/.agency/projects/<slug>/design.md
-- Tests: ~/.agency/projects/<slug>/tests.md
+- PRD: ~/.software-agency/projects/<slug>/prd.md
+- Design: ~/.software-agency/projects/<slug>/design.md
+- Tests: ~/.software-agency/projects/<slug>/tests.md
 
 ## 3. User Preferences
 
@@ -110,7 +110,7 @@ If `MEMORY.md` exceeds 500 lines:
 
 ### 5. Log to Audit
 
-Append to `~/.agency/audit.log`:
+Append to `~/.software-agency/audit.log`:
 ```
 [<ISO-date>] [<agent-name>] MEMORY_SYNC: Memory updated — <n> new decisions, <n> context updates
 ```
@@ -120,7 +120,7 @@ Append to `~/.agency/audit.log`:
 Output:
 ```
 ✓ Memory synced for <agent-name>
-  File: ~/.agency/memory/<agent>/MEMORY.md
+  File: ~/.software-agency/memory/<agent>/MEMORY.md
   Decisions added: <n>
   Session count: <n>
   Last updated: <ISO-date>

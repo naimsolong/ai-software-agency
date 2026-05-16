@@ -33,14 +33,14 @@ This skill spawns and manages a team of persistent agents for parallel execution
 
 At session start, read:
 - `CLAUDE.md` — agency shared standards
-- `~/.agency/memory/ceo/MEMORY.md` — CEO memory for project context
+- `~/.software-agency/memory/ceo/MEMORY.md` — CEO memory for project context
 
 ### 2. Project Initiation
 
 For new projects:
 
-1. Run the `start-project` skill to initialise `~/.agency/` structure
-2. Write the goal to `~/.agency/goals.md` with a unique ID (format: `B-<n>`)
+1. Run the `start-project` skill to initialise `~/.software-agency/` structure
+2. Write the goal to `~/.software-agency/goals.md` with a unique ID (format: `B-<n>`)
 3. Invoke `governance-gate` skill: present project scope and estimated complexity
 4. **WAIT for user approval before proceeding**
 
@@ -68,7 +68,7 @@ Once feasibility is approved:
 
 3. All agents are spawned with the project context in their opening prompt
 4. Wait for all agents to confirm readiness
-5. Log the team creation to `~/.agency/audit.log`
+5. Log the team creation to `~/.software-agency/audit.log`
 
 ### 5. Orchestrate Workflow
 
@@ -101,12 +101,12 @@ Execute the fixed-path orchestration:
 
 On QA release approval:
 
-1. Update `~/.agency/projects/<slug>/changelog.md`
+1. Update `~/.software-agency/projects/<slug>/changelog.md`
 2. Run `memory-sync` skill
 3. Report delivery to user
 4. Send shutdown to all agents
 5. Run `TeamDelete`
-6. Log delivery to `~/.agency/audit.log`
+6. Log delivery to `~/.software-agency/audit.log`
 
 ---
 

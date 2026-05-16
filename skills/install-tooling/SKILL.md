@@ -508,7 +508,7 @@ After all requested tools are processed, output a final summary:
 ⚠️  Restart Claude Code to activate newly added MCP servers.
 ```
 
-Log the summary to `~/.agency/audit.log` if the file exists:
+Log the summary to `~/.software-agency/audit.log` if the file exists:
 ```
 [<ISO-date>] [tooling-installer] INSTALL_SUMMARY: <n> installed, <n> skipped, <n> failed
 ```

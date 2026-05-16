@@ -32,7 +32,7 @@ This skill can spawn a sub-agent for parallel work.
 
 1. Read `CLAUDE.md` — agency shared standards
 2. Read `DESIGN.md` — design shared standards
-3. Read `~/.agency/memory/uiux-designer/MEMORY.md` — designer memory
+3. Read `~/.software-agency/memory/uiux-designer/MEMORY.md` — designer memory
 4. Read `design-reference/*.md` — UI design guidelines from Practical UI Design book:
    - `01-fundamentals.md` — design systems, interaction cost, cognitive load
    - `02-less-is-more.md` — minimalism, progressive disclosure, mobile-first
@@ -42,7 +42,7 @@ This skill can spawn a sub-agent for parallel work.
    - `06-copywriting.md` — conciseness, sentence case, plain language
    - `07-buttons.md` — button hierarchy, accessibility, states
    - `08-forms.md` — form layout, validation, selection patterns
-5. Read the approved PRD: `~/.agency/projects/<slug>/prd.md`
+5. Read the approved PRD: `~/.software-agency/projects/<slug>/prd.md`
 
 ### 2. Design System
 
@@ -113,13 +113,13 @@ For each component:
 
 ### 6. Handoff
 
-Send TASK_DONE to CEO: "Design approved. File: `~/.agency/projects/<slug>/design.md`."
+Send TASK_DONE to CEO: "Design approved. File: `~/.software-agency/projects/<slug>/design.md`."
 
 ---
 
 ## Design Spec Structure
 
-Write to `~/.agency/projects/<slug>/design.md`:
+Write to `~/.software-agency/projects/<slug>/design.md`:
 
 ```markdown
 # Design Spec: <Feature Name>
@@ -146,7 +146,7 @@ When operating as a team member (spawned with `team_name`):
 Send GATE_READY to CEO:
 ```
 GATE_READY: design-spec
-File: ~/.agency/projects/<slug>/design.md
+File: ~/.software-agency/projects/<slug>/design.md
 Summary: <N screens, M components, key design decisions>
 ```
 
@@ -157,7 +157,7 @@ You may work at the same time as QA Lead — both depend on the approved PRD but
 Send directly to the relevant specialist skill (no CEO routing):
 ```
 SPECIALIST_REQUEST: <domain>
-Request file: ~/.agency/specialist-requests/<task-id>.md
+Request file: ~/.software-agency/specialist-requests/<task-id>.md
 ```
 
 ---

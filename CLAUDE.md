@@ -25,7 +25,7 @@ You are part of the **AI Software Agency**, a team of specialised Claude Sub Age
 - **Each step validates before advancing.** Two validations are required: structural (correct format and sections present?) and human (user explicitly approves at the governance gate?). Both must pass.
 - **Models never decide control flow.** No agent decides to skip a step, abbreviate a phase, or reorder the sequence. The path is fixed by the skill. Deviation is not permitted.
 - **Humans are the only control-flow actors at gates.** Only `APPROVED`, `REJECTED`, `CHANGES`, `PROCEED`, or `ABORT` from the user advances or halts the flow. The model waits — it does not infer approval from silence or positive tone.
-- **The result is auditable and reversible.** Fixed paths + logged gates + rollback tags = full replay capability. Any decision can be traced back to an exact gate in `~/.agency/audit.log`.
+- **The result is auditable and reversible.** Fixed paths + logged gates + rollback tags = full replay capability. Any decision can be traced back to an exact gate in `~/.software-agency/audit.log`.
 
 The `feasibility-check` skill is the concrete expression of this principle before any department work begins: 7 fixed questions, 4-criterion rubric, prescribed verdict decision tree, fixed report template — same path every time, regardless of request size or apparent simplicity.
 
@@ -313,7 +313,7 @@ All skills in this agency follow these rules:
 - The `skill-builder` must inspect ≥ 2 existing skills before drafting
 - `marketplace.json` updates are append-only — existing entries are never modified or removed
 - Slug must match the directory name exactly — any mismatch silently breaks invocation
-- Every creation, rejection, and change request is logged to `~/.agency/audit.log`
+- Every creation, rejection, and change request is logged to `~/.software-agency/audit.log`
 - Verification is mandatory after writing — file existence, sections, JSON validity, slug uniqueness
 
 **Invoke with:**
@@ -344,7 +344,7 @@ CEO identifies gap
 - No skill file is written without governance gate approval via the `hire-agent` skill
 - The `specialized-agent-builder` must compare ≥2 existing skills before drafting
 - `Bash` and `Agent` tools are never granted to new specialists without explicit CEO authorisation noted in the hire request
-- Every hire and rejection is logged to `~/.agency/audit.log` with a rollback tag
+- Every hire and rejection is logged to `~/.software-agency/audit.log` with a rollback tag
 - A hiring task is a blocker — the project task that triggered the hire does not proceed until the hire is approved
 
 **Invoke with:**
@@ -364,14 +364,14 @@ Specialist skills are accessed through the **Delegate Agent**, the routing layer
 
 ```
 Core Agent detects domain gap
-  └─ Writes specialist request to ~/.agency/specialist-requests/<task-id>.md
+  └─ Writes specialist request to ~/.software-agency/specialist-requests/<task-id>.md
        └─ Reports to CEO: "Specialist needed: [domain]"
             └─ CEO delegates to Delegate Agent
                  └─ Delegate Agent scores all 173 specialists (keyword match %)
                       ├─ >=70% confidence + >=30% gap → auto-match
                       └─ <70% confidence → presents top 2-3 candidates to CEO
                            └─ Specialist spawned with narrow, scoped question
-                                └─ Output saved to ~/.agency/specialist-outputs/<request-id>.md
+                                └─ Output saved to ~/.software-agency/specialist-outputs/<request-id>.md
                                      └─ CEO re-invokes requesting agent with specialist output
 ```
 
@@ -404,7 +404,7 @@ The Delegate Agent calculates match scores using:
 
 ### Specialist Request Format
 
-All core agents use the same format when writing to `~/.agency/specialist-requests/`:
+All core agents use the same format when writing to `~/.software-agency/specialist-requests/`:
 
 ```markdown
 # Specialist Request: <task-id>
@@ -419,8 +419,8 @@ All core agents use the same format when writing to `~/.agency/specialist-reques
 - Specialist agents are given **narrow sub-questions** — never full features or tasks
 - Specialist agents operate within the same governance framework — deliverables for human-facing handoffs still require a `governance-gate`
 - Specialist agents do **not** have persistent memory by default — they are stateless per session
-- Only the CEO may create a persistent MemoryCore instance for a specialist at `~/.agency/memory/<division>-<agent-name>/`
-- Specialist agents only write to files explicitly delegated to them — they do not own `~/.agency/` artefacts unless assigned by the CEO
+- Only the CEO may create a persistent MemoryCore instance for a specialist at `~/.software-agency/memory/<division>-<agent-name>/`
+- Specialist agents only write to files explicitly delegated to them — they do not own `~/.software-agency/` artefacts unless assigned by the CEO
 - Never delegate to a specialist if the task is within a core agent's domain
 - The Delegate Agent never does specialist work itself — it only routes
 
@@ -428,10 +428,10 @@ All core agents use the same format when writing to `~/.agency/specialist-reques
 
 ## `.agency/` Directory — File Ownership
 
-All agency runtime data lives in `~/.agency/` in the user's home directory (shared across all projects):
+All agency runtime data lives in `~/.software-agency/` in the user's home directory (shared across all projects):
 
 ```
-~/.agency/
+~/.software-agency/
 ├── config.json            # Company/project settings
 ├── tasks.md               # Task registry (atomic checkout)
 ├── goals.md               # Goal hierarchy tree
@@ -577,9 +577,9 @@ Every core agent maintains a hierarchical MemoryCore instance adapted from the B
 ### Agent Restoration Protocol
 
 **Automatic (Session Start):** On every session start, the agent reads its 3 core files before processing any task:
-1. Read `~/.agency/memory/<agent-slug>/identity-core.md` — restore personality and behavioral patterns
-2. Read `~/.agency/memory/<agent-slug>/relationship-memory.md` — restore understanding of user and project context
-3. Read `~/.agency/memory/<agent-slug>/current-session.md` — restore session state and working memory
+1. Read `~/.software-agency/memory/<agent-slug>/identity-core.md` — restore personality and behavioral patterns
+2. Read `~/.software-agency/memory/<agent-slug>/relationship-memory.md` — restore understanding of user and project context
+3. Read `~/.software-agency/memory/<agent-slug>/current-session.md` — restore session state and working memory
 
 **Trigger-Word (Mid-Session):** Each agent has a trigger word — its role name. Typing it reloads all core files and restores full context:
 
@@ -614,7 +614,7 @@ All core agents have:
 
 ### Specialist Memory
 
-Specialist agents do **not** maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a MemoryCore instance at `~/.agency/memory/<division>-<agent-name>/` following the same structure above.
+Specialist agents do **not** maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a MemoryCore instance at `~/.software-agency/memory/<division>-<agent-name>/` following the same structure above.
 
 ---
 

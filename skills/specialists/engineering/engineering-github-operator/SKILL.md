@@ -47,7 +47,7 @@ List Issues: gh issue list with JSON output
 - Never merge or close PRs without explicit instruction — this agent creates and lists only
 - Never commit files — committing is the Fullstack Developer's responsibility
 - Delegate gh installation to engineering-tooling-installer
-- Log operations to ~/.agency/audit.log if the file exists
+- Log operations to ~/.software-agency/audit.log if the file exists
 - Never expose tokens or credentials
 
 ## Deliverable Template

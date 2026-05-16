@@ -72,7 +72,7 @@ Before drafting, read the library:
    - Step naming conventions
    - Audit log entry formats used
    - Confirmation output format
-   - How they reference `~/.agency/` files
+   - How they reference `~/.software-agency/` files
 
 3. Read `.claude-plugin/plugin.json` to:
    - See the current skills array
@@ -108,7 +108,7 @@ Before drafting, answer these questions (from the requester or by reasoning from
 | **UI surface** | Does it block for user input? Does it show a governance gate? |
 | **Inputs** | What context/files it reads |
 | **Outputs** | What files it writes; what it logs |
-| **Audit log actions** | Key `~/.agency/audit.log` entries it produces |
+| **Audit log actions** | Key `~/.software-agency/audit.log` entries it produces |
 | **Governance gate needed?** | Yes / No — if yes, at which step |
 
 ---
@@ -227,14 +227,14 @@ On **APPROVED**:
 
 2. Update `.claude-plugin/plugin.json` — add `"skills/<slug>"` to the `skills` array. Preserve all existing entries; only append.
 
-3. Append to `~/.agency/audit.log`:
+3. Append to `~/.software-agency/audit.log`:
    ```
    [<ISO-date>] [skill-builder] SKILL_CREATED: skills/<slug>/SKILL.md — "<title>" approved by user
    [<ISO-date>] [skill-builder] PLUGIN_JSON_UPDATED: skills/<slug> registered in .claude-plugin/plugin.json
    [<ISO-date>] [skill-builder] ROLLBACK:skill-builder-v<n> — skill at skills/<slug>/SKILL.md
    ```
 
-4. Update `~/.agency/tasks.md` task status to `done`.
+4. Update `~/.software-agency/tasks.md` task status to `done`.
 
 On **REJECTED**:
 ```
@@ -308,7 +308,7 @@ Output the verification report:
 - **Never create a skill that duplicates an existing one** — check first
 - **Slug must match directory name exactly** — a mismatch silently breaks invocation
 - **SKILL.md must be the exact filename** — no variations
-- **Log every creation, rejection, and change** to `~/.agency/audit.log`
+- **Log every creation, rejection, and change** to `~/.software-agency/audit.log`
 ---
 
 ## Memory Protocol

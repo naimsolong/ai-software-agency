@@ -39,8 +39,8 @@ Check the user's intent:
 ### Step 3 — Fetch Project Context
 
 If the project slug is known (from conversation context or `CLAUDE.md`):
-- Read `~/.agency/projects/<slug>/prd.md` for feature context
-- Read `~/.agency/projects/<slug>/tests.md` for test plan context
+- Read `~/.software-agency/projects/<slug>/prd.md` for feature context
+- Read `~/.software-agency/projects/<slug>/tests.md` for test plan context
 
 If no project slug is known, note "No project context available" and proceed. The review will be based purely on the diff.
 
@@ -249,7 +249,7 @@ On **POST**:
    gh pr comment <number> --body "<Comment 2 content>"
    ```
 
-3. Append to `~/.agency/audit.log`:
+3. Append to `~/.software-agency/audit.log`:
    ```
    [<ISO-date>] [code-reviewer] PR_REVIEWED: #[number] "<PR title>" — Verdict: <verdict>
    ```

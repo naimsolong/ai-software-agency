@@ -56,10 +56,10 @@ You: "Build a user authentication system"
 | Skill | Invoke | Role | Key Deliverable |
 |-------|--------|------|-----------------|
 | `ceo` | `/ceo` | Orchestrates all departments, enforces governance | Project status, goal tree |
-| `product-manager` | `/product-manager` | Refines requirements, writes PRDs | `~/.agency/projects/<slug>/prd.md` |
-| `uiux-designer` | `/uiux-designer` | Creates pixel-perfect design specs and wireframes | `~/.agency/projects/<slug>/design.md` |
+| `product-manager` | `/product-manager` | Refines requirements, writes PRDs | `~/.software-agency/projects/<slug>/prd.md` |
+| `uiux-designer` | `/uiux-designer` | Creates pixel-perfect design specs and wireframes | `~/.software-agency/projects/<slug>/design.md` |
 | `fullstack-developer` | `/fullstack-developer` | Implements from approved specs | Application code (git commits) |
-| `qa-lead` | `/qa-lead` | Writes tests before dev, validates after dev | `~/.agency/projects/<slug>/tests.md` |
+| `qa-lead` | `/qa-lead` | Writes tests before dev, validates after dev | `~/.software-agency/projects/<slug>/tests.md` |
 
 ## Specialist Skills Library
 
@@ -137,7 +137,7 @@ The CEO will delegate to `specialized-agent-builder`, which will inspect the exi
 - Only the CEO may initiate a hire
 - The agent builder must compare ≥ 2 existing specialists before drafting
 - `Bash` and `Agent` tools are never granted to new specialists without explicit CEO authorisation in the hire request
-- Every hire and rejection is logged to `~/.agency/audit.log` with a rollback tag
+- Every hire and rejection is logged to `~/.software-agency/audit.log` with a rollback tag
 - The project task that triggered the hire is a blocker until the hire is approved
 
 ### Creating New Skills
@@ -182,7 +182,7 @@ If a workflow step should be reusable across projects but no existing skill cove
 - **Atomic task checkout** — No two agents work on the same task. Each task is locked before work begins.
 - **Persistent memory** — Skills remember decisions, preferences, and context across sessions.
 - **Goal-aware execution** — Every task carries its full goal ancestry so skills always know *why*, not just *what*.
-- **Audit log** — Every action is appended to `~/.agency/audit.log` for full transparency.
+- **Audit log** — Every action is appended to `~/.software-agency/audit.log` for full transparency.
 - **Rollback support** — Approved states are tagged in the audit log and can be restored from git history.
 - **PR review** — Structured two-pass pull request review with correctness and risk analysis.
 - **Research sparring** — Exploratory investigation partner for architecture, code, and domain problems.
@@ -199,7 +199,7 @@ In Claude Code, invoke:
 The skill will walk you through:
 1. Naming the project
 2. Defining the business goal
-3. Creating the `~/.agency/` workspace
+3. Creating the `~/.software-agency/` workspace
 4. Handing off to the CEO to begin
 
 ### Option B — Direct skill invocation
@@ -215,10 +215,10 @@ Invoke any core skill directly from Claude Code:
 
 ## Project Workspace
 
-Every project uses a `~/.agency/` directory in your home directory (shared across all projects):
+Every project uses a `~/.software-agency/` directory in your home directory (shared across all projects):
 
 ```
-~/.agency/
+~/.software-agency/
 ├── config.json           # Agency configuration
 ├── tasks.md              # Atomic task registry
 ├── goals.md              # Business goal hierarchy
@@ -233,7 +233,7 @@ Every project uses a `~/.agency/` directory in your home directory (shared acros
     └── <agent>/MEMORY.md # Per-agent persistent memory
 ```
 
-`~/.agency/` lives in your home directory — it is outside any project repo and not version-controlled by default.
+`~/.software-agency/` lives in your home directory — it is outside any project repo and not version-controlled by default.
 
 ## The Governance Gate
 
@@ -243,7 +243,7 @@ Every handoff between departments requires your explicit approval:
 ── Governance Gate: PRD ──────────────────────────────────
 
 Presented by: product-manager
-Deliverable: ~/.agency/projects/auth-v1/prd.md
+Deliverable: ~/.software-agency/projects/auth-v1/prd.md
 
 What this is:
   A complete Product Requirements Document for the user authentication system.
@@ -266,7 +266,7 @@ You will never be surprised by what gets built — every major decision goes thr
 
 ## Task Lifecycle
 
-Every task moves through a defined state machine tracked in `~/.agency/tasks.md`:
+Every task moves through a defined state machine tracked in `~/.software-agency/tasks.md`:
 
 ```
 pending → in-progress → review → done
@@ -285,25 +285,25 @@ Skills use the `/task-checkout` skill to atomically claim a task before starting
 
 ## Rollback Protocol
 
-Every governance gate approval writes a rollback marker to `~/.agency/audit.log`:
+Every governance gate approval writes a rollback marker to `~/.software-agency/audit.log`:
 
 ```
 [ROLLBACK:v<n>] <date> <agent> approved <deliverable> at <file>
 ```
 
 To roll back to a previous approved state:
-1. Find the rollback tag in `~/.agency/audit.log`
+1. Find the rollback tag in `~/.software-agency/audit.log`
 2. Restore the file from git history at that commit
 3. Create a new task to redo the work from that point
-4. Log the rollback action in `~/.agency/audit.log`
+4. Log the rollback action in `~/.software-agency/audit.log`
 
 ## Memory Protocol
 
-Skills maintain persistent memory across sessions using Markdown files at `~/.agency/memory/<agent>/MEMORY.md`.
+Skills maintain persistent memory across sessions using Markdown files at `~/.software-agency/memory/<agent>/MEMORY.md`.
 
 **At the start of every session**, each skill:
 1. Reads its `MEMORY.md` — loading project context, key decisions, and user preferences
-2. Checks `~/.agency/tasks.md` for any previously `in-progress` task
+2. Checks `~/.software-agency/tasks.md` for any previously `in-progress` task
 
 **At the end of every session**, each skill invokes `/memory-sync` to record:
 - Decisions made (with rationale)
@@ -311,7 +311,7 @@ Skills maintain persistent memory across sessions using Markdown files at `~/.ag
 - Patterns discovered
 - Open items and blockers
 
-Specialist skills are stateless by default. For recurring specialists, the CEO may create a memory file at `~/.agency/memory/<division>-<agent-name>/MEMORY.md`.
+Specialist skills are stateless by default. For recurring specialists, the CEO may create a memory file at `~/.software-agency/memory/<division>-<agent-name>/MEMORY.md`.
 
 ---
 
@@ -428,7 +428,7 @@ Invoke `engineering-github-operator` when you need to interact with GitHub repos
 
 ## Configuration
 
-Edit `~/.agency/config.json` to customise:
+Edit `~/.software-agency/config.json` to customise:
 
 ```json
 {
@@ -455,7 +455,7 @@ Import in a new project:
 ```bash
 bash scripts/init-agency.sh new-project
 tar -xzf agency-template.tar.gz -C .
-# Update ~/.agency/config.json with the new project details
+# Update ~/.software-agency/config.json with the new project details
 ```
 
 ## File Structure
@@ -517,7 +517,7 @@ ai-software-agency/
 The CEO skill uses the Claude Code `Agent` tool to spawn department sub-agents and pass context:
 
 1. **Goal tree** — every delegation includes the full B-id → P-id → F-id → T-id chain
-2. **File references** — skills reference `~/.agency/projects/<slug>/` files, never duplicate content
+2. **File references** — skills reference `~/.software-agency/projects/<slug>/` files, never duplicate content
 3. **Governance gates** — each department signals the CEO when a deliverable is ready; the CEO presents it to the user
 4. **Memory continuity** — each skill loads its own `MEMORY.md` to pick up where the last session ended
 

@@ -33,11 +33,11 @@ This skill can spawn a sub-agent for parallel implementation tasks.
 
 Before writing any code:
 
-1. Read `~/.agency/memory/fullstack-developer/MEMORY.md`
+1. Read `~/.software-agency/memory/fullstack-developer/MEMORY.md`
 2. Invoke `task-checkout` skill — claim the specific task
-4. Read the approved PRD: `~/.agency/projects/<slug>/prd.md`
-5. Read the approved design spec: `~/.agency/projects/<slug>/design.md`
-6. Read the approved test plan: `~/.agency/projects/<slug>/tests.md`
+4. Read the approved PRD: `~/.software-agency/projects/<slug>/prd.md`
+5. Read the approved design spec: `~/.software-agency/projects/<slug>/design.md`
+6. Read the approved test plan: `~/.software-agency/projects/<slug>/tests.md`
 7. Understand the acceptance criteria before writing code
 8. Identify the tech stack from project context
 
@@ -75,8 +75,8 @@ Goal: <goal-id>
 
 ### 5. Task Completion
 
-1. Update task status to `done` in `~/.agency/tasks.md`
-2. Append to `~/.agency/audit.log`
+1. Update task status to `done` in `~/.software-agency/tasks.md`
+2. Append to `~/.software-agency/audit.log`
 3. Run `memory-sync` skill
 4. Send TASK_DONE to CEO
 
@@ -133,7 +133,7 @@ Acceptance criteria met: <yes/list exceptions>
 Send directly to the relevant specialist skill (no CEO routing):
 ```
 SPECIALIST_REQUEST: <domain>
-Request file: ~/.agency/specialist-requests/<task-id>.md
+Request file: ~/.software-agency/specialist-requests/<task-id>.md
 ```
 
 ---

@@ -1,6 +1,6 @@
 # Skill: start-project
 
-Initialize the AI Software Agency workspace for a new project. Creates the `~/.agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
+Initialize the AI Software Agency workspace for a new project. Creates the `~/.software-agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
 
 ---
 
@@ -26,10 +26,10 @@ Wait for all answers before proceeding.
 
 ### 2. Create Directory Structure
 
-Create `~/.agency/` in the user's home directory if it doesn't exist:
+Create `~/.software-agency/` in the user's home directory if it doesn't exist:
 
 ```
-~/.agency/
+~/.software-agency/
 ├── config.json
 ├── tasks.md
 ├── goals.md
@@ -137,7 +137,7 @@ Write a starter `MEMORY.md` for each agent:
 
 ### 8. No `.gitignore` Update Needed
 
-`~/.agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
+`~/.software-agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
 
 ### 9. Create Project Team
 
@@ -176,12 +176,12 @@ Output a summary:
 ✓ Agency workspace initialised for project: <project-slug>
 
 Files created:
-  ~/.agency/config.json
-  ~/.agency/tasks.md (5 tasks registered)
-  ~/.agency/goals.md (B-001 created)
-  ~/.agency/audit.log
-  ~/.agency/projects/<slug>/ (4 document placeholders)
-  ~/.agency/memory/<agent>/MEMORY.md (5 agents)
+  ~/.software-agency/config.json
+  ~/.software-agency/tasks.md (5 tasks registered)
+  ~/.software-agency/goals.md (B-001 created)
+  ~/.software-agency/audit.log
+  ~/.software-agency/projects/<slug>/ (4 document placeholders)
+  ~/.software-agency/memory/<agent>/MEMORY.md (5 agents)
 
 Team: project-<slug> created with 5 core agents
 Tasks: 5 native tasks created (T-001 through T-005)

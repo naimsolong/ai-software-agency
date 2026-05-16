@@ -33,7 +33,7 @@ Before drafting anything, orient yourself in the library.
    - Naming convention: `<division>-<kebab-role>.md`
    - Tone and depth of the persona
 
-3. Check `~/.agency/tasks.md` for any existing active hire task for the same role — stop and report if a duplicate is found.
+3. Check `~/.software-agency/tasks.md` for any existing active hire task for the same role — stop and report if a duplicate is found.
 
 4. Output a comparison summary before drafting:
 
@@ -162,23 +162,23 @@ On **APPROVED**:
    agents/<division>/<division>-<slug>.md
    ```
 
-2. Append to `~/.agency/audit.log`:
+2. Append to `~/.software-agency/audit.log`:
    ```
    [<ISO-date>] [agent-builder] AGENT_HIRED: agents/<division>/<division>-<slug>.md — "<name>" approved by user
    [<ISO-date>] [agent-builder] ROLLBACK:agent-builder-v<n> — new agent written at agents/<division>/<division>-<slug>.md
    ```
 
-3. Update task status to `done` in `~/.agency/tasks.md`.
+3. Update task status to `done` in `~/.software-agency/tasks.md`.
 
 On **REJECTED:**
-1. Log to `~/.agency/audit.log`:
+1. Log to `~/.software-agency/audit.log`:
    ```
    [<ISO-date>] [agent-builder] AGENT_HIRE_REJECTED: "<name>" — <user reason>
    ```
 2. Do not write any file. Report outcome to CEO.
 
 On **CHANGES:**
-1. Log to `~/.agency/audit.log`:
+1. Log to `~/.software-agency/audit.log`:
    ```
    [<ISO-date>] [agent-builder] AGENT_HIRE_CHANGES_REQUESTED: "<name>" — <change summary>
    ```
@@ -228,7 +228,7 @@ File slug rules: lowercase, hyphen-separated, no spaces, no special characters.
 - **Never create a duplicate** — compare against existing agents before proposing
 - **Never grant `Bash` or `Agent` tools** to a specialist without explicit CEO authorisation noted in the hire request
 - **Agent files are plain Markdown only** — no scripts, no code execution blocks intended to run
-- **Log every hire, rejection, and change request** to `~/.agency/audit.log`
+- **Log every hire, rejection, and change request** to `~/.software-agency/audit.log`
 ---
 
 ## Memory Protocol
