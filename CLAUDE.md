@@ -143,45 +143,53 @@ CEO (Orchestrator)
 
 **No agent makes decisions outside their domain without CEO approval.**
 
-### Specialist Agent Library
+### Specialist Skills Library
 
-The agency has 156 additional specialist agents organised into 13 divisions. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
+The agency has 173 additional specialist skills organised into 17 divisions. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
 
 ```
 CEO
-└── Specialist Agent Library (156 agents across 13 divisions)
-    ├── agents/engineering/         — Backend, frontend, DevOps, security, AI, etc.
-    ├── agents/design/              — Brand, UX research, visual storytelling, etc.
-    ├── agents/marketing/           — SEO, social, content, growth, TikTok, etc.
-    ├── agents/sales/               — Deal strategy, pipeline, outbound, coaching
-    ├── agents/testing/             — API, accessibility, performance, workflow
-    ├── agents/product/             — Sprint prioritization, feedback, trend research
-    ├── agents/project-management/  — Studio ops, Jira workflow, experiment tracking
-    ├── agents/paid-media/          — PPC, programmatic, creative strategy, tracking
-    ├── agents/support/             — Analytics, finance, legal compliance, infra
-    ├── agents/spatial-computing/   — visionOS, XR, macOS Metal, terminal integration
-    ├── agents/specialized/         — Blockchain, MCP builder, Salesforce, ZK, etc.
-    ├── agents/game-development/    — Unity, Unreal, Godot, Roblox, Blender, etc.
-    └── agents/academic/            — Anthropology, history, psychology, narratology
+└── Specialist Skills Library (173 skills across 17 divisions)
+    ├── skills/specialists/engineering/       — Backend, frontend, DevOps, security, AI, etc.
+    ├── skills/specialists/design/            — Brand, UX research, visual storytelling, etc.
+    ├── skills/specialists/marketing/         — SEO, social, content, growth, TikTok, etc.
+    ├── skills/specialists/sales/             — Deal strategy, pipeline, outbound, coaching
+    ├── skills/specialists/testing/           — API, accessibility, performance, workflow
+    ├── skills/specialists/product/           — Sprint prioritization, feedback, trend research
+    ├── skills/specialists/project-management/ — Studio ops, Jira workflow, experiment tracking
+    ├── skills/specialists/paid-media/        — PPC, programmatic, creative strategy, tracking
+    ├── skills/specialists/support/           — Analytics, finance, legal compliance, infra
+    ├── skills/specialists/spatial-computing/ — visionOS, XR, macOS Metal, terminal integration
+    ├── skills/specialists/specialized/       — MCP builder, skill builder, ZK steward, etc.
+    ├── skills/specialists/game-development/  — Unity, Unreal, Godot, Roblox, Blender, etc.
+    ├── skills/specialists/academic/          — Anthropology, history, psychology, narratology
+    ├── skills/specialists/business/          — Market entry, consulting, presales, advisory
+    ├── skills/specialists/data/              — Orchestration, consolidation, identity graph, QA
+    ├── skills/specialists/operations/        — Automation governance, supply chain, workflow
+    └── skills/specialists/bonus/             — Studio coaching and miscellaneous specialists
 ```
 
 **Division reference:**
 
-| Division | Agents | Examples |
+| Division | Skills | Examples |
 |----------|--------|---------|
-| `engineering/` | 25 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, tooling-installer, github-operator |
-| `marketing/` | 27 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
-| `specialized/` | 27 | mcp-builder, salesforce-architect, blockchain-security-auditor, workflow-architect |
+| `engineering/` | 33 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, tooling-installer, github-operator |
+| `marketing/` | 29 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
 | `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
-| `design/` | 8 | ui-designer, ux-researcher, brand-guardian, image-prompt-engineer, visual-storyteller |
+| `design/` | 16 | ui-designer, ux-researcher, brand-guardian, image-prompt-engineer, visual-storyteller |
+| `sales/` | 10 | deal-strategist, outbound-strategist, pipeline-analyst, discovery-coach |
+| `support/` | 8 | finance-tracker, legal-compliance-checker, analytics-reporter, infra-maintainer |
 | `testing/` | 8 | api-tester, accessibility-auditor, performance-benchmarker, reality-checker |
-| `sales/` | 8 | deal-strategist, outbound-strategist, pipeline-analyst, discovery-coach |
+| `project-management/` | 7 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
 | `paid-media/` | 7 | ppc-strategist, programmatic-buyer, tracking-specialist, creative-strategist |
-| `support/` | 6 | finance-tracker, legal-compliance-checker, analytics-reporter, infra-maintainer |
 | `spatial-computing/` | 6 | visionos-spatial-engineer, xr-immersive-developer, xr-interface-architect |
-| `product/` | 5 | sprint-prioritizer, feedback-synthesizer, trend-researcher, behavioral-nudge-engine |
-| `project-management/` | 6 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
 | `academic/` | 5 | academic-anthropologist, academic-historian, academic-psychologist, academic-narratologist |
+| `product/` | 4 | sprint-prioritizer, feedback-synthesizer, trend-researcher, behavioral-nudge-engine |
+| `specialized/` | 4 | mcp-builder, skill-builder, specialized-agent-builder, zk-steward |
+| `business/` | 5 | cultural-intelligence-strategist, french-consulting-market, government-digital-presales-consultant, korean-business-navigator |
+| `data/` | 5 | agents-orchestrator, data-consolidation-agent, identity-graph-operator, model-qa |
+| `operations/` | 4 | automation-governance-architect, supply-chain-strategist, workflow-architect, recruitment-specialist |
+| `bonus/` | 1 | bonus-studio-coach |
 
 ---
 
@@ -191,7 +199,7 @@ The `engineering-tooling-installer` specialist handles all on-demand installatio
 
 **Invoke with:**
 ```
-@ceo Install the <tool> MCP connector / Install <software> on my machine.
+/ceo Install the <tool> MCP connector / Install <software> on my machine.
 ```
 
 **Approved MCP connectors** (integrate into Claude Code via `~/.claude/settings.json`):
@@ -231,9 +239,9 @@ The `engineering-github-operator` specialist handles all GitHub repository actio
 
 **Invoke with:**
 ```
-@ceo List my GitHub repos and clone <repo>.
-@ceo Create a PR for the current branch.
-@ceo Push my changes to GitHub.
+/ceo List my GitHub repos and clone <repo>.
+/ceo Create a PR for the current branch.
+/ceo Push my changes to GitHub.
 ```
 
 **Pre-flight checks (automatic):**
@@ -267,13 +275,13 @@ When a reusable workflow step is needed that no existing skill covers, the CEO i
 
 ```
 CEO identifies workflow gap
-  └─ Delegates to agents/specialized/specialized-skill-builder
-       └─ Skill Builder inspects skills library + plugin.json
+  └─ Delegates to skills/specialists/specialized/skill-builder
+       └─ Skill Builder inspects skills library + marketplace.json
             └─ Defines spec (slug, surface, inputs, outputs)
-                 └─ Drafts SKILL.md + plugin.json append
+                 └─ Drafts SKILL.md + marketplace.json append
                       └─ create-skill skill → governance gate → [USER APPROVES]
                            └─ skills/<slug>/SKILL.md written
-                                └─ .claude-plugin/plugin.json updated
+                                └─ .claude-plugin/marketplace.json updated
                                      └─ Package verified ✓
 ```
 
@@ -283,7 +291,7 @@ All skills in this agency follow these rules:
 
 **Route convention:**
 - File: `skills/<slug>/SKILL.md` — filename must be exactly `SKILL.md`
-- Registration: `"skills/<slug>"` entry in `.claude-plugin/plugin.json`
+- Registration: `"skills/<slug>"` entry in `.claude-plugin/marketplace.json`
 - User invocation: `/<slug>`
 - Agent invocation: reference the skill by name in instructions
 
@@ -302,17 +310,17 @@ All skills in this agency follow these rules:
 
 - Only the CEO may initiate skill creation — never a specialist agent independently
 - No skill file is written without governance gate approval via the `create-skill` skill
-- The `specialized-skill-builder` must inspect ≥ 2 existing skills before drafting
-- `plugin.json` updates are append-only — existing entries are never modified or removed
+- The `skill-builder` must inspect ≥ 2 existing skills before drafting
+- `marketplace.json` updates are append-only — existing entries are never modified or removed
 - Slug must match the directory name exactly — any mismatch silently breaks invocation
 - Every creation, rejection, and change request is logged to `~/.agency/audit.log`
 - Verification is mandatory after writing — file existence, sections, JSON validity, slug uniqueness
 
 **Invoke with:**
 ```
-@skill-builder: Create a new skill for [workflow].
-Gap: [what no existing skill does].
-Goal: [B-id → P-id → F-id → T-id]
+/create-skill
+Then follow the prompts, or tell the CEO:
+"Create a new skill for [workflow]. Gap: [what no existing skill does]. Goal: [B-id → P-id → F-id → T-id]"
 ```
 
 ---
@@ -323,34 +331,34 @@ When a project requires a domain that no existing specialist agent in the librar
 
 ```
 CEO identifies gap
-  └─ Delegates to agents/specialized/specialized-agent-builder
-       └─ Agent Builder inspects library, compares existing agents
-            └─ Drafts new agent config
+  └─ Delegates to skills/specialists/specialized/specialized-agent-builder
+       └─ Agent Builder inspects library, compares existing skills
+            └─ Drafts new skill config
                  └─ hire-agent skill → governance gate → [USER APPROVES]
-                      └─ Agent file written to agents/<division>/<slug>.md
+                      └─ Skill file written to skills/specialists/<division>/<slug>/SKILL.md
                            └─ Available for immediate delegation
 ```
 
 **Rules:**
 - Only the CEO may initiate a hire — never a specialist or department agent
-- No agent file is written without governance gate approval via the `hire-agent` skill
-- The `specialized-agent-builder` must compare ≥2 existing agents before drafting
+- No skill file is written without governance gate approval via the `hire-agent` skill
+- The `specialized-agent-builder` must compare ≥2 existing skills before drafting
 - `Bash` and `Agent` tools are never granted to new specialists without explicit CEO authorisation noted in the hire request
 - Every hire and rejection is logged to `~/.agency/audit.log` with a rollback tag
 - A hiring task is a blocker — the project task that triggered the hire does not proceed until the hire is approved
 
 **Invoke with:**
 ```
-@agent-builder: Draft a new agent for [domain].
-Gap: [what existing agents cannot do].
-Goal: [B-id → P-id → F-id → T-id]
+/hire-agent
+Then follow the prompts, or tell the CEO:
+"Draft a new specialist for [domain]. Gap: [what existing skills cannot do]. Goal: [B-id → P-id → F-id → T-id]"
 ```
 
 ---
 
 ## Specialist Agent Delegation
 
-Specialist agents are accessed through the **Delegate Agent**, the routing layer between core delivery agents and the 150-agent specialist library. Core agents do not directly invoke specialists — they submit a specialist request, and the Delegate Agent handles matching, scoping, and delegation.
+Specialist skills are accessed through the **Delegate Agent**, the routing layer between core delivery agents and the 173-skill specialist library. Core agents do not directly invoke specialists — they submit a specialist request, and the Delegate Agent handles matching, scoping, and delegation.
 
 ### Specialist Request Flow
 
@@ -359,7 +367,7 @@ Core Agent detects domain gap
   └─ Writes specialist request to ~/.agency/specialist-requests/<task-id>.md
        └─ Reports to CEO: "Specialist needed: [domain]"
             └─ CEO delegates to Delegate Agent
-                 └─ Delegate Agent scores all 150 specialists (keyword match %)
+                 └─ Delegate Agent scores all 173 specialists (keyword match %)
                       ├─ >=70% confidence + >=30% gap → auto-match
                       └─ <70% confidence → presents top 2-3 candidates to CEO
                            └─ Specialist spawned with narrow, scoped question
