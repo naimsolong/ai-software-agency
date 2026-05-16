@@ -1,6 +1,6 @@
 #!/bin/bash
 # init-agency.sh
-# Initialise the .agency/ workspace in the current project directory.
+# Initialise the .software-agency/ workspace in the current project directory.
 # Usage: bash path/to/ai-software-agency/scripts/init-agency.sh [project-slug]
 
 set -e
@@ -35,9 +35,9 @@ if ! echo "$PROJECT_SLUG" | grep -qE '^[a-z0-9][a-z0-9-]*[a-z0-9]$'; then
 fi
 
 # ─── Check if already initialised ───────────────────────────────────────────
-AGENCY_DIR="$AGENCY_BASE_DIR/.agency"
+AGENCY_DIR="$AGENCY_BASE_DIR/.software-agency"
 if [ -d "$AGENCY_DIR" ]; then
-  warn ".agency/ already exists in $AGENCY_BASE_DIR"
+  warn ".software-agency/ already exists in $AGENCY_BASE_DIR"
   read -r -p "Reinitialise? This will NOT overwrite existing project files. [y/N] " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "Aborted."
@@ -46,7 +46,7 @@ if [ -d "$AGENCY_DIR" ]; then
 fi
 
 # ─── Create directory structure ─────────────────────────────────────────────
-header "Creating .agency/ structure"
+header "Creating .software-agency/ structure"
 
 mkdir -p "$AGENCY_DIR/projects/$PROJECT_SLUG"
 mkdir -p "$AGENCY_DIR/memory/ceo"
@@ -209,9 +209,9 @@ Read CLAUDE.md for full role definition.
 **Current Stage:** not started
 **Tech Stack:** TBD
 **Key Files:**
-- PRD: .agency/projects/$PROJECT_SLUG/prd.md
-- Design: .agency/projects/$PROJECT_SLUG/design.md
-- Tests: .agency/projects/$PROJECT_SLUG/tests.md
+- PRD: .software-agency/projects/$PROJECT_SLUG/prd.md
+- Design: .software-agency/projects/$PROJECT_SLUG/design.md
+- Tests: .software-agency/projects/$PROJECT_SLUG/tests.md
 
 ## 3. User Preferences
 
@@ -233,7 +233,7 @@ done
 log "Agent memory files initialised (5 agents)"
 
 # ─── No .gitignore update needed ──────────────────────────────────────────
-# .agency/ now lives in the user's home directory (~/.agency/), outside any
+# .software-agency/ now lives in the user's home directory (~/.software-agency/), outside any
 # project repository, so no .gitignore entry is required.
 log ".gitignore unchanged (agency dir is home-scoped, not project-scoped)"
 
@@ -244,16 +244,16 @@ echo "  Project: $PROJECT_SLUG"
 echo "  Location: $AGENCY_DIR  (home-scoped, shared across projects)"
 echo ""
 echo "  Files created:"
-echo "    ~/.agency/config.json"
-echo "    ~/.agency/tasks.md         (5 tasks)"
-echo "    ~/.agency/goals.md         (B-001 placeholder)"
-echo "    ~/.agency/budget.md        (\$50 allocated)"
-echo "    ~/.agency/audit.log"
-echo "    ~/.agency/projects/$PROJECT_SLUG/  (prd, design, tests, changelog)"
-echo "    ~/.agency/memory/<agent>/MEMORY.md  (5 agents)"
+echo "    ~/.software-agency/config.json"
+echo "    ~/.software-agency/tasks.md         (5 tasks)"
+echo "    ~/.software-agency/goals.md         (B-001 placeholder)"
+echo "    ~/.software-agency/budget.md        (\$50 allocated)"
+echo "    ~/.software-agency/audit.log"
+echo "    ~/.software-agency/projects/$PROJECT_SLUG/  (prd, design, tests, changelog)"
+echo "    ~/.software-agency/memory/<agent>/MEMORY.md  (5 agents)"
 echo ""
 echo "  Next steps:"
-echo "    1. Update ~/.agency/goals.md with your business goal"
+echo "    1. Update ~/.software-agency/goals.md with your business goal"
 echo "    2. Invoke the CEO agent to begin orchestration"
 echo "    3. Or use the 'start-project' skill from Claude"
 echo ""

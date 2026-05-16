@@ -1,5 +1,5 @@
 {
-  "_comment": "Default configuration template for .agency/config.json. Copy to .agency/config.json and customise.",
+  "_comment": "Default configuration template for .software-agency/config.json. Copy to .software-agency/config.json and customise.",
   "agency": {
     "name": "AI Software Agency",
     "version": "1.0.0"
@@ -40,7 +40,7 @@
   },
   "governance": {
     "rollback_enabled": true,
-    "approval_log_file": ".agency/audit.log",
+    "approval_log_file": ".software-agency/audit.log",
     "required_gates": [
       "project-scope",
       "prd-approval",

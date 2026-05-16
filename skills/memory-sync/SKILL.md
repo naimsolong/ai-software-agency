@@ -76,7 +76,7 @@ Maintain these sections in order:
 
 ### 1. Read Current Memory
 
-Read `.agency/memory/<your-agent-name>/MEMORY.md`.
+Read `.software-agency/memory/<your-agent-name>/MEMORY.md`.
 
 If it doesn't exist, create it from the template above.
 

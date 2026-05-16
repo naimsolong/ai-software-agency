@@ -57,7 +57,7 @@ Also update the native task system:
 
 ### 5. Log to Audit
 
-Append to `.agency/audit.log`:
+Append to `.software-agency/audit.log`:
 ```
 [<ISO-date>] [<agent-name>] TASK_CHECKOUT: T-<id> "<task title>" claimed by <agent>
 ```

@@ -5,7 +5,7 @@
 **Author:** qa-lead
 **Created:** [ISO-date]
 **Last Updated:** [ISO-date]
-**PRD Reference:** .agency/projects/[slug]/prd.md
+**PRD Reference:** .software-agency/projects/[slug]/prd.md
 **Phase:** Pre-Development (test planning) | Post-Development (execution)
 
 ---

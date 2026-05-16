@@ -1,6 +1,6 @@
 #!/bin/bash
 # export-agency.sh
-# Export the current .agency/ workspace as a portable template.
+# Export the current .software-agency/ workspace as a portable template.
 # Scrubs secrets, API keys, and sensitive user data before exporting.
 # Usage: bash path/to/ai-software-agency/scripts/export-agency.sh [output-path]
 
@@ -8,7 +8,7 @@ set -e
 
 TARGET_DIR="$(pwd)"
 AGENCY_BASE_DIR="${AGENCY_HOME:-$HOME}"
-AGENCY_DIR="$AGENCY_BASE_DIR/.agency"
+AGENCY_DIR="$AGENCY_BASE_DIR/.software-agency"
 TIMESTAMP=$(date -u +%Y%m%dT%H%M%SZ)
 DEFAULT_OUTPUT="$TARGET_DIR/agency-export-$TIMESTAMP.tar.gz"
 OUTPUT="${1:-$DEFAULT_OUTPUT}"
@@ -25,15 +25,15 @@ error() { echo -e "${RED}✗${NC} $1"; exit 1; }
 
 # ─── Checks ──────────────────────────────────────────────────────────────────
 if [ ! -d "$AGENCY_DIR" ]; then
-  error ".agency/ not found. Run init-agency.sh first."
+  error ".software-agency/ not found. Run init-agency.sh first."
 fi
 
 # ─── Create temp export directory ────────────────────────────────────────────
 EXPORT_DIR=$(mktemp -d)
-EXPORT_AGENCY="$EXPORT_DIR/.agency"
+EXPORT_AGENCY="$EXPORT_DIR/.software-agency"
 cp -r "$AGENCY_DIR" "$EXPORT_AGENCY"
 
-log "Copied .agency/ to temporary export directory"
+log "Copied .software-agency/ to temporary export directory"
 
 # ─── Scrub secrets from config.json ──────────────────────────────────────────
 if [ -f "$EXPORT_AGENCY/config.json" ]; then
@@ -97,8 +97,8 @@ for line in lines:
     line = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', '[EMAIL]', line)
     # Remove anything that looks like a token
     line = re.sub(r'\b[A-Za-z0-9_\-]{40,}\b', '[TOKEN]', line)
-    # Remove file paths above .agency/
-    line = re.sub(r'/[^\s]*?/\.agency', '.agency', line)
+    # Remove file paths above .software-agency/
+    line = re.sub(r'/[^\s]*?/\.software-agency', '.software-agency', line)
     scrubbed.append(line)
 
 with open(sys.argv[1], 'w') as f:
@@ -122,13 +122,13 @@ cat > "$EXPORT_AGENCY/EXPORT-METADATA.json" << METAEOF
     "project_docs": true,
     "memory": false
   },
-  "import_instructions": "Run init-agency.sh then copy .agency/ contents from this export. Update config.json company and project fields."
+  "import_instructions": "Run init-agency.sh then copy .software-agency/ contents from this export. Update config.json company and project fields."
 }
 METAEOF
 log "Export metadata written"
 
 # ─── Package ─────────────────────────────────────────────────────────────────
-tar -czf "$OUTPUT" -C "$EXPORT_DIR" .agency
+tar -czf "$OUTPUT" -C "$EXPORT_DIR" .software-agency
 rm -rf "$EXPORT_DIR"
 
 log "Archive created: $OUTPUT"
@@ -139,6 +139,6 @@ echo ""
 echo "To import in another project:"
 echo "  1. Run: bash init-agency.sh <new-project-slug>"
 echo "  2. Extract: tar -xzf $(basename "$OUTPUT") -C /path/to/project"
-echo "  3. Update: .agency/config.json (company, project slug)"
-echo "  4. Review: .agency/goals.md and .agency/tasks.md"
+echo "  3. Update: .software-agency/config.json (company, project slug)"
+echo "  4. Review: .software-agency/goals.md and .software-agency/tasks.md"
 echo ""

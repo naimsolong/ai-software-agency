@@ -426,7 +426,7 @@ All core agents use the same format when writing to `~/.software-agency/speciali
 
 ---
 
-## `.agency/` Directory — File Ownership
+## `.software-agency/` Directory — File Ownership
 
 All agency runtime data lives in `~/.software-agency/` in the user's home directory (shared across all projects):
 
