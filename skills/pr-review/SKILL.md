@@ -31,7 +31,7 @@ Invoke when:
 
 Check the user's intent:
 
-- **Follow-up review:** If the user mentions reviewing new changes, fixes, updates, or latest commits (e.g. "review the fixes", "check the new code", "review Naim's updates"). This is a follow-up.
+- **Follow-up review:** If the user mentions reviewing new changes, fixes, updates, or latest commits (e.g. "review the fixes", "check the new code", "review user's updates"). This is a follow-up.
 - **Full review:** Otherwise, treat as a first-time review.
 
 ---
