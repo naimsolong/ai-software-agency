@@ -1,6 +1,6 @@
 # AI Software Agency
 
-A complete, CEO-led AI Software Agency packaged as a Claude Code plugin. It ships a team of specialised skills across four departments — Product, Design, Development, and QA — orchestrated by a strategic CEO skill, plus a 173-skill specialist library across 17 divisions.
+A complete, CEO-led AI Software Agency packaged as a Claude Code plugin. It ships a team of specialised agents across four departments — Product, Design, Development, and QA — orchestrated by a strategic CEO agent, plus a 140+ skill specialist library across 9 divisions (150+ total skills).
 
 ## Installation
 
@@ -51,9 +51,11 @@ You: "Build a user authentication system"
 
 > **Fixed-path orchestration:** Every phase runs on a prescribed path defined by the skill — same questions, same rubric, same output format, every time. No skill skips steps or decides the flow. Human approval at each gate is the only thing that advances the sequence.
 
-## Core Skills
+## Core Delivery Team (Agents)
 
-| Skill | Invoke | Role | Key Deliverable |
+These are the five core agents defined in `agents/` that orchestrate the delivery process:
+
+| Agent | Invoke | Role | Key Deliverable |
 |-------|--------|------|-----------------|
 | `ceo` | `/ceo` | Orchestrates all departments, enforces governance | Project status, goal tree |
 | `product-manager` | `/product-manager` | Refines requirements, writes PRDs | `~/.software-agency/projects/<slug>/prd.md` |
@@ -63,49 +65,33 @@ You: "Build a user authentication system"
 
 ## Specialist Skills Library
 
-Beyond the five core skills, the agency ships **173 specialist skills** across 17 divisions. Any core skill may delegate to a specialist when the task requires domain depth beyond the core team's scope.
+Beyond the five core agents, the agency ships **140+ specialist skills** across 9 divisions. Any core agent may delegate to a specialist when the task requires domain depth beyond the core team's scope.
 
 ```
-/ceo
-└── Specialist Skills Library (173 skills across 17 divisions)
+/asa
+└── Specialist Skills Library (140+ skills across 9 divisions)
     ├── skills/specialists/engineering/         — Backend, frontend, DevOps, security, AI, etc.
-    ├── skills/specialists/design/              — Brand, UX research, visual storytelling, etc.
-    ├── skills/specialists/marketing/           — SEO, social, content, growth, TikTok, etc.
-    ├── skills/specialists/sales/               — Deal strategy, pipeline, outbound, coaching
-    ├── skills/specialists/testing/             — API, accessibility, performance, workflow
-    ├── skills/specialists/product/             — Sprint prioritization, feedback, trend research
-    ├── skills/specialists/project-management/  — Studio ops, Jira workflow, experiment tracking
-    ├── skills/specialists/paid-media/          — PPC, programmatic, creative strategy, tracking
-    ├── skills/specialists/support/             — Analytics, finance, legal compliance, infra
-    ├── skills/specialists/spatial-computing/   — visionOS, XR, macOS Metal, terminal integration
-    ├── skills/specialists/specialized/         — MCP builder, agent builder, skill builder, ZK
-    ├── skills/specialists/game-development/    — Unity, Unreal, Godot, Roblox, Blender, etc.
-    ├── skills/specialists/academic/            — Anthropology, history, psychology, narratology
-    ├── skills/specialists/business/            — Cultural intelligence, consulting, presales
-    ├── skills/specialists/data/                — Orchestration, consolidation, identity graph
-    ├── skills/specialists/operations/          — Workflow, supply chain, recruitment, governance
-    └── skills/specialists/bonus/               — Studio coach
+    ├── skills/specialists/design/            — Brand, UX research, visual storytelling, etc.
+    ├── skills/specialists/marketing/         — SEO, social, content, growth, TikTok, etc.
+    ├── skills/specialists/testing/           — API, accessibility, performance, workflow
+    ├── skills/specialists/product/           — Sprint prioritization, feedback, trend research
+    ├── skills/specialists/project-management/ — Studio ops, Jira workflow, experiment tracking
+    ├── skills/specialists/support/           — Analytics, finance, legal compliance, infra
+    ├── skills/specialists/game-development/  — Unity, Unreal, Godot, Roblox, Blender, etc.
+    └── skills/specialists/data/              — Orchestration, consolidation, identity graph
 ```
 
 | Division | Skills | Examples |
 |----------|--------|---------|
-| `engineering/` | 33 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer |
-| `marketing/` | 29 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
+| `engineering/` | 36 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer |
+| `marketing/` | 20 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, linkedin-content-creator |
 | `design/` | 16 | ui-designer, ux-researcher, brand-guardian, image-prompt-engineer, visual-storyteller |
-| `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
-| `sales/` | 10 | deal-strategist, outbound-strategist, pipeline-analyst, discovery-coach, salesforce-architect |
+| `game-development/` | 20+ | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
 | `support/` | 8 | finance-tracker, legal-compliance-checker, analytics-reporter, infra-maintainer |
 | `testing/` | 8 | api-tester, accessibility-auditor, performance-benchmarker, reality-checker |
-| `project-management/` | 7 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
-| `paid-media/` | 7 | ppc-strategist, programmatic-buyer, tracking-specialist, creative-strategist |
-| `spatial-computing/` | 6 | visionos-spatial-engineer, xr-immersive-developer, xr-interface-architect |
-| `academic/` | 5 | academic-anthropologist, academic-historian, academic-psychologist, academic-narratologist |
-| `business/` | 5 | cultural-intelligence-strategist, french-consulting-market, government-digital-presales-consultant |
-| `data/` | 5 | agents-orchestrator, data-consolidation-agent, identity-graph-operator, model-qa |
-| `operations/` | 5 | workflow-architect, supply-chain-strategist, recruitment-specialist, automation-governance-architect |
+| `project-management/` | 8 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
 | `product/` | 4 | sprint-prioritizer, feedback-synthesizer, trend-researcher, behavioral-nudge-engine |
-| `specialized/` | 4 | mcp-builder, skill-builder, specialized-agent-builder, zk-steward |
-| `bonus/` | 1 | studio-coach |
+| `data/` | 5 | agents-orchestrator, data-consolidation-agent, identity-graph-operator, model-qa |
 
 **Delegation rules:**
 - Specialists are invoked via the `Agent` tool by the CEO skill, using their path: e.g. `skills/specialists/engineering/engineering-frontend-developer`
@@ -119,7 +105,7 @@ If a project needs a domain that no existing specialist covers, the agency can g
 
 ```
 /ceo identifies gap
-  └─ Delegates to skills/specialists/specialized/specialized-agent-builder
+  └─ Delegates to /hire-agent skill
        └─ Inspects library, compares 2+ existing specialists
             └─ Drafts new skill config
                  └─ /hire-agent → Governance Gate → [YOU APPROVE]
@@ -128,10 +114,10 @@ If a project needs a domain that no existing specialist covers, the agency can g
 
 **How to trigger a hire:**
 ```
-/ceo I need a specialist for [domain] — nothing in the library covers it.
+/asa I need a specialist for [domain] — nothing in the library covers it.
 ```
 
-The CEO will delegate to `specialized-agent-builder`, which will inspect the existing library, draft a new specialist, and present the full config for your approval before writing anything. No skill file is ever created without your explicit sign-off.
+The CEO will delegate to `/hire-agent`, which will inspect the existing library, draft a new specialist, and present the full config for your approval before writing anything. No skill file is ever created without your explicit sign-off.
 
 **Hire governance rules:**
 - Only the CEO may initiate a hire
@@ -146,7 +132,7 @@ If a workflow step should be reusable across projects but no existing skill cove
 
 ```
 /ceo identifies workflow gap
-  └─ Delegates to skills/specialists/specialized/skill-builder
+  └─ Delegates to /create-skill
        └─ Inspects skills library + plugin manifest
             └─ Defines spec (slug, worker surface, UI surface)
                  └─ Drafts SKILL.md + plugin.json append
@@ -158,7 +144,7 @@ If a workflow step should be reusable across projects but no existing skill cove
 
 **How to trigger a skill creation:**
 ```
-/ceo I need a new skill for [workflow] — no existing skill covers it.
+/asa I need a new skill for [workflow] — no existing skill covers it.
 ```
 
 **Alpha SDK runtime conventions the agency enforces:**
@@ -464,12 +450,13 @@ tar -xzf agency-template.tar.gz -C .
 ai-software-agency/
 ├── .claude-plugin/
 │   └── marketplace.json             # Plugin manifest
-├── skills/
-│   ├── ceo/SKILL.md                 # CEO orchestrator
-│   ├── product-manager/SKILL.md
-│   ├── uiux-designer/SKILL.md
-│   ├── fullstack-developer/SKILL.md
-│   ├── qa-lead/SKILL.md
+├── agents/                          # Core delivery team (5 agents)
+│   ├── ceo.md
+│   ├── product-manager.md
+│   ├── uiux-designer.md
+│   ├── fullstack-developer.md
+│   └── qa-lead.md
+├── skills/                          # Workflow skills + specialist library
 │   ├── start-project/SKILL.md
 │   ├── feasibility-check/SKILL.md
 │   ├── task-checkout/SKILL.md
@@ -482,33 +469,22 @@ ai-software-agency/
 │   ├── hire-agent/SKILL.md          ← draft + governance-gate a new specialist
 │   ├── create-skill/SKILL.md        ← scaffold + governance-gate a new skill
 │   ├── install-tooling/SKILL.md     ← confirm + install MCPs and desktop tools
-│   └── specialists/                 ← 173 specialist skills across 17 divisions
-│       ├── engineering/
-│       ├── design/
-│       ├── marketing/
-│       ├── sales/
-│       ├── testing/
-│       ├── product/
-│       ├── project-management/
-│       ├── paid-media/
-│       ├── support/
-│       ├── spatial-computing/
-│       ├── specialized/
-│       ├── game-development/
-│       ├── academic/
-│       ├── business/
-│       ├── data/
-│       ├── operations/
-│       └── bonus/
+│   └── specialists/                 ← 140+ specialist skills across 9 divisions
+│       ├── engineering/             # 36 skills
+│       ├── design/                  # 16 skills
+│       ├── marketing/               # 20 skills
+│       ├── testing/                 # 8 skills
+│       ├── product/                 # 4 skills
+│       ├── project-management/      # 8 skills
+│       ├── support/                 # 8 skills
+│       ├── game-development/        # 20+ skills
+│       └── data/                    # 5 skills
 ├── templates/
 │   ├── prd-template.md
 │   ├── design-spec-template.md
 │   ├── test-plan-template.md
 │   └── agency-config.json
-├── scripts/
-│   ├── init-agency.sh
-│   └── export-agency.sh
-├── CLAUDE.md                    # Shared standards for all skills
+├── CLAUDE.md                        # Shared standards for all skills
 └── README.md
 ```
 
