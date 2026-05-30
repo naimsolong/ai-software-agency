@@ -145,7 +145,7 @@ CEO (Orchestrator)
 
 ### Specialist Skills Library
 
-The agency has 173 additional specialist skills organised into 17 divisions. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
+The agency has **173** additional specialist skills organised into **17 divisions**. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
 
 ```
 CEO
@@ -180,7 +180,7 @@ CEO
 | `sales/` | 10 | deal-strategist, outbound-strategist, pipeline-analyst, discovery-coach |
 | `support/` | 8 | finance-tracker, legal-compliance-checker, analytics-reporter, infra-maintainer |
 | `testing/` | 8 | api-tester, accessibility-auditor, performance-benchmarker, reality-checker |
-| `project-management/` | 7 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
+| `project-management/` | 8 | project-shepherd, jira-workflow-steward, studio-producer, studio-operations |
 | `paid-media/` | 7 | ppc-strategist, programmatic-buyer, tracking-specialist, creative-strategist |
 | `spatial-computing/` | 6 | visionos-spatial-engineer, xr-immersive-developer, xr-interface-architect |
 | `academic/` | 5 | academic-anthropologist, academic-historian, academic-psychologist, academic-narratologist |
@@ -188,7 +188,7 @@ CEO
 | `specialized/` | 4 | mcp-builder, skill-builder, specialized-agent-builder, zk-steward |
 | `business/` | 5 | cultural-intelligence-strategist, french-consulting-market, government-digital-presales-consultant, korean-business-navigator |
 | `data/` | 5 | agents-orchestrator, data-consolidation-agent, identity-graph-operator, model-qa |
-| `operations/` | 4 | automation-governance-architect, supply-chain-strategist, workflow-architect, recruitment-specialist |
+| `operations/` | 5 | automation-governance-architect, supply-chain-strategist, workflow-architect, recruitment-specialist |
 | `bonus/` | 1 | bonus-studio-coach |
 
 ---
@@ -640,47 +640,3 @@ Use the `goal-tree` skill to retrieve this for any task.
 - When presenting a deliverable for governance gate: use clear headings, show the full document, then present the approval prompt
 - Never assume approval — always wait for explicit confirmation
 - Surface blockers immediately rather than attempting workarounds
-
-<!-- gitnexus:start -->
-# GitNexus — Code Intelligence
-
-This project is indexed by GitNexus as **ai-software-agency** (2780 symbols, 2774 relationships, 0 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
-
-> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
-
-## Always Do
-
-- **MUST run impact analysis before editing any symbol.** Before modifying a function, class, or method, run `gitnexus_impact({target: "symbolName", direction: "upstream"})` and report the blast radius (direct callers, affected processes, risk level) to the user.
-- **MUST run `gitnexus_detect_changes()` before committing** to verify your changes only affect expected symbols and execution flows.
-- **MUST warn the user** if impact analysis returns HIGH or CRITICAL risk before proceeding with edits.
-- When exploring unfamiliar code, use `gitnexus_query({query: "concept"})` to find execution flows instead of grepping. It returns process-grouped results ranked by relevance.
-- When you need full context on a specific symbol — callers, callees, which execution flows it participates in — use `gitnexus_context({name: "symbolName"})`.
-
-## Never Do
-
-- NEVER edit a function, class, or method without first running `gitnexus_impact` on it.
-- NEVER ignore HIGH or CRITICAL risk warnings from impact analysis.
-- NEVER rename symbols with find-and-replace — use `gitnexus_rename` which understands the call graph.
-- NEVER commit changes without running `gitnexus_detect_changes()` to check affected scope.
-
-## Resources
-
-| Resource | Use for |
-|----------|---------|
-| `gitnexus://repo/ai-software-agency/context` | Codebase overview, check index freshness |
-| `gitnexus://repo/ai-software-agency/clusters` | All functional areas |
-| `gitnexus://repo/ai-software-agency/processes` | All execution flows |
-| `gitnexus://repo/ai-software-agency/process/{name}` | Step-by-step execution trace |
-
-## CLI
-
-| Task | Read this skill file |
-|------|---------------------|
-| Understand architecture / "How does X work?" | `.claude/skills/gitnexus/gitnexus-exploring/SKILL.md` |
-| Blast radius / "What breaks if I change X?" | `.claude/skills/gitnexus/gitnexus-impact-analysis/SKILL.md` |
-| Trace bugs / "Why is X failing?" | `.claude/skills/gitnexus/gitnexus-debugging/SKILL.md` |
-| Rename / extract / split / refactor | `.claude/skills/gitnexus/gitnexus-refactoring/SKILL.md` |
-| Tools, resources, schema reference | `.claude/skills/gitnexus/gitnexus-guide/SKILL.md` |
-| Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
-
-<!-- gitnexus:end -->

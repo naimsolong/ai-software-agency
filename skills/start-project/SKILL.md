@@ -41,11 +41,8 @@ Create `~/.software-agency/` in the user's home directory if it doesn't exist:
 │       ├── tests.md        (empty, will be written by QA)
 │       └── changelog.md    (empty, will be written by Dev on merge)
 └── memory/
-    ├── ceo/MEMORY.md
-    ├── product-manager/MEMORY.md
-    ├── uiux-designer/MEMORY.md
-    ├── fullstack-developer/MEMORY.md
-    └── qa-lead/MEMORY.md
+    └── <agents>/
+        └── MEMORY.md
 ```
 
 ### 3. Write `config.json`

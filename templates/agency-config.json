@@ -52,6 +52,7 @@
   "templates": {
     "prd": "templates/prd-template.md",
     "design_spec": "templates/design-spec-template.md",
+    "design_tokens": "templates/design-tokens-template.md",
     "test_plan": "templates/test-plan-template.md"
   }
 }
