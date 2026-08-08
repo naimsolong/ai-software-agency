@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/software-architect
-
-Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical decision-making for scalable, maintainable systems
+---
+name: specialist-engineering-software-architect
+description: Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical decision-making for scalable, maintainable systems
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

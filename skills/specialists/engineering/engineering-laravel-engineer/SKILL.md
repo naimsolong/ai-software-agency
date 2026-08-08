@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/laravel-engineer
-
-Laravel framework specialist following Spatie-grade conventions. Expert in Eloquent ORM, service container, Artisan, Blade, events/queues, and Laravel-specific testing patterns
+---
+name: specialist-engineering-laravel-engineer
+description: Laravel framework specialist following Spatie-grade conventions. Expert in Eloquent ORM, service container, Artisan, Blade, events/queues, and Laravel-specific testing patterns
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

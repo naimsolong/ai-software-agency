@@ -1,7 +1,6 @@
-# Skill: testcase-generate
-
-Generate structured test cases and an issues tracking table from a PRD, optional Figma design, and optional implementation diff. Designed for the QA Lead agent's Test Planning mode — reads the approved PRD, analyses user stories and acceptance criteria, and produces organised test cases organised by feature area.
-
+---
+name: testcase-generate
+description: Generate structured test cases and an issues tracking table from a PRD, optional Figma design, and optional implementation diff. Designed for the QA Lead agent's Test Planning mode — reads the approved PRD, analyses user stories and acceptance criteria, and produces organised test cases organised by feature area.
 ---
 
 ## When to Use

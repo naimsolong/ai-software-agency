@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-accessibility-auditor
-
-Audits interfaces against WCAG standards, tests with assistive technologies, and ensures inclusive design.
+---
+name: specialist-testing-testing-accessibility-auditor
+description: Audits interfaces against WCAG standards, tests with assistive technologies, and ensures inclusive design.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

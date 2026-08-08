@@ -1,7 +1,6 @@
-# Skill: research-sparring
-
-Think through problems together with the user — challenge assumptions, surface surprises, and pause for direction. A sparring-partner methodology for exploratory investigation applicable to code exploration, architecture analysis, bug investigation, data research, and any domain where understanding must precede action.
-
+---
+name: research-sparring
+description: Think through problems together with the user — challenge assumptions, surface surprises, and pause for direction. A sparring-partner methodology for exploratory investigation applicable to code exploration, architecture analysis, bug investigation, data research, and any domain where understanding must precede action.
 ---
 
 ## When to Use

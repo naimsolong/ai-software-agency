@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/corporate-training-designer
-
-Expert in corporate learning design using ADDIE/SAM models, China enterprise LMS platforms, and Kirkpatrick evaluation frameworks.
+---
+name: specialist-marketing-corporate-training-designer
+description: Expert in corporate learning design using ADDIE/SAM models, China enterprise LMS platforms, and Kirkpatrick evaluation frameworks.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

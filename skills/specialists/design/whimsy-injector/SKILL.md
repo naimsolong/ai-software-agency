@@ -1,6 +1,7 @@
-# Skill: specialists/design/whimsy-injector
-
-Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy.
+---
+name: specialist-design-whimsy-injector
+description: Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates memorable, joyful interactions that differentiate brands through unexpected moments of whimsy.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

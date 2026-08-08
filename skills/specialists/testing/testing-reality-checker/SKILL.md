@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-reality-checker
-
-Stops fantasy approvals, evidence-based certification — requires overwhelming proof for production readiness.
+---
+name: specialist-testing-testing-reality-checker
+description: Stops fantasy approvals, evidence-based certification — requires overwhelming proof for production readiness.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

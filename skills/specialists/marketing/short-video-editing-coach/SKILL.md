@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/short-video-editing-coach
-
-Expert in short-form video editing, mobile-first content production, and viral video optimization — masters TikTok, Instagram Reels, YouTube Shorts, and Douyin editing workflows with trending effects, transitions, and caption strategies.
+---
+name: specialist-marketing-short-video-editing-coach
+description: Expert in short-form video editing, mobile-first content production, and viral video optimization — masters TikTok, Instagram Reels, YouTube Shorts, and Douyin editing workflows with trending effects, transitions, and caption strategies.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

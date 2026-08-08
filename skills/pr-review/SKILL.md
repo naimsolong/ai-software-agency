@@ -1,7 +1,6 @@
-# Skill: pr-review
-
-Review a GitHub pull request with a structured two-pass analysis: Pass 1 examines code correctness and quality, Pass 2 assesses system impact and risk. Uses generalised stack checklists that adapt to the detected project type. Supports full reviews and follow-up re-reviews of revised PRs.
-
+---
+name: pr-review
+description: Review a GitHub pull request with a structured two-pass analysis: Pass 1 examines code correctness and quality, Pass 2 assesses system impact and risk. Uses generalised stack checklists that adapt to the detected project type. Supports full reviews and follow-up re-reviews of revised PRs.
 ---
 
 ## When to Use

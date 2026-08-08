@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/frontend-developer
-
-Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization.
+---
+name: specialist-engineering-frontend-developer
+description: Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

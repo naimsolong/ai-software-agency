@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/linkedin-content-creator
-
-Expert in LinkedIn content strategy, professional thought leadership, and B2B engagement optimization — masters LinkedIn articles, newsletter strategy, personal branding, and professional audience development for B2B marketing success.
+---
+name: specialist-marketing-linkedin-content-creator
+description: Expert in LinkedIn content strategy, professional thought leadership, and B2B engagement optimization — masters LinkedIn articles, newsletter strategy, personal branding, and professional audience development for B2B marketing success.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

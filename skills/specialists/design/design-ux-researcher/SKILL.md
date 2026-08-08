@@ -1,6 +1,7 @@
-# Skill: specialists/design/design-ux-researcher
-
-Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insights. Provides actionable research findings that improve product usability and user satisfaction.
+---
+name: specialist-design-design-ux-researcher
+description: Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insights. Provides actionable research findings that improve product usability and user satisfaction.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

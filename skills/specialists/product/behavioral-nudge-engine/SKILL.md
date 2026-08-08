@@ -1,6 +1,7 @@
-# Skill: specialists/product/behavioral-nudge-engine
-
-Expert behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success. Transforms passive software dashboards into active, tailored productivity partners.
+---
+name: specialist-product-behavioral-nudge-engine
+description: Expert behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success. Transforms passive software dashboards into active, tailored productivity partners.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

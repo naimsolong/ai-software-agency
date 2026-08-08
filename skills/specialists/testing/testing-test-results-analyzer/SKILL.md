@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-test-results-analyzer
-
-Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionable insight generation from testing activities.
+---
+name: specialist-testing-testing-test-results-analyzer
+description: Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionable insight generation from testing activities.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

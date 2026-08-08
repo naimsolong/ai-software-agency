@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-performance-benchmarker
-
-Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure.
+---
+name: specialist-testing-testing-performance-benchmarker
+description: Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

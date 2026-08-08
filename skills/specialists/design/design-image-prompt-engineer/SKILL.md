@@ -1,6 +1,7 @@
-# Skill: specialists/design/design-image-prompt-engineer
-
-Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools.
+---
+name: specialist-design-design-image-prompt-engineer
+description: Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

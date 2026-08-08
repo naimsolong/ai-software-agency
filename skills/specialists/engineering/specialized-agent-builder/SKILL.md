@@ -1,6 +1,7 @@
-# Skill: specialists/specialized/specialized-agent-builder
-
-Specialist agent for governance-gated agent creation using the hire-agent workflow.
+---
+name: specialist-specialized-specialized-agent-builder
+description: Specialist agent for governance-gated agent creation using the hire-agent workflow.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

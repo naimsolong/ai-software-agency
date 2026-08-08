@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/growth-hacker
-
-Expert in growth hacking strategies, viral growth mechanisms, and scalable acquisition channels — masters product-led growth, network effects, referral systems, and data-driven experimentation frameworks that drive rapid user acquisition and retention.
+---
+name: specialist-marketing-growth-hacker
+description: Expert in growth hacking strategies, viral growth mechanisms, and scalable acquisition channels — masters product-led growth, network effects, referral systems, and data-driven experimentation frameworks that drive rapid user acquisition and retention.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

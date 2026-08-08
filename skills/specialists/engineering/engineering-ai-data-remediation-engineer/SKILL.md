@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/ai-data-remediation-engineer
-
-Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scale
+---
+name: specialist-engineering-ai-data-remediation-engineer
+description: Specialist in self-healing data pipelines — uses air-gapped local SLMs and semantic clustering to automatically detect, classify, and fix data anomalies at scale
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

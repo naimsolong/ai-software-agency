@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/sre
-
-Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale.
+---
+name: specialist-engineering-sre
+description: Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

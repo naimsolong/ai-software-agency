@@ -1,6 +1,7 @@
-# Skill: specialists/project-management/project-management-project-shipper
-
-Master launch orchestrator who coordinates releases, manages go-to-market execution, and ensures every feature ships on time with maximum impact — from code freeze to post-launch monitoring.
+---
+name: specialist-project-management-project-management-project-shipper
+description: Master launch orchestrator who coordinates releases, manages go-to-market execution, and ensures every feature ships on time with maximum impact — from code freeze to post-launch monitoring.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

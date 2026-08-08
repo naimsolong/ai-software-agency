@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/test-writer-fixer
-
-Elite test automation expert who writes comprehensive tests and maintains suite integrity through intelligent execution and repair.
+---
+name: specialist-engineering-test-writer-fixer
+description: Elite test automation expert who writes comprehensive tests and maintains suite integrity through intelligent execution and repair.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

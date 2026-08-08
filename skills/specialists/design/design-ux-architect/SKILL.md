@@ -1,6 +1,7 @@
-# Skill: specialists/design/design-ux-architect
-
-Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance.
+---
+name: specialist-design-design-ux-architect
+description: Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

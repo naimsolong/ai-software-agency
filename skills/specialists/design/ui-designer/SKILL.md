@@ -1,6 +1,7 @@
-# Skill: specialists/design/ui-designer
-
-Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity.
+---
+name: specialist-design-ui-designer
+description: Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

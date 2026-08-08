@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/narrative-designer
-
-Expert in branching narratives, dialogue systems, lore architecture, and environmental storytelling for games.
+---
+name: specialist-game-development-narrative-designer
+description: Expert in branching narratives, dialogue systems, lore architecture, and environmental storytelling for games.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

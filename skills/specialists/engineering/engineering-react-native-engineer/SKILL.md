@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/react-native-engineer
-
-React Native specialist for cross-platform mobile — native module bridges, Reanimated animations, performance profiling, CodePush OTA, and platform-specific iOS/Android delivery
+---
+name: specialist-engineering-react-native-engineer
+description: React Native specialist for cross-platform mobile — native module bridges, Reanimated animations, performance profiling, CodePush OTA, and platform-specific iOS/Android delivery
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

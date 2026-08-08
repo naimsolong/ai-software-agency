@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/private-domain-operator
-
-Expert in WeChat private domain ecosystem building — masters WeCom SCRM systems, segmented community operations, Mini Program commerce integration, user lifecycle management, and full-funnel conversion optimization for WeChat private traffic.
+---
+name: specialist-marketing-private-domain-operator
+description: Expert in WeChat private domain ecosystem building — masters WeCom SCRM systems, segmented community operations, Mini Program commerce integration, user lifecycle management, and full-funnel conversion optimization for WeChat private traffic.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

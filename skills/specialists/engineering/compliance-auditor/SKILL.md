@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/compliance-auditor
-
-Expert in SOC 2, ISO 27001, HIPAA, PCI-DSS, and other compliance framework audit readiness and gap assessment.
+---
+name: specialist-engineering-compliance-auditor
+description: Expert in SOC 2, ISO 27001, HIPAA, PCI-DSS, and other compliance framework audit readiness and gap assessment.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

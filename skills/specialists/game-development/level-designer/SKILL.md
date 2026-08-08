@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/level-designer
-
-Expert in spatial level design, encounter balancing, flow architecture, and environmental storytelling for game levels.
+---
+name: specialist-game-development-level-designer
+description: Expert in spatial level design, encounter balancing, flow architecture, and environmental storytelling for game levels.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -133,6 +133,42 @@ Business Goal: B-001 — <description>
 | `SPECIALIST_REQUEST` | Agent → CEO | Request specialist input |
 | `SPECIALIST_OUTPUT` | CEO → Agent | Specialist result delivered |
 
+## Data, Project Management, and Support Specialist Protocol
+
+If you encounter work requiring deep domain expertise, **use a data, project management, or support specialist whenever needed**. Route through the Delegate Agent or delegate directly — use these when planning, running operations, or handling non-engineering back-office work:
+
+**Data specialists:**
+- `specialist-data-agents-orchestrator` — autonomous multi-agent pipeline coordination
+- `specialist-data-data-consolidation-agent` — consolidate sales data into unified dashboards
+- `specialist-data-identity-graph-operator` — identity resolution, entity matching, merge proposals
+- `specialist-data-model-qa` — independent ML/statistical model audit
+- `specialist-data-report-distribution-agent` — automated report distribution by territory
+
+**Project management specialists:**
+- `specialist-project-management-project-management-project-shepherd` — cross-functional coordination, timelines, stakeholder alignment
+- `specialist-project-management-project-manager-senior` — converts specs to tasks, realistic scope, precise requirements
+- `specialist-project-management-project-management-project-shipper` — launch orchestration, go-to-market execution
+- `specialist-project-management-project-management-experiment-tracker` — A/B testing, experiment design and tracking
+- `specialist-project-management-project-management-jira-workflow-steward` — Jira-linked Git workflows, release-safe branch strategy
+- `specialist-project-management-project-management-studio-producer` — portfolio orchestration, resource allocation, multi-project management
+- `specialist-project-management-project-management-studio-operations` — studio efficiency, process optimization, resource coordination
+
+**Support specialists:**
+- `specialist-support-support-analytics-reporter` — data analysis, dashboards, KPI tracking
+- `specialist-support-support-finance-tracker` — financial planning, budget, cash flow
+- `specialist-support-support-legal-compliance-checker` — legal and compliance checks across jurisdictions
+- `specialist-support-support-infrastructure-maintainer` — system reliability, technical operations
+- `specialist-support-support-executive-summary-generator` — C-suite executive summaries
+- `specialist-support-document-generator` — PDF/PPTX/DOCX/XLSX document production
+- `specialist-support-developer-advocate` — developer experience and technical content
+- `specialist-support-support-support-responder` — customer support, issue resolution, UX optimization
+
+1. **STOP** — do not improvise in a domain you don't deeply know
+2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+3. Route to the appropriate specialist via the Delegate Agent (or delegate directly)
+4. **Wait** for specialist output
+5. Deliver the output to the requesting agent or integrate it as needed
+
 ## Critical Rules
 
 - Never write application code or CSS

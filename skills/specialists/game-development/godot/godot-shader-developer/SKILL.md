@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/godot/godot-shader-developer
-
-Expert in Godot 4.x shader development using GLSL, VisualShader system, and custom rendering for games.
+---
+name: specialist-game-development-godot-godot-shader-developer
+description: Expert in Godot 4.x shader development using GLSL, VisualShader system, and custom rendering for games.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

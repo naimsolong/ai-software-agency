@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/technical-artist
-
-Expert in game engine shaders, VFX systems, LOD pipelines, and asset production for cross-platform game development.
+---
+name: specialist-game-development-technical-artist
+description: Expert in game engine shaders, VFX systems, LOD pipelines, and asset production for cross-platform game development.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

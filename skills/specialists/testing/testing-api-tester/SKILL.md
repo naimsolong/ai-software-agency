@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-api-tester
-
-Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations.
+---
+name: specialist-testing-testing-api-tester
+description: Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across all systems and third-party integrations.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

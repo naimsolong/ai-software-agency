@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/reddit-community-builder
-
-Expert in Reddit community engagement, authentic value-driven content creation, and long-term brand relationship building on Reddit — masters subreddit culture navigation, Reddit advertising, and reputation management on the Reddit platform.
+---
+name: specialist-marketing-reddit-community-builder
+description: Expert in Reddit community engagement, authentic value-driven content creation, and long-term brand relationship building on Reddit — masters subreddit culture navigation, Reddit advertising, and reputation management on the Reddit platform.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

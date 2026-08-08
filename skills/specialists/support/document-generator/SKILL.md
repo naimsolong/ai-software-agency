@@ -1,6 +1,7 @@
-# Skill: specialists/support/document-generator
-
-Expert in PDF/PPTX/DOCX/XLSX generation using code-based tools for automated document production.
+---
+name: specialist-support-document-generator
+description: Expert in PDF/PPTX/DOCX/XLSX generation using code-based tools for automated document production.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

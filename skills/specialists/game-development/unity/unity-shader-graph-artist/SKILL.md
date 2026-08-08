@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unity/unity-shader-graph-artist
-
-Expert in Unity Shader Graph, HLSL, URP/HDRP rendering pipelines, and custom pass authoring for real-time visual effects.
+---
+name: specialist-game-development-unity-unity-shader-graph-artist
+description: Expert in Unity Shader Graph, HLSL, URP/HDRP rendering pipelines, and custom pass authoring for real-time visual effects.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

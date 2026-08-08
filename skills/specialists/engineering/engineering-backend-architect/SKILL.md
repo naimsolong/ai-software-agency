@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/backend-architect
-
-Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure.
+---
+name: specialist-engineering-backend-architect
+description: Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

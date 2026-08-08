@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/instagram-curator
-
-Expert in Instagram marketing, visual brand aesthetics, Reels strategy, and community engagement — masters Instagram's algorithm, aesthetic coherence, influencer partnerships, and brand storytelling through visual content.
+---
+name: specialist-marketing-instagram-curator
+description: Expert in Instagram marketing, visual brand aesthetics, Reels strategy, and community engagement — masters Instagram's algorithm, aesthetic coherence, influencer partnerships, and brand storytelling through visual content.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

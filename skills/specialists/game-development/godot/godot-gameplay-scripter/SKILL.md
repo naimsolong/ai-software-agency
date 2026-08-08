@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/godot/godot-gameplay-scripter
-
-Expert in Godot 4.x gameplay scripting using GDScript 2.0 and C#, node composition patterns, and signals architecture.
+---
+name: specialist-game-development-godot-godot-gameplay-scripter
+description: Expert in Godot 4.x gameplay scripting using GDScript 2.0 and C#, node composition patterns, and signals architecture.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

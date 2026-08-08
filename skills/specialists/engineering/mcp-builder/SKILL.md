@@ -1,6 +1,7 @@
-# Skill: specialists/specialized/mcp-builder
-
-Expert Model Context Protocol developer who designs, builds, and tests MCP servers extending AI agent capabilities.
+---
+name: specialist-specialized-mcp-builder
+description: Expert Model Context Protocol developer who designs, builds, and tests MCP servers extending AI agent capabilities.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

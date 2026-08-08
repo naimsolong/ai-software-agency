@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/lsp-index-engineer
-
-LSP client orchestration, semantic indexing, and graphd daemon management specialist for IDE/language server integration.
+---
+name: specialist-engineering-lsp-index-engineer
+description: LSP client orchestration, semantic indexing, and graphd daemon management specialist for IDE/language server integration.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

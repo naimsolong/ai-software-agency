@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unity/unity-multiplayer-engineer
-
-Expert in Unity Netcode for GameObjects, Unity Relay, Lobby services, and authoritative multiplayer architecture for Unity games.
+---
+name: specialist-game-development-unity-unity-multiplayer-engineer
+description: Expert in Unity Netcode for GameObjects, Unity Relay, Lobby services, and authoritative multiplayer architecture for Unity games.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

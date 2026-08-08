@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/social-media-strategist
-
-Expert in cross-platform social media strategy, LinkedIn and Twitter campaigns, and integrated professional platform management — masters thought leadership, community building, and engagement strategies across LinkedIn, Twitter, and professional networks.
+---
+name: specialist-marketing-social-media-strategist
+description: Expert in cross-platform social media strategy, LinkedIn and Twitter campaigns, and integrated professional platform management — masters thought leadership, community building, and engagement strategies across LinkedIn, Twitter, and professional networks.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unreal-engine/unreal-multiplayer-architect
-
-Expert in Unreal Engine multiplayer architecture, actor replication, GameMode/GameState systems, RPC patterns, and GAS-based network gameplay.
+---
+name: specialist-game-development-unreal-engine-unreal-multiplayer-architect
+description: Expert in Unreal Engine multiplayer architecture, actor replication, GameMode/GameState systems, RPC patterns, and GAS-based network gameplay.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

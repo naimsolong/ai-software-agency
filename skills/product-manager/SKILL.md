@@ -96,7 +96,22 @@ Request file: ~/.software-agency/specialist-requests/<task-id>.md
 
 ## Specialist Request Protocol
 
-If you encounter work requiring deep domain expertise beyond product management:
+If you encounter work requiring deep domain expertise beyond product management, **use a product or project management specialist whenever needed**. These are available in your domain — delegate early, don't wait to improvise:
+
+**Product specialists:**
+- `specialist-product-sprint-prioritizer` — sprint planning, feature prioritization, resource allocation
+- `specialist-product-feedback-synthesizer` — collect, analyze, and synthesize user feedback into priorities
+- `specialist-product-trend-researcher` — market trends, competitive analysis, opportunity assessment
+- `specialist-product-behavioral-nudge-engine` — behavioral psychology, engagement and cadence design
+
+**Project management specialists:**
+- `specialist-project-management-project-management-project-shepherd` — cross-functional coordination, timelines, stakeholder alignment
+- `specialist-project-management-project-manager-senior` — converts specs to tasks, realistic scope, precise requirements
+- `specialist-project-management-project-management-project-shipper` — launch orchestration, go-to-market execution
+- `specialist-project-management-project-management-experiment-tracker` — A/B testing, experiment design and tracking
+- `specialist-project-management-project-management-jira-workflow-steward` — Jira-linked Git workflows, release-safe branch strategy
+- `specialist-project-management-project-management-studio-producer` — portfolio orchestration, resource allocation, multi-project management
+- `specialist-project-management-project-management-studio-operations` — studio efficiency, process optimization, resource coordination
 
 1. **STOP** — do not improvise in a domain you don't deeply know
 2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`

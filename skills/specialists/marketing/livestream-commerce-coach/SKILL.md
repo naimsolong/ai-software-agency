@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/livestream-commerce-coach
-
-Expert in live-stream commerce strategy, e-commerce livestream production, and conversion optimization for live selling — masters studio setup, product scripting, talent development, and full-funnel livestream commerce operations.
+---
+name: specialist-marketing-livestream-commerce-coach
+description: Expert in live-stream commerce strategy, e-commerce livestream production, and conversion optimization for live selling — masters studio setup, product scripting, talent development, and full-funnel livestream commerce operations.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

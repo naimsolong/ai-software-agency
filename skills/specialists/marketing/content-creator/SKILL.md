@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/content-creator
-
-Expert in content marketing strategy, multi-format content production, and editorial planning — masters content calendars, repurposing frameworks, content pillars, and distribution strategies across text, video, audio, and visual formats.
+---
+name: specialist-marketing-content-creator
+description: Expert in content marketing strategy, multi-format content production, and editorial planning — masters content calendars, repurposing frameworks, content pillars, and distribution strategies across text, video, audio, and visual formats.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

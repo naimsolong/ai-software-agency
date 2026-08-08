@@ -1,6 +1,7 @@
-# Skill: specialists/support/developer-advocate
-
-Expert in Developer Experience (DX) engineering, community building, and technical content creation.
+---
+name: specialist-support-developer-advocate
+description: Expert in Developer Experience (DX) engineering, community building, and technical content creation.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

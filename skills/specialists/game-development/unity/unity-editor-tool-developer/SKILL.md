@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unity/unity-editor-tool-developer
-
-Expert in Unity Editor extensions, custom inspectors, property drawers, and editor automation for game development workflows.
+---
+name: specialist-game-development-unity-unity-editor-tool-developer
+description: Expert in Unity Editor extensions, custom inspectors, property drawers, and editor automation for game development workflows.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

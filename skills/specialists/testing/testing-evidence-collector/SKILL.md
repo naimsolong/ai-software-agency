@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-evidence-collector
-
-Screenshot-obsessed, fantasy-allergic QA specialist — requires visual proof for everything.
+---
+name: specialist-testing-testing-evidence-collector
+description: Screenshot-obsessed, fantasy-allergic QA specialist — requires visual proof for everything.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

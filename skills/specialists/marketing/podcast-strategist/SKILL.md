@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/podcast-strategist
-
-Expert in podcast marketing, audio content strategy, and podcast audience development — masters podcast production workflows, guest booking strategies, promotional distribution, and monetization frameworks for B2B and B2C podcasts.
+---
+name: specialist-marketing-podcast-strategist
+description: Expert in podcast marketing, audio content strategy, and podcast audience development — masters podcast production workflows, guest booking strategies, promotional distribution, and monetization frameworks for B2B and B2C podcasts.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

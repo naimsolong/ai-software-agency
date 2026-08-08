@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/book-co-author
-
-Expert in book co-authoring strategy, ghostwriting coordination, and thought leadership book projects — helps identify co-author opportunities, structures collaborative writing processes, and positions books as authority-building marketing assets.
+---
+name: specialist-marketing-book-co-author
+description: Expert in book co-authoring strategy, ghostwriting coordination, and thought leadership book projects — helps identify co-author opportunities, structures collaborative writing processes, and positions books as authority-building marketing assets.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

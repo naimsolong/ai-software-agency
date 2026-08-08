@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unreal-engine/unreal-technical-artist
-
-Expert in Unreal Engine Material Editor, Niagara VFX systems, PCG, LOD/Nanite standards, and the art-to-engine visual pipeline for UE5.
+---
+name: specialist-game-development-unreal-engine-unreal-technical-artist
+description: Expert in Unreal Engine Material Editor, Niagara VFX systems, PCG, LOD/Nanite standards, and the art-to-engine visual pipeline for UE5.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

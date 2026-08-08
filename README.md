@@ -53,7 +53,7 @@ You: "Build a user authentication system"
 
 ## Core Delivery Team (Agents)
 
-These are the five core agents defined in `agents/` that orchestrate the delivery process:
+These are the five core agent skills defined in `skills/` that orchestrate the delivery process:
 
 | Agent | Invoke | Role | Key Deliverable |
 |-------|--------|------|-----------------|
@@ -347,49 +347,11 @@ Goal: G-002 → P-001 → B-001
 | `governance-gate` | `/governance-gate` | Present deliverable for human approval; mandatory before handoffs |
 | `task-checkout` | `/task-checkout` | Atomically claim a task before starting (no double-work) |
 | `memory-sync` | `/memory-sync` | Persist session learnings to agent MEMORY.md |
-| `goal-tree` | `/goal-tree` | Show full goal ancestry for a task |
 | `testcase-generate` | `/testcase-generate` | Generate structured test cases from a PRD and optional design/diff |
 | `pr-review` | `/pr-review` | Two-pass pull request review: correctness + system impact |
 | `research-sparring` | `/research-sparring` | Exploratory investigation sparring partner |
 | `hire-agent` | `/hire-agent` | Draft + governance-gate a new specialist skill |
 | `create-skill` | `/create-skill` | Scaffold + governance-gate a new plugin skill |
-| `install-tooling` | `/install-tooling` | Confirm + install MCP connectors and desktop software on-demand |
-
-## Installing MCP Connectors and Developer Tools
-
-Invoke `/install-tooling` when a project needs additional integrations. Nothing installs silently — every tool requires explicit confirmation.
-
-### MCP Connectors
-Integrated into Claude Code via `~/.claude/settings.json`:
-
-| Connector | What it unlocks |
-|-----------|----------------|
-| **ClickUp** | Read/write tasks, lists, docs from ClickUp workspaces |
-| **Linear** | Read/create Linear issues, projects, and cycles |
-| **GitHub** | Repos, issues, PRs, code, commits — read and write |
-| **Figma** | Figma files, components, frames, and styles |
-| **Pencil.dev** | AI-generated wireframes and UI mockups |
-| **Refero.design** | Real-world UI design screenshot reference library |
-| **Maestro** | Mobile UI test automation and flow running |
-| **Playwright** | Real browser automation and E2E testing |
-
-### Desktop Software
-
-| App | What it does | Platform |
-|-----|-------------|----------|
-| **Laravel Herd** | Zero-config local PHP/Laravel dev environment | macOS |
-| **Fork** | Visual Git client for branch, diff, and stash management | macOS, Windows |
-| **OrbStack** | Lightweight Docker/container runtime + Linux VMs | macOS |
-| **Beekeeper Studio** | SQL database GUI (Postgres, MySQL, SQLite, and more) | macOS, Windows, Linux |
-| **GitHub CLI (`gh`)** | GitHub repos, PRs, and issues from the terminal | macOS, Linux, Windows |
-
-**To install:**
-```
-/ceo Install the Playwright MCP and Beekeeper Studio.
-/install-tooling
-```
-
-The skill presents one confirmation gate per tool and waits for your explicit **INSTALL** response before taking any action.
 
 ## GitHub Repository Operations
 
@@ -450,25 +412,27 @@ tar -xzf agency-template.tar.gz -C .
 ai-software-agency/
 ├── .claude-plugin/
 │   └── marketplace.json             # Plugin manifest
-├── agents/                          # Core delivery team (5 agents)
-│   ├── ceo.md
-│   ├── product-manager.md
-│   ├── uiux-designer.md
-│   ├── fullstack-developer.md
-│   └── qa-lead.md
-├── skills/                          # Workflow skills + specialist library
+├── skills/                          # Workflow skills + core agents + specialist library
+│   ├── ceo/                         # Core delivery team (5 agents)
+│   │   └── SKILL.md
+│   ├── product-manager/
+│   │   └── SKILL.md
+│   ├── uiux-designer/
+│   │   └── SKILL.md
+│   ├── fullstack-developer/
+│   │   └── SKILL.md
+│   ├── qa-lead/
+│   │   └── SKILL.md
 │   ├── start-project/SKILL.md
 │   ├── feasibility-check/SKILL.md
 │   ├── task-checkout/SKILL.md
 │   ├── memory-sync/SKILL.md
 │   ├── governance-gate/SKILL.md
-│   ├── goal-tree/SKILL.md
 │   ├── testcase-generate/SKILL.md
 │   ├── pr-review/SKILL.md
 │   ├── research-sparring/SKILL.md
 │   ├── hire-agent/SKILL.md          ← draft + governance-gate a new specialist
 │   ├── create-skill/SKILL.md        ← scaffold + governance-gate a new skill
-│   ├── install-tooling/SKILL.md     ← confirm + install MCPs and desktop tools
 │   └── specialists/                 ← 140+ specialist skills across 9 divisions
 │       ├── engineering/             # 36 skills
 │       ├── design/                  # 16 skills

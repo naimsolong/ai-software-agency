@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/code-reviewer
-
-Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences.
+---
+name: specialist-engineering-code-reviewer
+description: Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, and performance — not style preferences.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

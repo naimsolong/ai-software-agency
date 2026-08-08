@@ -1,7 +1,6 @@
-# Skill: start-project
-
-Initialize the AI Software Agency workspace for a new project. Creates the `~/.software-agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
-
+---
+name: start-project
+description: Initialize the AI Software Agency workspace for a new project. Creates the `~/.software-agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
 ---
 
 ## When to Use

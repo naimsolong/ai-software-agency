@@ -1,7 +1,6 @@
-# Skill: memory-sync
-
-Update the calling agent's persistent memory file with session learnings, key decisions, and project context. Ensures continuity across conversations.
-
+---
+name: memory-sync
+description: Update the calling agent's persistent memory file with session learnings, key decisions, and project context. Ensures continuity across conversations.
 ---
 
 ## When to Use

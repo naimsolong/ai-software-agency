@@ -1,6 +1,7 @@
-# Skill: specialists/data/data-consolidation-agent
-
-AI agent for consolidating sales data from multiple sources into unified live dashboards for territory-based reporting.
+---
+name: specialist-data-data-consolidation-agent
+description: AI agent for consolidating sales data from multiple sources into unified live dashboards for territory-based reporting.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

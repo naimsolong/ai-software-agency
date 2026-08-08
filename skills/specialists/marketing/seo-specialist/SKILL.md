@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/seo-specialist
-
-Expert in search engine optimization, technical SEO, content strategy, and organic search growth — masters technical site optimization, keyword research, link building, SERP feature capture, and data-driven SEO measurement.
+---
+name: specialist-marketing-seo-specialist
+description: Expert in search engine optimization, technical SEO, content strategy, and organic search growth — masters technical site optimization, keyword research, link building, SERP feature capture, and data-driven SEO measurement.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

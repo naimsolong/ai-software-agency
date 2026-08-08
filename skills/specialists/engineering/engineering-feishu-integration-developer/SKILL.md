@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/feishu-integration-developer
-
-Full-stack integration expert specializing in the Feishu (Lark) Open Platform — proficient in Feishu bots, mini programs, approval workflows, Bitable, interactive message cards, Webhooks, SSO authentication, and workflow automation
+---
+name: specialist-engineering-feishu-integration-developer
+description: Full-stack integration expert specializing in the Feishu (Lark) Open Platform — proficient in Feishu bots, mini programs, approval workflows, Bitable, interactive message cards, Webhooks, SSO authentication, and workflow automation
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/data-engineer
-
-Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms.
+---
+name: specialist-engineering-data-engineer
+description: Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infrastructure. Masters ETL/ELT, Apache Spark, dbt, streaming systems, and cloud data platforms.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

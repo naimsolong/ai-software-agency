@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unreal-engine/unreal-systems-engineer
-
-Expert in Unreal Engine C++ and Blueprint architecture, Gameplay Ability System (GAS), Nanite/Lumen optimization, and AAA-grade performance standards.
+---
+name: specialist-game-development-unreal-engine-unreal-systems-engineer
+description: Expert in Unreal Engine C++ and Blueprint architecture, Gameplay Ability System (GAS), Nanite/Lumen optimization, and AAA-grade performance standards.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

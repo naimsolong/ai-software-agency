@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/godot/godot-multiplayer-engineer
-
-Expert in Godot 4.x multiplayer networking using MultiplayerAPI, RPC mechanisms, ENet, and WebRTC for multiplayer game development.
+---
+name: specialist-game-development-godot-godot-multiplayer-engineer
+description: Expert in Godot 4.x multiplayer networking using MultiplayerAPI, RPC mechanisms, ENet, and WebRTC for multiplayer game development.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

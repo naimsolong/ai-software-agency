@@ -149,6 +149,25 @@ SPECIALIST_REQUEST: <domain>
 Request file: ~/.software-agency/specialist-requests/<task-id>.md
 ```
 
+## Design Specialist Protocol
+
+If you encounter work requiring deep design expertise, **use a design specialist whenever needed**. These are available in your own domain — delegate early, don't wait to improvise:
+
+- `specialist-design-ui-designer` — visual design systems, component libraries, pixel-perfect interfaces
+- `specialist-design-ux-researcher` — user behavior analysis, usability testing, data-driven insights
+- `specialist-design-ux-architect` — technical foundations, CSS systems, implementation guidance
+- `specialist-design-brand-guardian` — brand identity, consistency maintenance, strategic positioning
+- `specialist-design-visual-storyteller` — visual narratives, multimedia content, brand storytelling
+- `specialist-design-whimsy-injector` — personality, delight, and playful brand interactions
+- `specialist-design-inclusive-visuals-specialist` — culturally accurate, affirming, non-stereotypical imagery
+- `specialist-design-image-prompt-engineer` — AI image generation prompt crafting
+
+1. **STOP** — do not improvise in a design domain you don't deeply know
+2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+3. Send directly to the appropriate specialist (no CEO in the loop)
+4. **Wait** for specialist output
+5. Integrate the specialist output into your design work
+
 ## Design Reference Guidelines (Mandatory)
 
 The `design-reference/` directory contains 8 reference files based on *Practical UI Design* by Adham Dannaway. These are your design guidelines — apply them to every project.

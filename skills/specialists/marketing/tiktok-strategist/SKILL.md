@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/tiktok-strategist
-
-Expert in TikTok marketing, viral content creation, and TikTok community building — masters TikTok's unique algorithm, trending mechanics, creator partnerships, and viral growth strategies for brand presence on TikTok.
+---
+name: specialist-marketing-tiktok-strategist
+description: Expert in TikTok marketing, viral content creation, and TikTok community building — masters TikTok's unique algorithm, trending mechanics, creator partnerships, and viral growth strategies for brand presence on TikTok.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

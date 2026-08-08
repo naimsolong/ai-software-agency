@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/ai-citation-strategist
-
-Expert in AI citation and academic reference strategies, helping content rank in AI-powered search results by understanding how large language models source, attribute, and synthesize information from web content.
+---
+name: specialist-marketing-ai-citation-strategist
+description: Expert in AI citation and academic reference strategies, helping content rank in AI-powered search results by understanding how large language models source, attribute, and synthesize information from web content.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

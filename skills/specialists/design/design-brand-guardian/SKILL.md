@@ -1,6 +1,7 @@
-# Skill: specialists/design/design-brand-guardian
-
-Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning.
+---
+name: specialist-design-design-brand-guardian
+description: Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

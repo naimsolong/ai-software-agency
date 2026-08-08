@@ -1,6 +1,7 @@
-# Skill: specialists/data/model-qa
-
-Independent model QA expert auditing ML and statistical models end-to-end — from documentation review to calibration testing and interpretability analysis.
+---
+name: specialist-data-model-qa
+description: Independent model QA expert auditing ML and statistical models end-to-end — from documentation review to calibration testing and interpretability analysis.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/support/support-legal-compliance-checker
-
-Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
+---
+name: specialist-support-support-legal-compliance-checker
+description: Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with relevant laws, regulations, and industry standards across multiple jurisdictions.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

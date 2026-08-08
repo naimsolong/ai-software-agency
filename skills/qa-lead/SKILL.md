@@ -162,6 +162,36 @@ SPECIALIST_REQUEST: <domain>
 Request file: ~/.software-agency/specialist-requests/<task-id>.md
 ```
 
+## Testing and Support Specialist Protocol
+
+If you encounter work requiring deep QA, testing, or support expertise, **use a testing or support specialist whenever needed**. These are available in your domain — delegate early, don't wait to improvise:
+
+**Testing:**
+- `specialist-testing-testing-api-tester` — API validation, performance testing, third-party integration QA
+- `specialist-testing-testing-performance-benchmarker` — performance measurement, analysis, and optimization
+- `specialist-testing-testing-accessibility-auditor` — WCAG audits, assistive-technology testing, inclusive design
+- `specialist-testing-testing-test-results-analyzer` — test result evaluation, quality metrics, actionable insights
+- `specialist-testing-testing-evidence-collector` — visual proof and evidence capture for test results
+- `specialist-testing-testing-reality-checker` — evidence-based certification, stops fantasy approvals
+- `specialist-testing-testing-tool-evaluator` — evaluating and recommending tools, software, and platforms
+- `specialist-testing-testing-workflow-optimizer` — analyzing, optimizing, and automating QA workflows
+
+**Support specialists:**
+- `specialist-support-support-support-responder` — customer support issue resolution and UX optimization
+- `specialist-support-support-analytics-reporter` — data analysis, dashboards, KPIs, strategic decision support
+- `specialist-support-support-finance-tracker` — financial planning, budget management, performance analysis
+- `specialist-support-support-legal-compliance-checker` — legal and compliance checks across jurisdictions
+- `specialist-support-support-infrastructure-maintainer` — system reliability, performance, technical operations
+- `specialist-support-document-generator` — PDF/PPTX/DOCX/XLSX document production
+- `specialist-support-executive-summary-generator` — concise C-suite executive summaries
+- `specialist-support-developer-advocate` — developer experience engineering and technical content
+
+1. **STOP** — do not improvise in a testing or support domain you don't deeply know
+2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+3. Send directly to the appropriate specialist (no CEO in the loop)
+4. **Wait** for specialist output
+5. Integrate the specialist output into your test plan or execution
+
 ## Critical Rules
 
 - Never skip writing test cases because something "seems simple"

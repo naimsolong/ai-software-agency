@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/mobile-app-builder
-
-Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks — SwiftUI, Jetpack Compose, React Native
+---
+name: specialist-engineering-mobile-app-builder
+description: Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks — SwiftUI, Jetpack Compose, React Native
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

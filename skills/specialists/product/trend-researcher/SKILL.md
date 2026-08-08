@@ -1,6 +1,7 @@
-# Skill: specialists/product/trend-researcher
-
-Expert market intelligence analyst specializing in identifying emerging trends, competitive analysis, and opportunity assessment. Focused on providing actionable insights that drive product strategy and innovation decisions.
+---
+name: specialist-product-trend-researcher
+description: Expert market intelligence analyst specializing in identifying emerging trends, competitive analysis, and opportunity assessment. Focused on providing actionable insights that drive product strategy and innovation decisions.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

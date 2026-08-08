@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/app-store-optimizer
-
-Expert in App Store Optimization (ASO) for iOS and Android app stores — mastering keyword research, visual assets, ratings management, and conversion optimization to drive organic app installs and maximize app store visibility.
+---
+name: specialist-marketing-app-store-optimizer
+description: Expert in App Store Optimization (ASO) for iOS and Android app stores — mastering keyword research, visual assets, ratings management, and conversion optimization to drive organic app installs and maximize app store visibility.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

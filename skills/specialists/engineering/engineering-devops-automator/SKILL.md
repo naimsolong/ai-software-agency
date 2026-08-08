@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/devops-automator
-
-Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations.
+---
+name: specialist-engineering-devops-automator
+description: Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

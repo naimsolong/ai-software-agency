@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/wechat-mini-program-developer
-
-Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and the full WeChat ecosystem.
+---
+name: specialist-engineering-wechat-mini-program-developer
+description: Expert WeChat Mini Program developer specializing in 小程序 development with WXML/WXSS/WXS, WeChat API integration, payment systems, subscription messaging, and the full WeChat ecosystem.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

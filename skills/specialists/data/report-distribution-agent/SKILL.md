@@ -1,6 +1,7 @@
-# Skill: specialists/data/report-distribution-agent
-
-AI agent for automated sales report distribution to representatives based on territorial parameters.
+---
+name: specialist-data-report-distribution-agent
+description: AI agent for automated sales report distribution to representatives based on territorial parameters.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

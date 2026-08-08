@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/rapid-prototyper
-
-Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks — Next.js, Prisma, Supabase, Clerk, shadcn/ui
+---
+name: specialist-engineering-rapid-prototyper
+description: Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks — Next.js, Prisma, Supabase, Clerk, shadcn/ui
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

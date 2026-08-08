@@ -1,7 +1,6 @@
-# Skill: feasibility-check
-
-Structured, fixed-path feasibility analysis before any department work begins. Asks 7 fixed discovery questions, applies a 4-criterion evaluation rubric, produces a structured report via a prescribed verdict decision tree, and gates before PM delegation. The skill defines every question, criterion, and output format — the model fills in content but never decides the path.
-
+---
+name: feasibility-check
+description: Structured, fixed-path feasibility analysis before any department work begins. Asks 7 fixed discovery questions, applies a 4-criterion evaluation rubric, produces a structured report via a prescribed verdict decision tree, and gates before PM delegation. The skill defines every question, criterion, and output format — the model fills in content but never decides the path.
 ---
 
 ## When to Use

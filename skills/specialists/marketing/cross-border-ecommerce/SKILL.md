@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/cross-border-ecommerce
-
-Expert in cross-border e-commerce strategy for global marketplaces, international shipping logistics, customs compliance, and multi-country marketplace operations — masters Amazon Global Selling, Shopify international, and borderless commerce.
+---
+name: specialist-marketing-cross-border-ecommerce
+description: Expert in cross-border e-commerce strategy for global marketplaces, international shipping logistics, customs compliance, and multi-country marketplace operations — masters Amazon Global Selling, Shopify international, and borderless commerce.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

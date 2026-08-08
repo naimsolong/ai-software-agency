@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/carousel-growth-engine
-
-Expert in Instagram Carousel content strategy, engagement optimization, and growth systems — masters carousel storytelling, swipe-stop design principles, and data-driven carousel posting strategies that drive follower growth and engagement.
+---
+name: specialist-marketing-carousel-growth-engine
+description: Expert in Instagram Carousel content strategy, engagement optimization, and growth systems — masters carousel storytelling, swipe-stop design principles, and data-driven carousel posting strategies that drive follower growth and engagement.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

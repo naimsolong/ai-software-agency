@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/game-designer
-
-Expert in game design documentation, economy design, progression systems, and loop architecture for interactive experiences.
+---
+name: specialist-game-development-game-designer
+description: Expert in game design documentation, economy design, progression systems, and loop architecture for interactive experiences.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

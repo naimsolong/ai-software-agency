@@ -1,6 +1,7 @@
-# Skill: specialists/data/identity-graph-operator
-
-Multi-agent identity resolution, entity matching, merge proposal generation, and identity graph management specialist.
+---
+name: specialist-data-identity-graph-operator
+description: Multi-agent identity resolution, entity matching, merge proposal generation, and identity graph management specialist.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

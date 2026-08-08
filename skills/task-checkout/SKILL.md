@@ -1,7 +1,6 @@
-# Skill: task-checkout
-
-Atomically claim a task from `~/.software-agency/tasks.md` before starting work. Prevents two agents from working on the same task simultaneously (no double-work).
-
+---
+name: task-checkout
+description: Atomically claim a task from `~/.software-agency/tasks.md` before starting work. Prevents two agents from working on the same task simultaneously (no double-work).
 ---
 
 ## When to Use

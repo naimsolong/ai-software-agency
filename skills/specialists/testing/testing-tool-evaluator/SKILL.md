@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-tool-evaluator
-
-Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization.
+---
+name: specialist-testing-testing-tool-evaluator
+description: Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

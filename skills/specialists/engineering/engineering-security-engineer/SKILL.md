@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/security-engineer
-
-Expert application security engineer specializing in threat modeling, vulnerability assessment, secure code review, and security architecture design for modern web and cloud-native applications
+---
+name: specialist-engineering-security-engineer
+description: Expert application security engineer specializing in threat modeling, vulnerability assessment, secure code review, and security architecture design for modern web and cloud-native applications
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

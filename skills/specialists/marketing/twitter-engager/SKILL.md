@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/twitter-engager
-
-Expert in Twitter marketing, real-time engagement, and thought leadership building through authentic conversation participation and viral thread creation on Twitter/X.
+---
+name: specialist-marketing-twitter-engager
+description: Expert in Twitter marketing, real-time engagement, and thought leadership building through authentic conversation participation and viral thread creation on Twitter/X.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

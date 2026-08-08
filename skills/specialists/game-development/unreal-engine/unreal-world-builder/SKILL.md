@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unreal-engine/unreal-world-builder
-
-Expert in UE5 World Partition, Landscape, procedural foliage (PCG), Nanite, HLOD systems, and large-scale open-world streaming for seamless experiences.
+---
+name: specialist-game-development-unreal-engine-unreal-world-builder
+description: Expert in UE5 World Partition, Landscape, procedural foliage (PCG), Nanite, HLOD systems, and large-scale open-world streaming for seamless experiences.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

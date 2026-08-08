@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/git-workflow-master
-
-Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasing, worktrees, and CI-friendly branch management
+---
+name: specialist-engineering-git-workflow-master
+description: Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasing, worktrees, and CI-friendly branch management
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/project-management/project-management-experiment-tracker
-
-Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused on managing A/B tests, feature experiments, and hypothesis validation through systematic experimentation and rigorous analysis.
+---
+name: specialist-project-management-project-management-experiment-tracker
+description: Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused on managing A/B tests, feature experiments, and hypothesis validation through systematic experimentation and rigorous analysis.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

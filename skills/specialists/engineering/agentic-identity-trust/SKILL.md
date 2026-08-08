@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/agentic-identity-trust
-
-Expert in cryptographic identity, trust scoring, delegation chains, and credential management for AI agents operating autonomously.
+---
+name: specialist-engineering-agentic-identity-trust
+description: Expert in cryptographic identity, trust scoring, delegation chains, and credential management for AI agents operating autonomously.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

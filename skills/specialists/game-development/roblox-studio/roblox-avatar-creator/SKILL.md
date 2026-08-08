@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/roblox-studio/roblox-avatar-creator
-
-Expert in Roblox avatar creation, UGC content, character mesh/texture authoring, and avatar attachment systems.
+---
+name: specialist-game-development-roblox-studio-roblox-avatar-creator
+description: Expert in Roblox avatar creation, UGC content, character mesh/texture authoring, and avatar attachment systems.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

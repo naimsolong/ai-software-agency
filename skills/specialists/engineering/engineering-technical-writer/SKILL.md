@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/technical-writer
-
-Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs.
+---
+name: specialist-engineering-technical-writer
+description: Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms complex engineering concepts into clear, accurate, and engaging docs.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

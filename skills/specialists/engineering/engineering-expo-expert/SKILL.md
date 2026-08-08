@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/expo-expert
-
-Expo framework specialist for React Native — masters managed workflow, EAS builds, OTA updates, Expo SDK modules, and cross-platform iOS/Android deployment
+---
+name: specialist-engineering-expo-expert
+description: Expo framework specialist for React Native — masters managed workflow, EAS builds, OTA updates, Expo SDK modules, and cross-platform iOS/Android deployment
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

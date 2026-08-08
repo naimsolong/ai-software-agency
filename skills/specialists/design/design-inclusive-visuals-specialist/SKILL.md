@@ -1,6 +1,7 @@
-# Skill: specialists/design/design-inclusive-visuals-specialist
-
-Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video.
+---
+name: specialist-design-design-inclusive-visuals-specialist
+description: Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical images and video.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

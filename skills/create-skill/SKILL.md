@@ -1,7 +1,6 @@
-# Skill: create-skill
-
-Scaffold a new plugin skill for the agency runtime. Inspects existing skills for conventions, drafts the `SKILL.md` and `plugin.json` registration entry, presents a governance gate for approval, then writes on approval and verifies the package is valid.
-
+---
+name: create-skill
+description: Scaffold a new plugin skill for the agency runtime. Inspects existing skills for conventions, drafts the `SKILL.md` and `plugin.json` registration entry, presents a governance gate for approval, then writes on approval and verifies the package is valid.
 ---
 
 ## When to Use

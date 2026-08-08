@@ -1,6 +1,7 @@
-# Skill: specialists/specialized/skill-builder
-
-Specialist for creating new skills (plugin commands) for the agency's alpha SDK runtime following governance-gated workflow.
+---
+name: specialist-specialized-skill-builder
+description: Specialist for creating new skills (plugin commands) for the agency's alpha SDK runtime following governance-gated workflow.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/roblox-studio/roblox-experience-designer
-
-Expert in Roblox Studio experience design, game passes, DataStore integration, and player retention systems.
+---
+name: specialist-game-development-roblox-studio-roblox-experience-designer
+description: Expert in Roblox Studio experience design, game passes, DataStore integration, and player retention systems.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

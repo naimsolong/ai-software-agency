@@ -1,6 +1,7 @@
-# Skill: specialists/testing/testing-workflow-optimizer
-
-Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency.
+---
+name: specialist-testing-testing-workflow-optimizer
+description: Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

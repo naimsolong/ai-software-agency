@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/senior-developer
-
-Premium implementation specialist — Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration
+---
+name: specialist-engineering-senior-developer
+description: Premium implementation specialist — Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

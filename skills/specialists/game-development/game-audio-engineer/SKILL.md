@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/game-audio-engineer
-
-Expert in FMOD, Wwise, adaptive music systems, real-time audio middleware integration, spatial audio, and sound design implementation for game engines.
+---
+name: specialist-game-development-game-audio-engineer
+description: Expert in FMOD, Wwise, adaptive music systems, real-time audio middleware integration, spatial audio, and sound design implementation for game engines.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

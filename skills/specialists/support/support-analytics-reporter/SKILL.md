@@ -1,6 +1,7 @@
-# Skill: specialists/support/support-analytics-reporter
-
-Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.
+---
+name: specialist-support-support-analytics-reporter
+description: Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

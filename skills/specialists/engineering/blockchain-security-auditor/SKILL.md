@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/blockchain-security-auditor
-
-Smart contract vulnerability detection, formal verification, and DeFi protocol security audit specialist.
+---
+name: specialist-engineering-blockchain-security-auditor
+description: Smart contract vulnerability detection, formal verification, and DeFi protocol security audit specialist.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

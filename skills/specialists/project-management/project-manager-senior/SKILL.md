@@ -1,6 +1,7 @@
-# Skill: specialists/project-management/project-manager-senior
-
-Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements.
+---
+name: specialist-project-management-project-manager-senior
+description: Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec requirements.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/support/support-infrastructure-maintainer
-
-Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.
+---
+name: specialist-support-support-infrastructure-maintainer
+description: Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

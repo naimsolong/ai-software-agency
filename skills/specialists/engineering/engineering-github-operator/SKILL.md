@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/github-operator
-
-Specialist agent for GitHub repository operations using the gh CLI. Lists accessible repositories and asks the user which repo to target, then performs clone, pull, push, and pull request creation.
+---
+name: specialist-engineering-github-operator
+description: Specialist agent for GitHub repository operations using the gh CLI. Lists accessible repositories and asks the user which repo to target, then performs clone, pull, push, and pull request creation.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/marketing/healthcare-marketing-compliance
-
-Expert in China's Healthcare Marketing Compliance covering Advertising Law, NMPA regulations, PIPL requirements, and pharma/med aesthetics compliance.
+---
+name: specialist-marketing-healthcare-marketing-compliance
+description: Expert in China's Healthcare Marketing Compliance covering Advertising Law, NMPA regulations, PIPL requirements, and pharma/med aesthetics compliance.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

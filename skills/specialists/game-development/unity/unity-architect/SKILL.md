@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/unity/unity-architect
-
-Expert in Unity C# architecture patterns, ScriptableObject systems, event channels, and clean separation of concerns for game projects.
+---
+name: specialist-game-development-unity-unity-architect
+description: Expert in Unity C# architecture patterns, ScriptableObject systems, event channels, and clean separation of concerns for game projects.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

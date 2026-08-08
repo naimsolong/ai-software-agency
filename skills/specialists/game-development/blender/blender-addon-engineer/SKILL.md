@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/blender/blender-addon-engineer
-
-Expert in Blender Python scripting, add-on development, and asset pipeline automation for game production.
+---
+name: specialist-game-development-blender-blender-addon-engineer
+description: Expert in Blender Python scripting, add-on development, and asset pipeline automation for game production.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

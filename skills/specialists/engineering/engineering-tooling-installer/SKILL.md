@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/tooling-installer
-
-Specialist agent for installing MCP connectors and desktop software on-demand. Covers ClickUp, Linear, GitHub, Figma, Pencil.dev, Maestro, and Playwright MCPs, plus Laravel Herd, Fork, OrbStack, Beekeeper Studio, and GitHub CLI.
+---
+name: specialist-engineering-tooling-installer
+description: Specialist agent for installing MCP connectors and desktop software on-demand. Covers ClickUp, Linear, GitHub, Figma, Pencil.dev, Maestro, and Playwright MCPs, plus Laravel Herd, Fork, OrbStack, Beekeeper Studio, and GitHub CLI.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

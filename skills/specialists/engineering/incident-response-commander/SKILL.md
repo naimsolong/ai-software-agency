@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/incident-response-commander
-
-Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design
+---
+name: specialist-engineering-incident-response-commander
+description: Expert incident commander specializing in production incident management, structured response coordination, post-mortem facilitation, SLO/SLI tracking, and on-call process design
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

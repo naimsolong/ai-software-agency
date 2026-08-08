@@ -1,17 +1,16 @@
-# Skill: hire-agent
-
-Draft a new specialist agent, inspect and compare against the existing library, then submit a governance-gated hire request before writing anything to disk.
-
+---
+name: hire-agent
+description: Draft a new specialist agent, inspect and compare against the existing library, then submit a governance-gated hire request before writing anything to disk.
 ---
 
 ## When to Use
 
 Invoke when:
-- No existing agent in `agents/` covers a required domain or task type
+- No existing agent in `skills/specialists/` covers a required domain or task type
 - The CEO identifies a capability gap during project planning
 - The user explicitly requests a new agent be created
 
-**Always check the existing library first.** Never create a new agent for a task that an existing specialist already handles. Use Glob on `agents/` before proceeding.
+**Always check the existing library first.** Never create a new agent for a task that an existing specialist already handles. Use Glob on `skills/specialists/` before proceeding.
 
 ---
 
@@ -23,14 +22,14 @@ Before drafting anything, orient yourself in the library.
 
 1. List all agents in the target division:
    ```
-   agents/<division>/
+   skills/specialists/<division>/
    ```
-   If unsure which division, list the top-level `agents/` directory and pick the closest match.
+   If unsure which division, list the top-level `skills/specialists/` directory and pick the closest match.
 
 2. Read **2–3 similar or adjacent agents** in that division. Extract:
-   - Frontmatter fields in use (`name`, `description`, `color`, `emoji`, `vibe`, `tools`, `model`, `maxTurns`)
+   - Frontmatter fields in use (`name`, `description`, `tools`, `model`)
    - Document structure (sections present and their order)
-   - Naming convention: `<division>-<kebab-role>.md`
+   - Naming convention: `specialist-<division>-<kebab-role>`
    - Tone and depth of the persona
 
 3. Check `~/.software-agency/tasks.md` for any existing active hire task for the same role — stop and report if a duplicate is found.
@@ -40,7 +39,7 @@ Before drafting anything, orient yourself in the library.
 ```
 ## Inspection Summary
 
-Division: agents/<division>/
+Division: skills/specialists/<division>/
 Existing similar agents reviewed:
   - <file>: <one-line summary>
   - <file>: <one-line summary>
@@ -60,12 +59,14 @@ Using the inspection findings as reference, draft the new agent `.md` file.
 
 ```yaml
 ---
-name: <Human-readable role name>
+name: specialist-<division>-<kebab-role>
 description: <One sentence: who this agent is and when to invoke it. Be specific enough that the CEO can match task to agent reliably.>
-color: <css color name — pick one not already heavily used in this division>
-emoji: <single emoji that represents the domain>
-vibe: <One punchy sentence — the agent's personality and working style in plain English>
-tools: Read, Write, Edit, Grep, Glob[, + others justified by role]
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Write
+  - Edit
 ---
 ```
 
@@ -80,13 +81,12 @@ tools: Read, Write, Edit, Grep, Glob[, + others justified by role]
 
 **Document body — required sections (in order):**
 
-1. `# <Name> Agent` — H1 title matching the `name` frontmatter
-2. `## Identity & Memory` — Who this agent is, their personality, what they carry forward across tasks
-3. `## Core Mission` — 3–5 focused mission areas. No fluff; each must be actionable.
+1. `# Skill: <name>` — H1 title matching the `name` frontmatter
+2. `## When to Use` — when to invoke the specialist and when NOT to
+3. `## Steps` — how the specialist executes its scoped question
 4. `## Critical Rules` — Non-negotiable operating constraints. Things this agent must never skip.
-5. `## Deliverable Template` — What a finished output from this agent looks like. Include a Markdown template or example.
-6. `## Workflow` — Step-by-step working process (numbered, 3–6 steps)
-7. `## Communication Style` — How this agent writes and speaks. Keep to 3–4 bullet points.
+5. `## Workflow` — Step-by-step working process (numbered, 3–6 steps)
+6. `## Communication Style` — How this agent writes and speaks. Keep to 3–4 bullet points.
 
 **Length target:** 100–200 lines. Specialist agents are stateless and focused — avoid padding.
 
@@ -101,8 +101,8 @@ Before writing any file, invoke the `governance-gate` skill with the following s
 ## 🔍 Governance Gate: Agent Hire Request
 
 **Presented by:** agent-builder
-**Division:** agents/<division>/
-**Proposed file:** agents/<division>/<division>-<slug>.md
+**Division:** skills/specialists/<division>/
+**Proposed file:** skills/specialists/<division>/<kebab-role>/SKILL.md
 **Date:** <ISO-date>
 **Goal:** <goal-id if this hire is tied to a project goal, otherwise "library expansion">
 
@@ -120,10 +120,10 @@ A new specialist agent proposed for the library.
 | **Proposed** | <full scope of new agent> | — |
 
 ### What you are approving
-- **Agent name:** <name>
-- **Division:** agents/<division>/
+- **Agent name:** specialist-<division>-<kebab-role>
+- **Division:** skills/specialists/<division>/
 - **Tools granted:** <list>
-- **File to be written:** `agents/<division>/<division>-<slug>.md`
+- **File to be written:** `skills/specialists/<division>/<kebab-role>/SKILL.md`
 
 ### What happens if you approve
 The agent file will be written immediately. The new agent becomes available for delegation by any core agent.
@@ -159,13 +159,13 @@ On **APPROVED**:
 
 1. Write the agent file to the exact path shown in the hire request:
    ```
-   agents/<division>/<division>-<slug>.md
+   skills/specialists/<division>/<kebab-role>/SKILL.md
    ```
 
 2. Append to `~/.software-agency/audit.log`:
    ```
-   [<ISO-date>] [agent-builder] AGENT_HIRED: agents/<division>/<division>-<slug>.md — "<name>" approved by user
-   [<ISO-date>] [agent-builder] ROLLBACK:agent-builder-v<n> — new agent written at agents/<division>/<division>-<slug>.md
+   [<ISO-date>] [agent-builder] AGENT_HIRED: skills/specialists/<division>/<kebab-role>/SKILL.md — "<name>" approved by user
+   [<ISO-date>] [agent-builder] ROLLBACK:agent-builder-v<n> — new agent written at skills/specialists/<division>/<kebab-role>/SKILL.md
    ```
 
 3. Update task status to `done` in `~/.software-agency/tasks.md`.
@@ -191,34 +191,34 @@ On **CHANGES:**
 Output a short confirmation:
 
 ```
-✓ Agent hired: <name>
-  File:      agents/<division>/<division>-<slug>.md
+✓ Agent hired: specialist-<division>-<kebab-role>
+  File:      skills/specialists/<division>/<kebab-role>/SKILL.md
   Tools:     <comma-separated list>
   Division:  <division>
-  Invoke as: agents/<division>/<division>-<slug>
+  Invoke as: specialist-<division>-<kebab-role>
 ```
 
 ---
 
 ## Division & Naming Reference
 
-| Division | Prefix | Slug example |
+| Division | Prefix | Skill name example |
 |----------|--------|-------------|
-| `engineering/` | `engineering-` | `engineering-rust-engineer` |
-| `marketing/` | `marketing-` | `marketing-podcast-editor` |
-| `design/` | `design-` | `design-motion-designer` |
-| `testing/` | `testing-` | `testing-load-tester` |
-| `sales/` | `sales-` | `sales-enterprise-closer` |
-| `product/` | `product-` | `product-pricing-strategist` |
-| `project-management/` | `project-management-` | `project-management-risk-tracker` |
-| `paid-media/` | `paid-media-` | `paid-media-yt-ads-buyer` |
-| `support/` | `support-` | `support-knowledge-base-writer` |
-| `spatial-computing/` | `spatial-computing-` | `spatial-computing-ar-designer` |
-| `specialized/` | `specialized-` | `specialized-quantum-engineer` |
-| `game-development/` | `game-development-` | `game-development-vfx-artist` |
-| `academic/` | `academic-` | `academic-economist` |
+| `engineering/` | `specialist-engineering-` | `specialist-engineering-rust-engineer` |
+| `marketing/` | `specialist-marketing-` | `specialist-marketing-podcast-editor` |
+| `design/` | `specialist-design-` | `specialist-design-motion-designer` |
+| `testing/` | `specialist-testing-` | `specialist-testing-load-tester` |
+| `sales/` | `specialist-sales-` | `specialist-sales-enterprise-closer` |
+| `product/` | `specialist-product-` | `specialist-product-pricing-strategist` |
+| `project-management/` | `specialist-project-management-` | `specialist-project-management-risk-tracker` |
+| `paid-media/` | `specialist-paid-media-` | `specialist-paid-media-yt-ads-buyer` |
+| `support/` | `specialist-support-` | `specialist-support-knowledge-base-writer` |
+| `spatial-computing/` | `specialist-spatial-computing-` | `specialist-spatial-computing-ar-designer` |
+| `specialized/` | `specialist-specialized-` | `specialist-specialized-quantum-engineer` |
+| `game-development/` | `specialist-game-development-` | `specialist-game-development-vfx-artist` |
+| `academic/` | `specialist-academic-` | `specialist-academic-economist` |
 
-File slug rules: lowercase, hyphen-separated, no spaces, no special characters.
+Name slug rules: lowercase, hyphen-separated, no spaces, no special characters.
 
 ---
 

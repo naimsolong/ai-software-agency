@@ -1,6 +1,7 @@
-# Skill: specialists/data/agents-orchestrator
-
-Autonomous multi-agent pipeline manager that coordinates PM, ArchitectUX, Dev, QA, and Integration agents through fixed-path orchestration.
+---
+name: specialist-data-agents-orchestrator
+description: Autonomous multi-agent pipeline manager that coordinates PM, ArchitectUX, Dev, QA, and Integration agents through fixed-path orchestration.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

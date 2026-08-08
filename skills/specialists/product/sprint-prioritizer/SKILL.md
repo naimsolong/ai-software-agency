@@ -1,6 +1,7 @@
-# Skill: specialists/product/sprint-prioritizer
-
-Expert product manager specializing in agile sprint planning, feature prioritization, and resource allocation. Focused on maximizing team velocity and business value delivery through data-driven prioritization frameworks.
+---
+name: specialist-product-sprint-prioritizer
+description: Expert product manager specializing in agile sprint planning, feature prioritization, and resource allocation. Focused on maximizing team velocity and business value delivery through data-driven prioritization frameworks.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

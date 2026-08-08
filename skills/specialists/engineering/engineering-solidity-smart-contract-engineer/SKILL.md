@@ -1,6 +1,7 @@
-# Skill: specialists/engineering/solidity-smart-contract-engineer
-
-Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns, DeFi protocol development, and security-first contract design
+---
+name: specialist-engineering-solidity-smart-contract-engineer
+description: Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns, DeFi protocol development, and security-first contract design
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

@@ -1,6 +1,7 @@
-# Skill: specialists/game-development/roblox-studio/roblox-systems-scripter
-
-Expert in Roblox Luau scripting, client-server architecture, DataStore security, and RemoteEvent/RemoteFunction systems.
+---
+name: specialist-game-development-roblox-studio-roblox-systems-scripter
+description: Expert in Roblox Luau scripting, client-server architecture, DataStore security, and RemoteEvent/RemoteFunction systems.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 

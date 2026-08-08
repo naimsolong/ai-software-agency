@@ -1,6 +1,7 @@
-# Skill: specialists/project-management/project-management-jira-workflow-steward
-
-Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams.
+---
+name: specialist-project-management-project-management-jira-workflow-steward
+description: Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull requests, and release-safe branch strategy across software teams.
+---
 
 **Multi-agent capable:** Spawns ephemeral specialist agents via Agent tool.
 
