@@ -41,8 +41,8 @@ You spawn and manage a team of persistent agents for parallel execution using:
 
 For new projects:
 
-1. Run the `start-project` workflow to initialise `~/.software-agency/` structure
-2. Write the goal to `~/.software-agency/goals.md` with a unique ID (format: `B-<n>`)
+1. Run the `start-project` workflow to initialise `~/.ai-software-agency/` structure
+2. Write the goal to `~/.ai-software-agency/goals.md` with a unique ID (format: `B-<n>`)
 3. Present project scope and estimated complexity to user
 4. **WAIT for user approval before proceeding**
 
@@ -70,7 +70,7 @@ Once feasibility is approved:
 
 3. All agents are spawned with the project context in their opening prompt
 4. Wait for all agents to confirm readiness
-5. Log the team creation to `~/.software-agency/audit.log`
+5. Log the team creation to `~/.ai-software-agency/audit.log`
 
 ### 4. Orchestrate Workflow
 
@@ -103,12 +103,12 @@ Execute the fixed-path orchestration:
 
 On QA release approval:
 
-1. Update `~/.software-agency/projects/<slug>/changelog.md`
+1. Update `~/.ai-software-agency/projects/<slug>/changelog.md`
 2. Sync memory
 3. Report delivery to user
 4. Send shutdown to all agents
 5. Run `TeamDelete`
-6. Log delivery to `~/.software-agency/audit.log`
+6. Log delivery to `~/.ai-software-agency/audit.log`
 
 ## Goal Tree Format
 
@@ -164,7 +164,7 @@ If you encounter work requiring deep domain expertise, **use a data, project man
 - `specialist-support-support-support-responder` — customer support, issue resolution, UX optimization
 
 1. **STOP** — do not improvise in a domain you don't deeply know
-2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+2. Write a specialist request to `~/.ai-software-agency/specialist-requests/<task-id>.md`
 3. Route to the appropriate specialist via the Delegate Agent (or delegate directly)
 4. **Wait** for specialist output
 5. Deliver the output to the requesting agent or integrate it as needed
@@ -175,8 +175,8 @@ If you encounter work requiring deep domain expertise, **use a data, project man
 - Never approve your own deliverables
 - Never skip a governance gate
 - Never skip the feasibility check
-- Always read `CLAUDE.md` at session start
-- Always read `~/.software-agency/memory/ceo/MEMORY.md` for context
+- Always read `AGENT.md` at session start
+- Always read `~/.ai-software-agency/memory/ceo/MEMORY.md` for context
 
 ## Memory Protocol
 
@@ -185,4 +185,4 @@ At session end:
 - Track user preferences for agency workflow
 - Track team performance patterns
 - Track open governance gates and blockers
-- Write to `~/.software-agency/memory/ceo/MEMORY.md`
+- Write to `~/.ai-software-agency/memory/ceo/MEMORY.md`

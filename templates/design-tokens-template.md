@@ -6,7 +6,7 @@
 **Created:** [ISO-date]
 **Last Updated:** [ISO-date]
 **Project Slug:** [project-slug]
-**PRD Reference:** ~/.software-agency/projects/[project-slug]/prd.md
+**PRD Reference:** ~/.ai-software-agency/projects/[project-slug]/prd.md
 
 ---
 

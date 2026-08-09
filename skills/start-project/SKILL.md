@@ -1,6 +1,6 @@
 ---
 name: start-project
-description: Initialize the AI Software Agency workspace for a new project. Creates the `~/.software-agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
+description: Initialize the AI Software Agency workspace for a new project. Creates the `~/.ai-software-agency/` directory structure in the user's home directory, sets up all required files, and hands control to the CEO to begin orchestration.
 ---
 
 ## When to Use
@@ -25,14 +25,15 @@ Wait for all answers before proceeding.
 
 ### 2. Create Directory Structure
 
-Create `~/.software-agency/` in the user's home directory if it doesn't exist:
+Create `~/.ai-software-agency/` in the user's home directory if it doesn't exist:
 
 ```
-~/.software-agency/
+~/.ai-software-agency/
 ├── config.json
 ├── tasks.md
 ├── goals.md
 ├── audit.log
+├── mcp.json               (empty, will hold canonical MCP connector configs)
 ├── projects/
 │   └── <project-slug>/
 │       ├── prd.md          (empty, will be written by PM)
@@ -131,13 +132,24 @@ Write a starter `MEMORY.md` for each agent:
 (to be populated through the project lifecycle)
 ```
 
-### 8. No `.gitignore` Update Needed
+### 8. Write `mcp.json`
 
-`~/.software-agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
+Create an empty MCP connector registry (the canonical store for all agent MCP configs):
 
-### 9. Create Project Team
+```json
+{
+  "_comment": "Canonical MCP connector registry for the AI Software Agency. Add each installed connector here first, then register the same entry into the running agent's config file (e.g. ~/.claude/settings.json for Claude Code, ~/.config/opencode/opencode.json for opencode).",
+  "mcpServers": {}
+}
+```
 
-After workspace initialisation (Steps 1-9), the CEO creates the team and spawns all core agents:
+### 9. No `.gitignore` Update Needed
+
+`~/.ai-software-agency/` lives in the user's home directory, outside any project repository. No `.gitignore` entry is required.
+
+### 10. Create Project Team
+
+After workspace initialisation (Steps 1-10), the CEO creates the team and spawns all core agents:
 
 1. **Run `TeamCreate`** with the project slug:
    ```
@@ -164,7 +176,7 @@ After workspace initialisation (Steps 1-9), the CEO creates the team and spawns 
 
 All agents go idle after spawning. CEO assigns work via SendMessage. Specialists (spawned by `delegate`) are ephemeral — spawned WITHOUT `team_name`.
 
-### 10. Confirm Initialisation
+### 11. Confirm Initialisation
 
 Output a summary:
 
@@ -172,12 +184,13 @@ Output a summary:
 ✓ Agency workspace initialised for project: <project-slug>
 
 Files created:
-  ~/.software-agency/config.json
-  ~/.software-agency/tasks.md (5 tasks registered)
-  ~/.software-agency/goals.md (B-001 created)
-  ~/.software-agency/audit.log
-  ~/.software-agency/projects/<slug>/ (4 document placeholders)
-  ~/.software-agency/memory/<agent>/MEMORY.md (5 agents)
+  ~/.ai-software-agency/config.json
+  ~/.ai-software-agency/tasks.md (5 tasks registered)
+  ~/.ai-software-agency/goals.md (B-001 created)
+  ~/.ai-software-agency/audit.log
+  ~/.ai-software-agency/mcp.json (empty connector registry)
+  ~/.ai-software-agency/projects/<slug>/ (4 document placeholders)
+  ~/.ai-software-agency/memory/<agent>/MEMORY.md (5 agents)
 
 Team: project-<slug> created with 5 core agents
 Tasks: 5 native tasks created (T-001 through T-005)

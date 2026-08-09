@@ -13,15 +13,15 @@ Invoke at the **end of every session** or after completing a major task. This is
 
 Each agent's memory lives at:
 ```
-~/.software-agency/memory/<agent-name>/MEMORY.md
+~/.ai-software-agency/memory/<agent-name>/MEMORY.md
 ```
 
 Examples:
-- `~/.software-agency/memory/ceo/MEMORY.md`
-- `~/.software-agency/memory/product-manager/MEMORY.md`
-- `~/.software-agency/memory/uiux-designer/MEMORY.md`
-- `~/.software-agency/memory/fullstack-developer/MEMORY.md`
-- `~/.software-agency/memory/qa-lead/MEMORY.md`
+- `~/.ai-software-agency/memory/ceo/MEMORY.md`
+- `~/.ai-software-agency/memory/product-manager/MEMORY.md`
+- `~/.ai-software-agency/memory/uiux-designer/MEMORY.md`
+- `~/.ai-software-agency/memory/fullstack-developer/MEMORY.md`
+- `~/.ai-software-agency/memory/qa-lead/MEMORY.md`
 
 ---
 
@@ -48,9 +48,9 @@ Maintain these sections in order:
 **Current Stage:** <requirements | design | development | qa | done>
 **Tech Stack:** <list technologies>
 **Key Files:**
-- PRD: ~/.software-agency/projects/<slug>/prd.md
-- Design: ~/.software-agency/projects/<slug>/design.md
-- Tests: ~/.software-agency/projects/<slug>/tests.md
+- PRD: ~/.ai-software-agency/projects/<slug>/prd.md
+- Design: ~/.ai-software-agency/projects/<slug>/design.md
+- Tests: ~/.ai-software-agency/projects/<slug>/tests.md
 
 ## 3. User Preferences
 
@@ -75,7 +75,7 @@ Maintain these sections in order:
 
 ### 1. Read Current Memory
 
-Read `.software-agency/memory/<your-agent-name>/MEMORY.md`.
+Read `.ai-software-agency/memory/<your-agent-name>/MEMORY.md`.
 
 If it doesn't exist, create it from the template above.
 
@@ -109,7 +109,7 @@ If `MEMORY.md` exceeds 500 lines:
 
 ### 5. Log to Audit
 
-Append to `~/.software-agency/audit.log`:
+Append to `~/.ai-software-agency/audit.log`:
 ```
 [<ISO-date>] [<agent-name>] MEMORY_SYNC: Memory updated — <n> new decisions, <n> context updates
 ```
@@ -119,7 +119,7 @@ Append to `~/.software-agency/audit.log`:
 Output:
 ```
 ✓ Memory synced for <agent-name>
-  File: ~/.software-agency/memory/<agent>/MEMORY.md
+  File: ~/.ai-software-agency/memory/<agent>/MEMORY.md
   Decisions added: <n>
   Session count: <n>
   Last updated: <ISO-date>

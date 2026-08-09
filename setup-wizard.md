@@ -10,7 +10,7 @@ This wizard initializes your AI Software Agency runtime at `~/.ai-software-agenc
 
 ## Step 1: Initialise memory
 
-Run the `start-project` workflow to initialise `~/.software-agency/` structure
+Run the `start-project` workflow to initialise `~/.ai-software-agency/` structure
 
 ## Step 2: Workflow Style
 **AI asks**: *"How do you prefer to work?"*
@@ -22,7 +22,7 @@ Run the `start-project` workflow to initialise `~/.software-agency/` structure
 **Result**: Default orchestration mode set
 
 ## Step 3: Global Config Redirect
-Configure `~/.claude/CLAUDE.md` to use agency memory:
+Point your agent's global instructions to use agency memory. For Claude Code, configure `~/.claude/CLAUDE.md`:
 
 ```
 # AI Software Agency Configuration
@@ -32,7 +32,7 @@ Configure `~/.claude/CLAUDE.md` to use agency memory:
 **Primary Memory**: `~/.ai-software-agency/goals.md`
 ```
 
-This redirects the global Claude memory to agency goals instead ofBruh personal memory.
+For other agents, add the same block to the equivalent global instructions file (e.g. `~/.config/opencode/AGENTS.md`, `~/.codex/AGENTS.md`, or `~/.agents/AGENTS.md`). The goal is the same everywhere: redirect the agent's base memory to `~/.ai-software-agency/goals.md`.
 
 ## Setup Complete
 
@@ -47,6 +47,7 @@ This creates the runtime directory structure:
 ├── tasks.md
 ├── goals.md
 ├── audit.log
+├── mcp.json
 ├── projects/
 └── memory/
 ```

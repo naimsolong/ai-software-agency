@@ -1,6 +1,6 @@
 ---
 name: pr-review
-description: Review a GitHub pull request with a structured two-pass analysis: Pass 1 examines code correctness and quality, Pass 2 assesses system impact and risk. Uses generalised stack checklists that adapt to the detected project type. Supports full reviews and follow-up re-reviews of revised PRs.
+description: "Review a GitHub pull request with a structured two-pass analysis: Pass 1 examines code correctness and quality, Pass 2 assesses system impact and risk. Uses generalised stack checklists that adapt to the detected project type. Supports full reviews and follow-up re-reviews of revised PRs."
 ---
 
 ## When to Use
@@ -37,9 +37,9 @@ Check the user's intent:
 
 ### Step 3 — Fetch Project Context
 
-If the project slug is known (from conversation context or `CLAUDE.md`):
-- Read `~/.software-agency/projects/<slug>/prd.md` for feature context
-- Read `~/.software-agency/projects/<slug>/tests.md` for test plan context
+If the project slug is known (from conversation context or `AGENT.md`):
+- Read `~/.ai-software-agency/projects/<slug>/prd.md` for feature context
+- Read `~/.ai-software-agency/projects/<slug>/tests.md` for test plan context
 
 If no project slug is known, note "No project context available" and proceed. The review will be based purely on the diff.
 
@@ -248,7 +248,7 @@ On **POST**:
    gh pr comment <number> --body "<Comment 2 content>"
    ```
 
-3. Append to `~/.software-agency/audit.log`:
+3. Append to `~/.ai-software-agency/audit.log`:
    ```
    [<ISO-date>] [code-reviewer] PR_REVIEWED: #[number] "<PR title>" — Verdict: <verdict>
    ```

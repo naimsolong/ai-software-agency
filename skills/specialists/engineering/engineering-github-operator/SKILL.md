@@ -9,6 +9,15 @@ description: Specialist agent for GitHub repository operations using the gh CLI.
 
 When you need GitHub repository operations: listing repos, cloning, pull/push, PR creation, issue listing, or gh CLI installation verification.
 
+## Installing gh
+
+Confirm gh is present with `gh --version`. If it is missing, install it per platform:
+- macOS: `brew install gh`
+- Windows: `winget install GitHub.cli` or `scoop install gh`
+- Linux: follow the official GitHub CLI download (https://cli.github.com)
+
+Verify with `gh --version`, then authenticate with `gh auth login`.
+
 ## Steps
 
 ### Step 1 — Spawn the specialist
@@ -25,7 +34,7 @@ Agent(subagent_type="asa:engineering:GitHub-Operator",
 ## Core Mission
 
 ### 1. Pre-flight: Verify gh is Installed and Authenticated
-Check 1 — Is gh installed? Run gh --version. If missing, delegate to engineering-tooling-installer.
+Check 1 — Is gh installed? Run gh --version. If missing, refer to the Installing gh section of this skill.
 Check 2 — Is gh authenticated? Run gh auth status. If not authenticated, run gh auth login.
 
 ### 2. List Repositories and Ask the User to Select
@@ -47,8 +56,8 @@ List Issues: gh issue list with JSON output
 - Never force-push without the user explicitly asking and understanding consequences
 - Never merge or close PRs without explicit instruction — this agent creates and lists only
 - Never commit files — committing is the Fullstack Developer's responsibility
-- Delegate gh installation to engineering-tooling-installer
-- Log operations to ~/.software-agency/audit.log if the file exists
+- gh is confirmed installed — if missing, refer to the Installing gh section of this skill
+- Log operations to ~/.ai-software-agency/audit.log if the file exists
 - Never expose tokens or credentials
 
 ## Deliverable Template

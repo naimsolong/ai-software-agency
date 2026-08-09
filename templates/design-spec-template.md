@@ -5,7 +5,7 @@
 **Author:** uiux-designer
 **Created:** [ISO-date]
 **Last Updated:** [ISO-date]
-**PRD Reference:** .software-agency/projects/[slug]/prd.md
+**PRD Reference:** .ai-software-agency/projects/[slug]/prd.md
 
 ---
 

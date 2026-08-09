@@ -6,7 +6,7 @@ description: Generate structured test cases and an issues tracking table from a 
 ## When to Use
 
 Invoke when:
-- The QA Lead is in Mode 1 (Test Planning) and has an approved PRD at `~/.software-agency/projects/<slug>/prd.md`
+- The QA Lead is in Mode 1 (Test Planning) and has an approved PRD at `~/.ai-software-agency/projects/<slug>/prd.md`
 - The Developer has completed implementation and the QA Lead needs targeted test cases from the code diff
 - A feature has a Figma design that needs UI-specific test coverage
 
@@ -23,7 +23,7 @@ Invoke when:
 
 Ask the user for:
 
-1. **Project slug** (required) — the project directory name under `~/.software-agency/projects/`
+1. **Project slug** (required) — the project directory name under `~/.ai-software-agency/projects/`
 2. **Figma link** (optional) — node URL for UI reference, e.g. `https://figma.com/design/:fileKey/:fileName?node-id=1-2`
 3. **Dev branch** (optional) — the implementation branch name, for generating targeted test cases from code changes
 
@@ -35,9 +35,9 @@ Wait for all answers before proceeding.
 
 1. Read the approved PRD:
    ```
-   ~/.software-agency/projects/<slug>/prd.md
+   ~/.ai-software-agency/projects/<slug>/prd.md
    ```
-   If the file does not exist, stop and report: "No PRD found at `~/.software-agency/projects/<slug>/prd.md`. The Product Manager must create and get it approved first."
+   If the file does not exist, stop and report: "No PRD found at `~/.ai-software-agency/projects/<slug>/prd.md`. The Product Manager must create and get it approved first."
 
 2. If a Figma link was provided, fetch the design context using the Figma MCP tools. Extract: screen layout, component names, interactive elements, and any design annotations.
 
@@ -51,7 +51,7 @@ Wait for all answers before proceeding.
 
 ### Step 3 — Read Existing Test Plan
 
-1. Read `~/.software-agency/projects/<slug>/tests.md` if it exists.
+1. Read `~/.ai-software-agency/projects/<slug>/tests.md` if it exists.
 
 2. **This skill appends — it never overwrites.** Check the existing content:
    - Note the existing test case IDs (TC-001, TC-002, etc.) — do not reuse IDs
@@ -130,7 +130,7 @@ Present the full generated output to the user. Include:
 1. An overview block:
    ```
    **Feature:** [Feature name from PRD]
-   **PRD Reference:** ~/.software-agency/projects/<slug>/prd.md
+   **PRD Reference:** ~/.ai-software-agency/projects/<slug>/prd.md
    **Figma:** [link or "N/A"]
    **Dev Branch:** [branch or "N/A"]
    ```
@@ -145,7 +145,7 @@ Then display the gate prompt:
 ---
 ## Test Case Approval Gate
 
-The content above will be appended to `~/.software-agency/projects/<slug>/tests.md`.
+The content above will be appended to `~/.ai-software-agency/projects/<slug>/tests.md`.
 
 Please respond:
   APPROVED      — write the generated test cases to tests.md
@@ -161,7 +161,7 @@ Please respond:
 
 On **APPROVED**:
 
-1. Read `~/.software-agency/projects/<slug>/tests.md` one more time to confirm the insertion point is still valid.
+1. Read `~/.ai-software-agency/projects/<slug>/tests.md` one more time to confirm the insertion point is still valid.
 
 2. Append the generated content after the `## Test Cases` header. If no `## Test Cases` header exists, create it:
    ```
@@ -171,9 +171,9 @@ On **APPROVED**:
 
 3. **Preserve all existing content.** Only add the new sections. Do not modify or remove any existing TC-001 style test cases, bug reports, or other content.
 
-4. Append to `~/.software-agency/audit.log`:
+4. Append to `~/.ai-software-agency/audit.log`:
    ```
-   [<ISO-date>] [qa-lead] TEST_CASES_GENERATED: <feature-name> — appended to ~/.software-agency/projects/<slug>/tests.md
+   [<ISO-date>] [qa-lead] TEST_CASES_GENERATED: <feature-name> — appended to ~/.ai-software-agency/projects/<slug>/tests.md
    ```
 
 ---
@@ -187,7 +187,7 @@ Output:
   Feature areas: [N]
   Test cases:    [N]
   Edge cases:    [N]
-  File:          ~/.software-agency/projects/<slug>/tests.md
+  File:          ~/.ai-software-agency/projects/<slug>/tests.md
 ```
 
 If the user needs to push the issues tracking table to an external system (ClickUp, Linear, etc.), note that the table is available in `tests.md` for manual or tool-assisted export.

@@ -138,7 +138,7 @@ When the user indicates they're ready to conclude:
 5. **Suggested next steps** — what to investigate further or validate
 6. **Methodology appendix** — all investigation steps used, labelled, for reproducibility
 
-Save the report to `~/.software-agency/projects/<slug>/research.md` if a project slug is known.
+Save the report to `~/.ai-software-agency/projects/<slug>/research.md` if a project slug is known.
 
 **If the user is clear without a report,** confirm and stop:
 ```
@@ -147,7 +147,7 @@ Save the report to `~/.software-agency/projects/<slug>/research.md` if a project
   Key insight: [one-line takeaway]
 ```
 
-Append to `~/.software-agency/audit.log`:
+Append to `~/.ai-software-agency/audit.log`:
 ```
 [<ISO-date>] [<agent>] RESEARCH_COMPLETED: <research question> — [N] angles explored
 ```

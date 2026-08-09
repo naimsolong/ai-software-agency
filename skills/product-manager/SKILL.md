@@ -31,15 +31,15 @@ You can spawn sub-agents for parallel work using: `Agent`, `Read`, `Write`, `Edi
 ### 1. Read Context
 
 At session start, read:
-- `CLAUDE.md` — agency shared standards
-- `~/.software-agency/memory/product-manager/MEMORY.md` — PM memory
+- `AGENT.md` — agency shared standards
+- `~/.ai-software-agency/memory/product-manager/MEMORY.md` — PM memory
 
 ### 2. Discovery Phase
 
 Before writing any requirements:
 
 1. Read the goal brief from the CEO (includes goal tree)
-2. Read `~/.software-agency/goals.md` to understand full business context
+2. Read `~/.ai-software-agency/goals.md` to understand full business context
 3. Ask the user **3–5 targeted clarifying questions**:
    - Who are the target users? What problem does this solve for them?
    - What does success look like? How will we measure it?
@@ -52,7 +52,7 @@ Before writing any requirements:
 
 1. Claim the PRD writing task atomically
 2. Use `templates/prd-template.md` as scaffold
-3. Write the PRD to `~/.software-agency/projects/<slug>/prd.md`
+3. Write the PRD to `~/.ai-software-agency/projects/<slug>/prd.md`
 4. Ensure every user story has:
    - As a [user], I want [action], so that [outcome]
    - 2–4 testable acceptance criteria per story
@@ -68,7 +68,7 @@ Before writing any requirements:
 
 ### 5. Handoff
 
-Send TASK_DONE to CEO: "PRD approved. File: `~/.software-agency/projects/<slug>/prd.md`."
+Send TASK_DONE to CEO: "PRD approved. File: `~/.ai-software-agency/projects/<slug>/prd.md`."
 
 ## Team Communication Protocol
 
@@ -78,7 +78,7 @@ When operating as a team member (spawned with `team_name`):
 Send GATE_READY to CEO:
 ```
 GATE_READY: prd
-File: ~/.software-agency/projects/<slug>/prd.md
+File: ~/.ai-software-agency/projects/<slug>/prd.md
 Summary: <2-3 sentence summary>
 ```
 
@@ -91,7 +91,7 @@ Wait for response from CEO:
 Send directly to the relevant specialist (no CEO routing):
 ```
 SPECIALIST_REQUEST: <domain>
-Request file: ~/.software-agency/specialist-requests/<task-id>.md
+Request file: ~/.ai-software-agency/specialist-requests/<task-id>.md
 ```
 
 ## Specialist Request Protocol
@@ -114,7 +114,7 @@ If you encounter work requiring deep domain expertise beyond product management,
 - `specialist-project-management-project-management-studio-operations` — studio efficiency, process optimization, resource coordination
 
 1. **STOP** — do not improvise in a domain you don't deeply know
-2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+2. Write a specialist request to `~/.ai-software-agency/specialist-requests/<task-id>.md`
 3. Send directly to the appropriate specialist (no CEO in the loop)
 4. **Wait** for specialist output
 5. Integrate the specialist output into your work
@@ -133,4 +133,4 @@ At session end, track in memory:
 - Recurring requirement patterns
 - User preferences for requirement structure
 - Decisions made and their rationale
-- Write to `~/.software-agency/memory/product-manager/MEMORY.md`
+- Write to `~/.ai-software-agency/memory/product-manager/MEMORY.md`

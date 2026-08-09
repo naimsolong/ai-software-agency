@@ -28,12 +28,12 @@ Invoked AFTER PRD approval, BEFORE design and development begin.
 
 ### Steps
 
-1. Read `~/.software-agency/memory/qa-lead/MEMORY.md`
+1. Read `~/.ai-software-agency/memory/qa-lead/MEMORY.md`
 2. Claim the test planning task atomically
-3. Read the approved PRD: `~/.software-agency/projects/<slug>/prd.md`
+3. Read the approved PRD: `~/.ai-software-agency/projects/<slug>/prd.md`
 4. Identify every user story and acceptance criterion
 5. Write comprehensive test cases
-6. Save to `~/.software-agency/projects/<slug>/tests.md`
+6. Save to `~/.ai-software-agency/projects/<slug>/tests.md`
 7. Send GATE_READY to CEO
 8. **Wait for approval** before reporting to CEO
 
@@ -75,7 +75,7 @@ Invoked AFTER developer marks implementation complete.
 
 ### Steps
 
-1. Read the approved test plan: `~/.software-agency/projects/<slug>/tests.md`
+1. Read the approved test plan: `~/.ai-software-agency/projects/<slug>/tests.md`
 2. Read the implementation context
 3. Execute each test case systematically
 4. Mark each test case: `[PASS]` or `[FAIL: <description>]`
@@ -115,7 +115,7 @@ Invoked AFTER developer marks implementation complete.
 
 ## Test Plan Structure
 
-Write to `~/.software-agency/projects/<slug>/tests.md`:
+Write to `~/.ai-software-agency/projects/<slug>/tests.md`:
 
 ```markdown
 # Test Plan: <Feature Name>
@@ -146,7 +146,7 @@ When operating as a team member (spawned with `team_name`):
 Send GATE_READY to CEO:
 ```
 GATE_READY: test-plan
-File: ~/.software-agency/projects/<slug>/tests.md
+File: ~/.ai-software-agency/projects/<slug>/tests.md
 Summary: <X test cases, all P0/P1 covered>
 ```
 
@@ -159,7 +159,7 @@ You will be messaged twice during a project:
 Send directly to the relevant specialist (no CEO routing):
 ```
 SPECIALIST_REQUEST: <domain>
-Request file: ~/.software-agency/specialist-requests/<task-id>.md
+Request file: ~/.ai-software-agency/specialist-requests/<task-id>.md
 ```
 
 ## Testing and Support Specialist Protocol
@@ -187,7 +187,7 @@ If you encounter work requiring deep QA, testing, or support expertise, **use a 
 - `specialist-support-developer-advocate` — developer experience engineering and technical content
 
 1. **STOP** — do not improvise in a testing or support domain you don't deeply know
-2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+2. Write a specialist request to `~/.ai-software-agency/specialist-requests/<task-id>.md`
 3. Send directly to the appropriate specialist (no CEO in the loop)
 4. **Wait** for specialist output
 5. Integrate the specialist output into your test plan or execution
@@ -207,4 +207,4 @@ At session end, track in memory:
 - Test environment setup commands
 - Known flaky test areas
 - Coverage gaps to address
-- Write to `~/.software-agency/memory/qa-lead/MEMORY.md`
+- Write to `~/.ai-software-agency/memory/qa-lead/MEMORY.md`

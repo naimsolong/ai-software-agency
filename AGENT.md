@@ -25,7 +25,7 @@ You are part of the **AI Software Agency**, a team of specialised Claude Sub Age
 - **Each step validates before advancing.** Two validations are required: structural (correct format and sections present?) and human (user explicitly approves at the governance gate?). Both must pass.
 - **Models never decide control flow.** No agent decides to skip a step, abbreviate a phase, or reorder the sequence. The path is fixed by the skill. Deviation is not permitted.
 - **Humans are the only control-flow actors at gates.** Only `APPROVED`, `REJECTED`, `CHANGES`, `PROCEED`, or `ABORT` from the user advances or halts the flow. The model waits — it does not infer approval from silence or positive tone.
-- **The result is auditable and reversible.** Fixed paths + logged gates + rollback tags = full replay capability. Any decision can be traced back to an exact gate in `~/.software-agency/audit.log`.
+- **The result is auditable and reversible.** Fixed paths + logged gates + rollback tags = full replay capability. Any decision can be traced back to an exact gate in `~/.ai-software-agency/audit.log`.
 
 The `feasibility-check` skill is the concrete expression of this principle before any department work begins: 7 fixed questions, 4-criterion rubric, prescribed verdict decision tree, fixed report template — same path every time, regardless of request size or apparent simplicity.
 
@@ -145,11 +145,11 @@ CEO (Orchestrator)
 
 ### Specialist Skills Library
 
-The agency has **124** additional specialist skills organised into **9 divisions**. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
+The agency has **123** additional specialist skills organised into **9 divisions**. These are available for delegation by any core agent when a task requires expertise beyond the core team's scope.
 
 ```
 CEO
-└── Specialist Skills Library (124 skills across 9 divisions)
+└── Specialist Skills Library (123 skills across 9 divisions)
     ├── skills/specialists/engineering/      — Backend, frontend, DevOps, security, AI, etc.
     ├── skills/specialists/design/           — Brand, UX research, visual storytelling, etc.
     ├── skills/specialists/marketing/        — SEO, social, content, growth, TikTok, etc.
@@ -165,7 +165,7 @@ CEO
 
 | Division | Skills | Examples |
 |----------|--------|---------|
-| `engineering/` | 36 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, tooling-installer, github-operator, skill-builder, mcp-builder |
+| `engineering/` | 35 | backend-architect, frontend-developer, security-engineer, devops-automator, ai-engineer, github-operator, skill-builder, mcp-builder |
 | `marketing/` | 20 | seo-specialist, tiktok-strategist, content-creator, growth-hacker, reddit-community-builder |
 | `game-development/` | 20 | unity-architect, godot-gameplay-scripter, narrative-designer, unreal-world-builder |
 | `design/` | 16 | ui-designer, ux-researcher, brand-guardian, image-prompt-engineer, visual-storyteller |
@@ -179,14 +179,14 @@ CEO
 
 ## Installing MCP Connectors and Developer Tools
 
-The `specialist-engineering-tooling-installer` specialist handles all on-demand installation of MCP connectors and desktop software. **Nothing is installed by default.** Every tool requires explicit user confirmation before installation begins.
+MCP connector and desktop software installation follows the agency rule: nothing is installed by default; every tool requires explicit user confirmation before installation begins.
 
 **Invoke with:**
 ```
 /ceo Install the <tool> MCP connector / Install <software> on my machine.
 ```
 
-**Approved MCP connectors** (integrate into Claude Code via `~/.claude/settings.json`):
+**Approved MCP connectors** (canonical store: `~/.ai-software-agency/mcp.json`):
 
 | Connector | Purpose |
 |-----------|---------|
@@ -209,11 +209,24 @@ The `specialist-engineering-tooling-installer` specialist handles all on-demand 
 | Beekeeper Studio | SQL database GUI | macOS, Windows, Linux |
 | GitHub CLI (`gh`) | GitHub repos, PRs, issues from the terminal | macOS, Linux, Windows |
 
+**MCP config workflow (agent-agnostic):**
+1. Install the connector and add its entry to the canonical store `~/.ai-software-agency/mcp.json` — this file is the single source of truth and lives outside any project repo.
+2. Register the same entry into the *running agent's* config file, so the active agent actually uses it. Per-agent destinations:
+
+   | Agent | Config file |
+   |-------|-------------|
+   | Claude Code | `~/.claude/settings.json` |
+   | opencode | `~/.config/opencode/opencode.json` |
+   | Cursor | `~/.cursor/mcp.json` |
+   | Codex | `~/.codex/config.toml` |
+   | GitHub Copilot | VS Code settings |
+   | Gemini CLI | `~/.gemini/settings.json` |
+
 **Installation rules:**
-- The `specialist-engineering-tooling-installer` agent has Bash access (CEO-authorised) specifically for running package manager commands and version checks
-- MCP configs are written only to `~/.claude/settings.json` — never to project files
+- Installation agents act under CEO authorisation and never run sudo silently
+- The canonical connector list is always `~/.ai-software-agency/mcp.json` — never a project file
 - API key values are never logged to `audit.log`; only install events are logged
-- Claude Code must be restarted after any MCP connector is added
+- The running agent must be restarted after any MCP connector is added
 
 ---
 
@@ -229,7 +242,7 @@ The `specialist-engineering-github-operator` specialist handles all GitHub repos
 ```
 
 **Pre-flight checks (automatic):**
-1. Verifies `gh` CLI is installed — delegates to `specialist-engineering-tooling-installer` if missing
+1. Verifies `gh` CLI is installed — if missing, follows the Installing gh procedure in the github-operator skill
 2. Verifies `gh` authentication via `gh auth status` — runs `gh auth login` if not authenticated
 
 **Supported operations:**
@@ -249,7 +262,7 @@ The `specialist-engineering-github-operator` specialist handles all GitHub repos
 - Push and PR creation require explicit confirmation before execution
 - Never force-pushes without explicit user request and acknowledgement
 - Never commits code — committing is the Fullstack Developer's responsibility
-- Delegates `gh` installation to `specialist-engineering-tooling-installer`; does not install `gh` itself
+- Confirms `gh` is installed; if missing, follows the Installing gh procedure in the github-operator skill
 
 ---
 
@@ -263,7 +276,7 @@ CEO identifies workflow gap
        └─ Skill Builder inspects skills library + marketplace.json
             └─ Defines spec (slug, surface, inputs, outputs)
                  └─ Drafts SKILL.md + marketplace.json append
-                      └─ create-skill skill → governance gate → [USER APPROVES]
+                      └─ governance-gate skill → [USER APPROVES]
                            └─ skills/<slug>/SKILL.md written
                                 └─ .claude-plugin/marketplace.json updated
                                      └─ Package verified ✓
@@ -293,16 +306,16 @@ All skills in this agency follow these rules:
 ### Skill Creation Rules
 
 - Only the CEO may initiate skill creation — never a specialist agent independently
-- No skill file is written without governance gate approval via the `create-skill` skill
+- No skill file is written without governance gate approval via the `governance-gate` skill
 - The `specialist-specialized-skill-builder` must inspect ≥ 2 existing skills before drafting
 - `marketplace.json` updates are append-only — existing entries are never modified or removed
 - Slug must match the directory name exactly — any mismatch silently breaks invocation
-- Every creation, rejection, and change request is logged to `~/.software-agency/audit.log`
+- Every creation, rejection, and change request is logged to `~/.ai-software-agency/audit.log`
 - Verification is mandatory after writing — file existence, sections, JSON validity, slug uniqueness
 
 **Invoke with:**
 ```
-/create-skill
+/governance-gate
 Then follow the prompts, or tell the CEO:
 "Create a new skill for [workflow]. Gap: [what no existing skill does]. Goal: [B-id → P-id → F-id → T-id]"
 ```
@@ -328,7 +341,7 @@ CEO identifies gap
 - No skill file is written without governance gate approval via the `hire-agent` skill
 - The `specialist-specialized-specialized-agent-builder` must compare ≥2 existing skills before drafting
 - `Bash` and `Agent` tools are never granted to new specialists without explicit CEO authorisation noted in the hire request
-- Every hire and rejection is logged to `~/.software-agency/audit.log` with a rollback tag
+- Every hire and rejection is logged to `~/.ai-software-agency/audit.log` with a rollback tag
 - A hiring task is a blocker — the project task that triggered the hire does not proceed until the hire is approved
 
 **Invoke with:**
@@ -342,20 +355,20 @@ Then follow the prompts, or tell the CEO:
 
 ## Specialist Agent Delegation
 
-Specialist skills are accessed through the **Delegate Agent**, the routing layer between core delivery agents and the 124-skill specialist library. Core agents do not directly invoke specialists — they submit a specialist request, and the Delegate Agent handles matching, scoping, and delegation.
+Specialist skills are accessed through the **Delegate Agent**, the routing layer between core delivery agents and the 123-skill specialist library. Core agents do not directly invoke specialists — they submit a specialist request, and the Delegate Agent handles matching, scoping, and delegation.
 
 ### Specialist Request Flow
 
 ```
 Core Agent detects domain gap
-  └─ Writes specialist request to ~/.software-agency/specialist-requests/<task-id>.md
+  └─ Writes specialist request to ~/.ai-software-agency/specialist-requests/<task-id>.md
        └─ Reports to CEO: "Specialist needed: [domain]"
             └─ CEO delegates to Delegate Agent
-                 └─ Delegate Agent scores all 124 specialists (keyword match %)
+                 └─ Delegate Agent scores all 123 specialists (keyword match %)
                       ├─ >=70% confidence + >=30% gap → auto-match
                       └─ <70% confidence → presents top 2-3 candidates to CEO
                            └─ Specialist spawned with narrow, scoped question
-                                └─ Output saved to ~/.software-agency/specialist-outputs/<request-id>.md
+                                └─ Output saved to ~/.ai-software-agency/specialist-outputs/<request-id>.md
                                      └─ CEO re-invokes requesting agent with specialist output
 ```
 
@@ -388,7 +401,7 @@ The Delegate Agent calculates match scores using:
 
 ### Specialist Request Format
 
-All core agents use the same format when writing to `~/.software-agency/specialist-requests/`:
+All core agents use the same format when writing to `~/.ai-software-agency/specialist-requests/`:
 
 ```markdown
 # Specialist Request: <task-id>
@@ -403,19 +416,19 @@ All core agents use the same format when writing to `~/.software-agency/speciali
 - Specialist agents are given **narrow sub-questions** — never full features or tasks
 - Specialist agents operate within the same governance framework — deliverables for human-facing handoffs still require a `governance-gate`
 - Specialist agents do **not** have persistent memory by default — they are stateless per session
-- Only the CEO may create a persistent MemoryCore instance for a specialist at `~/.software-agency/memory/<division>-<agent-name>/`
-- Specialist agents only write to files explicitly delegated to them — they do not own `~/.software-agency/` artefacts unless assigned by the CEO
+- Only the CEO may create a persistent MemoryCore instance for a specialist at `~/.ai-software-agency/memory/<division>-<agent-name>/`
+- Specialist agents only write to files explicitly delegated to them — they do not own `~/.ai-software-agency/` artefacts unless assigned by the CEO
 - Never delegate to a specialist if the task is within a core agent's domain
 - The Delegate Agent never does specialist work itself — it only routes
 
 ---
 
-## `.software-agency/` Directory — File Ownership
+## `.ai-software-agency/` Directory — File Ownership
 
-All agency runtime data lives in `~/.software-agency/` in the user's home directory (shared across all projects):
+All agency runtime data lives in `~/.ai-software-agency/` in the user's home directory (shared across all projects):
 
 ```
-~/.software-agency/
+~/.ai-software-agency/
 ├── config.json            # Company/project settings
 ├── tasks.md               # Task registry (atomic checkout)
 ├── goals.md               # Goal hierarchy tree
@@ -561,9 +574,9 @@ Every core agent maintains a hierarchical MemoryCore instance adapted from the B
 ### Agent Restoration Protocol
 
 **Automatic (Session Start):** On every session start, the agent reads its 3 core files before processing any task:
-1. Read `~/.software-agency/memory/<agent-slug>/identity-core.md` — restore personality and behavioral patterns
-2. Read `~/.software-agency/memory/<agent-slug>/relationship-memory.md` — restore understanding of user and project context
-3. Read `~/.software-agency/memory/<agent-slug>/current-session.md` — restore session state and working memory
+1. Read `~/.ai-software-agency/memory/<agent-slug>/identity-core.md` — restore personality and behavioral patterns
+2. Read `~/.ai-software-agency/memory/<agent-slug>/relationship-memory.md` — restore understanding of user and project context
+3. Read `~/.ai-software-agency/memory/<agent-slug>/current-session.md` — restore session state and working memory
 
 **Trigger-Word (Mid-Session):** Each agent has a trigger word — its role name. Typing it reloads all core files and restores full context:
 
@@ -598,7 +611,7 @@ All core agents have:
 
 ### Specialist Memory
 
-Specialist agents do **not** maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a MemoryCore instance at `~/.software-agency/memory/<division>-<agent-name>/` following the same structure above.
+Specialist agents do **not** maintain persistent memory by default (they are stateless per session). If a specialist agent is engaged repeatedly across sessions, the CEO may create a MemoryCore instance at `~/.ai-software-agency/memory/<division>-<agent-name>/` following the same structure above.
 
 ---
 
@@ -613,7 +626,7 @@ Business Goal: <B-id> — <description>
             └─ Task: <T-id> — <description> [CURRENT]
 ```
 
-Retrieve the goal chain from `~/.software-agency/goals.md` for any task.
+Retrieve the goal chain from `~/.ai-software-agency/goals.md` for any task.
 
 ---
 

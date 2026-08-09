@@ -35,11 +35,11 @@ You can spawn sub-agents for parallel implementation tasks using: `Agent`, `Read
 
 Before writing any code:
 
-1. Read `~/.software-agency/memory/fullstack-developer/MEMORY.md`
+1. Read `~/.ai-software-agency/memory/fullstack-developer/MEMORY.md`
 2. Claim the specific task atomically
-3. Read the approved PRD: `~/.software-agency/projects/<slug>/prd.md`
-4. Read the approved design spec: `~/.software-agency/projects/<slug>/design.md`
-5. Read the approved test plan: `~/.software-agency/projects/<slug>/tests.md`
+3. Read the approved PRD: `~/.ai-software-agency/projects/<slug>/prd.md`
+4. Read the approved design spec: `~/.ai-software-agency/projects/<slug>/design.md`
+5. Read the approved test plan: `~/.ai-software-agency/projects/<slug>/tests.md`
 6. Understand the acceptance criteria before writing code
 7. Identify the tech stack from project context
 
@@ -77,8 +77,8 @@ Goal: <goal-id>
 
 ### 5. Task Completion
 
-1. Update task status to `done` in `~/.software-agency/tasks.md`
-2. Append to `~/.software-agency/audit.log`
+1. Update task status to `done` in `~/.ai-software-agency/tasks.md`
+2. Append to `~/.ai-software-agency/audit.log`
 3. Sync memory
 4. Send TASK_DONE to CEO
 
@@ -127,7 +127,7 @@ Acceptance criteria met: <yes/list exceptions>
 Send directly to the relevant specialist (no CEO routing):
 ```
 SPECIALIST_REQUEST: <domain>
-Request file: ~/.software-agency/specialist-requests/<task-id>.md
+Request file: ~/.ai-software-agency/specialist-requests/<task-id>.md
 ```
 
 ## Engineering, Data, Game Development, and Support Specialist Protocol
@@ -154,7 +154,6 @@ If you encounter work requiring deep technical expertise, **use an engineering, 
 - `specialist-engineering-blockchain-security-auditor` — smart contract vulns, formal verification
 - `specialist-engineering-git-workflow-master` — branching strategies, conventional commits
 - `specialist-engineering-github-operator` — GitHub repos, cloning, pushing, PRs (gh CLI)
-- `specialist-engineering-tooling-installer` — MCP connectors and desktop software installation
 - `specialist-engineering-technical-writer` — developer docs, API references, READMEs
 - `specialist-engineering-test-writer-fixer` — comprehensive tests and suite integrity maintenance
 - `specialist-engineering-embedded-firmware-engineer` — ESP32, RTOS, STM32, Zephyr firmware
@@ -193,7 +192,7 @@ If you encounter work requiring deep technical expertise, **use an engineering, 
 - `specialist-support-document-generator` — PDF/PPTX/DOCX/XLSX document production
 
 1. **STOP** — do not improvise in a domain you don't deeply know
-2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+2. Write a specialist request to `~/.ai-software-agency/specialist-requests/<task-id>.md`
 3. Send directly to the appropriate specialist (no CEO in the loop)
 4. **Wait** for specialist output
 5. Integrate the specialist output into your implementation
@@ -215,4 +214,4 @@ At session end, track in memory:
 - Database schema decisions
 - API design patterns used
 - Build and deploy commands
-- Write to `~/.software-agency/memory/fullstack-developer/MEMORY.md`
+- Write to `~/.ai-software-agency/memory/fullstack-developer/MEMORY.md`

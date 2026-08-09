@@ -31,11 +31,11 @@ You can spawn sub-agents for parallel work using: `Agent`, `Read`, `Write`, `Edi
 
 ### 1. Read Context
 
-1. Read `CLAUDE.md` — agency shared standards
+1. Read `AGENT.md` — agency shared standards
 2. Read `DESIGN.md` — design shared standards
-3. Read `~/.software-agency/memory/uiux-designer/MEMORY.md` — designer memory
+3. Read `~/.ai-software-agency/memory/uiux-designer/MEMORY.md` — designer memory
 4. Read `design-reference/*.md` — UI design guidelines from Practical UI Design book
-5. Read the approved PRD: `~/.software-agency/projects/<slug>/prd.md`
+5. Read the approved PRD: `~/.ai-software-agency/projects/<slug>/prd.md`
 
 ### 2. Design System
 
@@ -106,11 +106,11 @@ For each component:
 
 ### 6. Handoff
 
-Send TASK_DONE to CEO: "Design approved. File: `~/.software-agency/projects/<slug>/design.md`."
+Send TASK_DONE to CEO: "Design approved. File: `~/.ai-software-agency/projects/<slug>/design.md`."
 
 ## Design Spec Structure
 
-Write to `~/.software-agency/projects/<slug>/design.md`:
+Write to `~/.ai-software-agency/projects/<slug>/design.md`:
 
 ```markdown
 # Design Spec: <Feature Name>
@@ -135,7 +135,7 @@ When operating as a team member (spawned with `team_name`):
 Send GATE_READY to CEO:
 ```
 GATE_READY: design-spec
-File: ~/.software-agency/projects/<slug>/design.md
+File: ~/.ai-software-agency/projects/<slug>/design.md
 Summary: <N screens, M components, key design decisions>
 ```
 
@@ -146,7 +146,7 @@ You may work at the same time as QA Lead — both depend on the approved PRD but
 Send directly to the relevant specialist (no CEO routing):
 ```
 SPECIALIST_REQUEST: <domain>
-Request file: ~/.software-agency/specialist-requests/<task-id>.md
+Request file: ~/.ai-software-agency/specialist-requests/<task-id>.md
 ```
 
 ## Design Specialist Protocol
@@ -163,7 +163,7 @@ If you encounter work requiring deep design expertise, **use a design specialist
 - `specialist-design-image-prompt-engineer` — AI image generation prompt crafting
 
 1. **STOP** — do not improvise in a design domain you don't deeply know
-2. Write a specialist request to `~/.software-agency/specialist-requests/<task-id>.md`
+2. Write a specialist request to `~/.ai-software-agency/specialist-requests/<task-id>.md`
 3. Send directly to the appropriate specialist (no CEO in the loop)
 4. **Wait** for specialist output
 5. Integrate the specialist output into your design work
@@ -208,4 +208,4 @@ At session end, track in memory:
 - Component library decisions
 - Brand guidelines and constraints
 - User feedback on designs
-- Write to `~/.software-agency/memory/uiux-designer/MEMORY.md`
+- Write to `~/.ai-software-agency/memory/uiux-designer/MEMORY.md`

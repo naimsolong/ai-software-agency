@@ -11,7 +11,7 @@ Invoke when:
 - A previously rejected request is resubmitted with a revised scope
 
 **Do NOT invoke if:**
-- The request has already passed a feasibility gate in this session (check `~/.software-agency/projects/<slug>/feasibility.md`)
+- The request has already passed a feasibility gate in this session (check `~/.ai-software-agency/projects/<slug>/feasibility.md`)
 - The task is a bug fix or minor copy change (non-feature work is exempt)
 - No project goal or feature description has been provided yet — collect that first via `start-project`
 
@@ -118,7 +118,7 @@ ELSE
 
 ### Step 4 — Produce Structured Feasibility Report
 
-Output the report using **exactly** this template. Do not omit sections. Save the report to `~/.software-agency/projects/<slug>/feasibility.md` after the governance gate passes.
+Output the report using **exactly** this template. Do not omit sections. Save the report to `~/.ai-software-agency/projects/<slug>/feasibility.md` after the governance gate passes.
 
 ```
 ## Feasibility Report — <Feature Name>
@@ -198,9 +198,9 @@ Please respond:
 
 ### Step 6 — Log, Save, and Signal
 
-1. Save the feasibility report to `~/.software-agency/projects/<slug>/feasibility.md`.
+1. Save the feasibility report to `~/.ai-software-agency/projects/<slug>/feasibility.md`.
 
-2. Append to `~/.software-agency/audit.log`:
+2. Append to `~/.ai-software-agency/audit.log`:
    ```
    [<ISO-date>] [ceo] [feasibility-check] FEASIBILITY_GATE_<PASSED|REJECTED>: <feature-name> — Verdict: <verdict>
    [ROLLBACK:feasibility-<slug>-<ISO-date>] Gate decision recorded. To revert: delete feasibility.md and re-run skill.
@@ -211,7 +211,7 @@ Please respond:
    ✓ Feasibility gate passed.
      Feature: <feature name>
      Verdict: <verdict>
-     Report:  ~/.software-agency/projects/<slug>/feasibility.md
+     Report:  ~/.ai-software-agency/projects/<slug>/feasibility.md
 
    Proceeding to Product Manager delegation.
    ```
@@ -231,6 +231,6 @@ Track in memory:
    ✗ Feature rejected at feasibility gate.
      Feature: <feature name>
      No department work will begin.
-     Log:     ~/.software-agency/audit.log
+     Log:     ~/.ai-software-agency/audit.log
    ```
    Stop. Do not delegate to PM.
